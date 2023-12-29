@@ -1,2 +1,3 @@
 [build]
-  command = "pip install -r requirements.txt && python3 Portfolio.py"
+command = "python3 Portfolio.py"
+publish = "Appearance" 
