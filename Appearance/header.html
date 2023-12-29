@@ -13,8 +13,8 @@
         }
 
         header {
-            background-color: #333;
-            color: white;
+            background-color: #0B0010; /* Updated background color */
+            color: #66FCF1; /* Updated font color */
             text-align: center;
             padding: 1rem;
             display: flex;
@@ -32,7 +32,7 @@
         }
 
         nav a {
-            color: white;
+            color: #66FCF1; /* Updated font color */
             text-decoration: none;
             margin-left: 1rem;
         }
@@ -57,6 +57,9 @@
             <a href="#about">About</a>
         </nav>
     </header>
+
+    <!-- The content of your portfolio, which will be generated dynamically -->
+    {% block content %}{% endblock %}
 
     <footer>
         <p>Contact: munibmir09@gmail.com</p>
