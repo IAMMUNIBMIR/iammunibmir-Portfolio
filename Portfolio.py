@@ -16,7 +16,7 @@ def concatenate_html():
     with open('Appearance/footer.html', 'r', encoding='utf-8') as file:
         footer = file.read()
 
-    # Combine the HTML content without using Flask context
+    # Combine the HTML content
     combined_html = f'{header}\n{body}\n{footer}'
 
     # Write the combined content to index.html
@@ -26,31 +26,9 @@ def concatenate_html():
 # Concatenate HTML files before running the app
 concatenate_html()
 
-# Route to render the generated index.html
 @app.route('/')
 def home():
-    return render_template('index.html')
+    return render_template('about.html')
 
 if __name__ == '__main__':
-    # Use Gunicorn for production deployment
-    from gunicorn.app.base import BaseApplication
-
-    class FlaskApplication(BaseApplication):
-        def __init__(self, app, options=None):
-            self.options = options or {}
-            self.application = app
-            super().__init__()
-
-        def load_config(self):
-            for key, value in self.options.items():
-                self.cfg.set(key, value)
-
-        def load(self):
-            return self.application
-
-    options = {
-        'bind': '0.0.0.0:{}'.format(os.environ.get('PORT', 5000)),
-        'workers': 4  # You can adjust the number of workers based on your needs
-    }
-
-    FlaskApplication(app, options).run()
+    app.run(debug=True)
