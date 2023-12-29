@@ -1,5 +1,4 @@
 from flask import Flask, render_template
-import os
 
 app = Flask(__name__)
 
@@ -9,7 +8,7 @@ def concatenate_html():
         header = file.read()
 
     # Read the content of body.html
-    with open('Appearance/Body.html', 'r', encoding='utf-8') as file:
+    with open('Appearance/body.html', 'r', encoding='utf-8') as file:
         body = file.read()
 
     # Read the content of footer.html
@@ -28,7 +27,7 @@ concatenate_html()
 
 @app.route('/')
 def home():
-    return render_template('about.html')
+    return render_template('index.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
