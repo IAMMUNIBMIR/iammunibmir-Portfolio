@@ -1,11 +1,20 @@
-<footer style="background-color: #0B0010;">
+import React from 'react';
+import { AiFillLinkedin, AiFillGithub } from 'react-icons/ai';
+
+function YourFooterComponent() {
+  return (
+    <footer style="background-color: '#0B0010';">
     <p style="color: #66FCF1;">&copy; 2024 Munib Mir. All rights reserved.</p>
-    <p>
-        <a href="https://www.linkedin.com/in/munibmir686/" target="_blank">
-            <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.flaticon.com%2Ffree-icon%2Flinkedin_174857&psig=AOvVaw0BqPchtmYPsa3pHPHpHNih&ust=1703920667852000&source=images&cd=vfe&ved=0CBIQjRxqFwoTCIjw0KWNtIMDFQAAAAAdAAAAABAE" alt="LinkedIn">
+      <p>
+        <a href="https://www.linkedin.com/in/munibmir686/" target="_blank" rel="noopener noreferrer">
+          <AiFillLinkedin size={30} />
         </a>
-        <a href="https://github.com/IAMMUNIBMIR" target="_blank">
-            <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2F1000logos.net%2Fgithub-logo%2F&psig=AOvVaw0U_yk3f9vlvGnIBpKwgd8x&ust=1703921087010000&source=images&cd=vfe&ved=0CBIQjRxqFwoTCPjo_uyOtIMDFQAAAAAdAAAAABAE" alt="GitHub">
+        <a href="https://github.com/IAMMUNIBMIR" target="_blank" rel="noopener noreferrer">
+          <AiFillGithub size={30} />
         </a>
-    </p>
-</footer>
+      </p>
+    </footer>
+  );
+}
+
+export default YourFooterComponent;
