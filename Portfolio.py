@@ -16,8 +16,8 @@ def concatenate_html():
     with open('Appearance/footer.html', 'r', encoding='utf-8') as file:
         footer = file.read()
 
-    # Combine the HTML content using the Jinja template
-    combined_html = render_template('index.html', content=f'{header}\n{body}\n{footer}')
+    # Combine the HTML content without using Flask context
+    combined_html = f'{header}\n{body}\n{footer}'
 
     # Write the combined content to index.html
     with open("./templates/index.html", "w", encoding="utf-8") as file:
@@ -32,4 +32,5 @@ def home():
     return render_template('index.html')
 
 if __name__ == '__main__':
+    # Run the app only if the script is executed directly
     app.run(debug=False, host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
