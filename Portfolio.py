@@ -19,7 +19,7 @@ def concatenate_html():
     combined_html = f'{header}\n{body}\n{footer}'
 
     # Write the combined content to index.html
-    with open("./templates/index.html", "w", encoding="utf-8") as file:
+    with open("Appearance/index.html", "w", encoding="utf-8") as file:
         file.write(combined_html)
 
 # Concatenate HTML files before running the app
