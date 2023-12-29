@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Portfolio</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        #main-content {
+            display: flex;
+            max-width: 800px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #image {
+            flex: 1;
+            max-width: 50%;
+            overflow: hidden;
+        }
+
+        #image img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        #text {
+            flex: 1;
+            padding: 2rem;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="main-content">
+        <div id="image">
+            <!-- Replace 'your_image_url' with the URL of your image -->
+            <img src="your_image_url" alt="Your Image">
+        </div>
+        <div id="text">
+            <h1>Welcome to My Portfolio</h1>
+            <p>This is the main page of my website. Feel free to explore!</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>Contact: munibmir09@gmail.com</p>
+    </footer>
+
+</body>
+</html>
