@@ -37,21 +37,6 @@
             margin-left: 1rem;
         }
 
-        section#projects {
-            max-width: 800px;
-            margin: 2rem auto;
-            padding: 1rem;
-            background-color: white;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .project {
-            margin-bottom: 1.5rem;
-            padding: 1rem;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-
         footer {
             background-color: #333;
             color: white;
@@ -69,20 +54,9 @@
         <h1>Munib Mir</h1>
         <nav>
             <a href="#home">Home</a>
-            <a href="#projects">Projects</a>
             <a href="#about">About</a>
         </nav>
     </header>
-
-    <section id="projects">
-        <h2>Projects</h2>
-        {% for project in projects %}
-            <div class="project">
-                <h3>{{ project.title }}</h3>
-                <p>{{ project.description }}</p>
-            </div>
-        {% endfor %}
-    </section>
 
     <footer>
         <p>Contact: munibmir09@gmail.com</p>
