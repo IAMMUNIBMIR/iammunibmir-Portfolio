@@ -9,16 +9,43 @@
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f8f8f8;
+            background-color: #0B0010; /* Updated background color */
+            color: #C5C6C7; /* Updated font color */
             display: flex;
-            align-items: center;
-            justify-content: center;
+            flex-direction: column;
             height: 100vh;
+        }
+
+        header {
+            background-color: #0B0010; /* Updated background color */
+            color: #66FCF1; /* Updated font color */
+            text-align: center;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        nav {
+            display: flex;
+        }
+
+        nav a {
+            color: #66FCF1; /* Updated font color */
+            text-decoration: none;
+            margin-left: 1rem;
         }
 
         #main-content {
             display: flex;
+            flex: 1;
             max-width: 800px;
+            margin: auto;
             background-color: white;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
@@ -41,8 +68,8 @@
         }
 
         footer {
-            background-color: #333;
-            color: white;
+            background-color: #0B0010; /* Updated background color */
+            color: #C5C6C7; /* Updated font color */
             text-align: center;
             padding: 1rem;
             position: fixed;
@@ -52,6 +79,14 @@
     </style>
 </head>
 <body>
+
+    <header>
+        <h1>Munib Mir</h1>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+        </nav>
+    </header>
 
     <div id="main-content">
         <div id="image">
