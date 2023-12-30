@@ -1,24 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Portfolio</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f8f8f8;
+            color: #333; /* Updated default font color */
         }
 
         header {
-            background-color: #0B0010; /* Updated background color */
-            color: #66FCF1; /* Updated font color */
+            background-color: #0B0010;
+            color: #66FCF1;
             text-align: center;
             padding: 1rem;
             display: flex;
-            justify-content: space-between; /* Updated alignment */
+            flex-direction: column; /* Changed to column layout */
             align-items: center;
         }
 
@@ -29,12 +30,39 @@
 
         nav {
             display: flex;
+            margin-top: 1rem; /* Added margin for separation */
         }
 
         nav a {
-            color: #66FCF1; /* Updated font color */
+            color: #66FCF1;
             text-decoration: none;
-            margin: 0 1rem; /* Adjusted margin */
+            margin: 0 1rem;
+        }
+
+        #main-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        #image {
+            flex: 1;
+            max-width: 50%;
+            overflow: hidden;
+        }
+
+        #image img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        #text {
+            flex: 1;
+            padding: 2rem;
+            text-align: left;
+            max-width: 800px;
         }
 
         footer {
@@ -45,9 +73,11 @@
             position: fixed;
             bottom: 0;
             width: 100%;
+            font-size: 0.8rem; /* Decreased font size in the footer */
         }
     </style>
 </head>
+
 <body>
 
     <header>
@@ -58,5 +88,16 @@
         </nav>
     </header>
 
+    <div id="main-content">
+        <div id="image">
+            <!-- Replace 'your_image_url' with the URL of your image -->
+            <img src="your_image_url" alt="Your Image">
+        </div>
+        <div id="text">
+            <p>"Hello IAMMUNIBMIR"</p>
+        </div>
+    </div>
+
 </body>
+
 </html>
