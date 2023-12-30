@@ -6,24 +6,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Portfolio</title>
     <style>
-        /* Your existing styles here */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #0B0010; /* Updated background color */
+            color: #66FCF1; /* Updated font color */
+        }
+
+        #main-content {
+            display: flex;
+            flex: 1;
+            max-width: 800px;
+            margin: auto;
+            background-color: #0B0010; /* Updated background color */
+            color: #66FCF1; /* Updated font color */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+        }
+
+        #image {
+            flex: 1;
+            max-width: 50%;
+            overflow: hidden;
+        }
+
+        #image img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        #text {
+            flex: 1;
+            padding: 2rem;
+        }
+
+        footer {
+            background-color: #0B0010; /* Updated background color */
+            color: #66FCF1; /* Updated font color */
+            text-align: center;
+            padding: 1rem;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
     </style>
 </head>
 
 <body>
 
-    <!-- Include the header HTML file -->
-    <object type="text/html" data="Appearance/header.html" style="width:100%; height: auto;"></object>
-
     <div id="main-content">
-        <div id="image">
-            <!-- Replace 'your_image_url' with the URL of your image -->
-            <img src="your_image_url" alt="Your Image">
-        </div>
-        <div id="text">
-            <h1>Welcome to My Portfolio</h1>
-            <p>This is the main page of my website. Feel free to explore!</p>
-        </div>
+        <h1>HELLO</h1>
     </div>
 
     <footer>
