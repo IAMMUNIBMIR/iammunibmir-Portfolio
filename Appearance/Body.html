@@ -4,30 +4,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Portfolio</title>
     <style>
         body {
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #0B0010;
-            color: #66FCF1;
-            text-align: center;
-            height: 100vh;
+            background-color: #0B0010; /* Updated background color */
+            color: #66FCF1; /* Updated font color */
+        }
+
+        #main-content {
             display: flex;
-            align-items: center;
-            justify-content: center;
+            flex: 1;
+            max-width: 800px;
+            margin: auto;
+            background-color: #0B0010; /* Updated background color */
+            color: #66FCF1; /* Updated font color */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            align-items: center; /* Align the content vertically */
+            justify-content: center; /* Align the content horizontally */
+            height: 50vh; /* Adjust the height to cover half the page */
+        }
+
+        #image {
+            flex: 1;
+            max-width: 50%;
+            overflow: hidden;
+        }
+
+        #image img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        #text {
+            flex: 1;
+            padding: 2rem;
         }
 
         h1 {
-            font-size: 4rem;
-            margin: 0;
+            font-size: 4rem; /* Adjust the font size */
+            margin: 0; /* Remove default margin */
+        }
+
+        footer {
+            background-color: #0B0010; /* Updated background color */
+            color: #66FCF1; /* Updated font color */
+            text-align: center;
+            padding: 1rem;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
         }
     </style>
 </head>
 
 <body>
-    <object type="text/html" data="header.html" style="width:100%; height: auto;"></object>
 
-    <h1>HELLO</h1>
+    <div id="main-content">
+        <h1>HELLO</h1>
+    </div>
+
+    <footer>
+        <p>Contact: munibmir09@gmail.com</p>
+    </footer>
+
 </body>
 
 </html>
