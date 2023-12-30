@@ -15,23 +15,20 @@
 
         #main-content {
             display: flex;
-            flex: 1;
-            max-width: 800px;
-            margin: auto;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             background-color: #0B0010; /* Updated background color */
             color: #66FCF1; /* Updated font color */
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             padding: 20px;
             text-align: center;
-            align-items: center; /* Align the content vertically */
-            justify-content: center; /* Align the content horizontally */
-            height: 50vh; /* Adjust the height to cover half the page */
+            height: 100vh; /* Adjust the height to cover the entire viewport */
         }
 
         #image {
-            flex: 1;
-            max-width: 50%;
-            overflow: hidden;
+            margin-top: 20px; /* Adjust the margin between 'Hello' and the image */
+            max-width: 100%;
         }
 
         #image img {
@@ -41,8 +38,10 @@
         }
 
         #text {
-            flex: 1;
-            padding: 2rem;
+            margin-top: 20px; /* Adjust the margin between the image and text */
+            text-align: left;
+            max-width: 800px; /* Adjust the maximum width of the text */
+            margin: auto;
         }
 
         h1 {
@@ -50,15 +49,6 @@
             margin: 0; /* Remove default margin */
         }
 
-        footer {
-            background-color: #0B0010; /* Updated background color */
-            color: #66FCF1; /* Updated font color */
-            text-align: center;
-            padding: 1rem;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
     </style>
 </head>
 
@@ -66,6 +56,13 @@
 
     <div id="main-content">
         <h1>HELLO</h1>
+        <div id="image">
+            <!-- Replace 'your_image_url' with the URL of your image -->
+            <img src="your_image_url" alt="Your Image">
+        </div>
+        <div id="text">
+            <p>Your editable text goes here...</p>
+        </div>
     </div>
 
 </body>
