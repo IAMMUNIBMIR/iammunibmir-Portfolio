@@ -9,25 +9,47 @@
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #0B0010; /* Updated background color */
-            color: #66FCF1; /* Updated font color */
+            background-color: #f8f8f8;
+            color: #333; /* Updated default font color */
+        }
+
+        header {
+            background-color: #0B0010;
+            color: #66FCF1;
+            text-align: center;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column; /* Changed to column layout */
+            align-items: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        nav {
+            display: flex;
+            margin-top: 1rem; /* Added margin for separation */
+        }
+
+        nav a {
+            color: #66FCF1;
+            text-decoration: none;
+            margin: 0 1rem;
         }
 
         #main-content {
             display: flex;
-            flex-direction: row; /* Updated to row for horizontal alignment */
-            align-items: center;
             justify-content: center;
-            background-color: #0B0010; /* Updated background color */
-            color: #66FCF1; /* Updated font color */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            text-align: center;
-            height: 100vh; /* Adjust the height to cover the entire viewport */
+            align-items: center;
+            padding: 2rem;
         }
 
         #image {
+            flex: 1;
             max-width: 50%;
+            overflow: hidden;
         }
 
         #image img {
@@ -37,25 +59,34 @@
         }
 
         #text {
+            flex: 1;
+            padding: 2rem;
             text-align: left;
-            max-width: 50%; /* Updated to 50% for horizontal alignment */
-            margin-left: 20px; /* Adjusted margin for separation */
+            max-width: 800px;
         }
 
-        h1 {
-            font-size: 4rem; /* Adjust the font size */
-            margin: 0; /* Remove default margin */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            font-size: 0.8rem; /* Decreased font size in the footer */
         }
-
-        p {
-            font-size: 2rem; /* Increased the font size of the text */
-            margin: 0; /* Remove default margin */
-        }
-
     </style>
 </head>
 
 <body>
+
+    <header>
+        <h1>Munib Mir</h1>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+        </nav>
+    </header>
 
     <div id="main-content">
         <div id="image">
@@ -63,7 +94,6 @@
             <img src="your_image_url" alt="Your Image">
         </div>
         <div id="text">
-            <h1>HELLO</h1>
             <p>"Hello IAMMUNIBMIR"</p>
         </div>
     </div>
