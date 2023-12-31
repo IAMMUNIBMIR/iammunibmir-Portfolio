@@ -15,16 +15,28 @@
 
         #main-content {
             display: flex;
-            justify-content: center;
+            padding: 4rem; /* Increased padding for more space */
+            text-align: center;
+            justify-content: space-between;
             align-items: center;
-            padding: 2rem;
-            text-align: center; /* Centered text */
         }
 
-        #image {
+        #text {
+            flex: 1;
+            padding: 2rem;
+            text-align: left;
+            max-width: 800px;
+        }
+
+        h1 {
+            font-size: 3rem; /* Greater font size for Hello */
+            font-weight: bold; /* Bold text */
+            margin-bottom: 10px; /* Added margin for separation */
+        }
+
+        #image-container {
             max-width: 24%; /* Decreased pic size by 20% */
             overflow: hidden;
-            margin-bottom: 10px; /* Added margin to lower the image */
         }
 
         #image img {
@@ -33,43 +45,30 @@
             object-fit: cover;
         }
 
-        #text {
-            padding: 2rem;
+        #about-me {
+            margin-top: 2rem; /* Added margin for the "About Me" section */
             text-align: left;
-            max-width: 800px;
-            margin-top: 10px; /* Added margin to lower the text */
-        }
-
-        h1 {
-            font-size: 3rem; /* Greater font size for Hello */
-            font-weight: bold; /* Bold text */
-            margin-bottom: 10px; /* Added margin for separation */
         }
     </style>
 </head>
 
 <body>
 
-    <div id="about-me">
-        <h2>About Me</h2>
-        <p>I am passionate about...</p>
-    </div>
-    <div id="skills">
-        <h2>Skills</h2>
-        <div class="skill-card">
-            <h3>Web Development</h3>
-            <p>HTML, CSS, JavaScript</p>
+    <div id="main-content">
+        <div id="text">
+            <h1>Hi, I am Munib</h1>
+            <p>Student at the UofA</p>
+            <p>A Computer Science Honors student at the University of Alberta. <br> I'm thrilled to have you here. Explore, enjoy, and feel free to connect with me!</p>
         </div>
-        <div class="skill-card">
-            <h3>Programming Languages</h3>
-            <p>Python, Java, C++</p>
-        </div>
-        <div class="skill-card">
-            <h3>Problem Solving</h3>
-            <p>Algorithmic thinking, Data Structures</p>
+        <div id="image-container">
+            <img src="Github.png" alt="My Image">
         </div>
     </div>
 
+    <div id="about-me">
+        <h2>About Me</h2>
+        <p>Write your about me content here...</p>
+    </div>
 
 </body>
 
