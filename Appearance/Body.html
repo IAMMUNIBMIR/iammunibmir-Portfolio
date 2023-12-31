@@ -16,7 +16,7 @@
 
         #main-content {
             display: flex;
-            flex-direction: column; /* Updated to column layout */
+            justify-content: center;
             align-items: center;
             padding: 2rem;
             text-align: center; /* Centered text */
@@ -27,6 +27,7 @@
         #image {
             max-width: 24%; /* Decreased pic size by 20% */
             overflow: hidden;
+            /* margin-bottom: 20px; Added margin to lower the image */
         }
 
         #image img {
@@ -39,6 +40,7 @@
             padding: 2rem;
             text-align: left;
             max-width: 800px;
+            /* margin-top: 20px; Added margin to lower the text */
             margin-right: 50px; /* Pushed the text to the right for spacing */
         }
 
@@ -48,46 +50,6 @@
             margin-bottom: 10px; /* Added margin for separation */
         }
 
-        #scroll-arrow {
-            position: absolute;
-            bottom: 20px; /* Adjusted the bottom position */
-            left: 50%;
-            transform: translateX(-50%);
-            animation: bounce 1s infinite;
-            color: white; /* Changed arrow color to white */
-            font-size: 2rem; /* Increased arrow size for visibility */
-            cursor: pointer; /* Added cursor pointer */
-        }
-
-        #about-me {
-            padding: 2rem;
-            text-align: center;
-            color: white;
-            opacity: 0; /* Initially hidden */
-            transition: opacity 0.5s ease-in-out; /* Added transition effect */
-        }
-
-        #scroll-to-about {
-            position: absolute;
-            bottom: 10px; /* Adjusted the bottom position */
-            left: 50%;
-            transform: translateX(-50%);
-            color: white;
-            font-size: 2rem;
-            cursor: pointer;
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateY(0);
-            }
-            40% {
-                transform: translateY(-10px);
-            }
-            60% {
-                transform: translateY(-5px);
-            }
-        }
     </style>
 </head>
 
@@ -101,23 +63,14 @@
             <h1>Hi, I am Munib</h1>
             <p>A Computer Science Honors student at the University of Alberta. <br> I'm thrilled to have you here. Explore, enjoy, and feel free to connect with me!</p>
         </div>
-        <div id="scroll-arrow">&#9660;</div>
-        <!-- Button to scroll to the About Me section -->
-        <div id="scroll-to-about" onclick="scrollToAbout()">⮟</div>
     </div>
+
+    <div id="scroll-arrow">&#9660;</div>
 
     <div id="about-me">
         <h2>About Me</h2>
         <p>Write your about me content here...</p>
     </div>
-
-    <script>
-        function scrollToAbout() {
-            var aboutMeSection = document.getElementById('about-me');
-            aboutMeSection.style.opacity = '1';
-            aboutMeSection.scrollIntoView({ behavior: 'smooth' });
-        }
-    </script>
 
 </body>
 
