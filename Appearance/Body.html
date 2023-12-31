@@ -16,7 +16,7 @@
 
         #main-content {
             display: flex;
-            flex-direction: column;
+            justify-content: center;
             align-items: center;
             padding: 2rem;
             text-align: center; /* Centered text */
@@ -27,7 +27,6 @@
         #image {
             max-width: 24%; /* Decreased pic size by 20% */
             overflow: hidden;
-            position: relative;
         }
 
         #image img {
@@ -49,19 +48,11 @@
             margin-bottom: 10px; /* Added margin for separation */
         }
 
-        #arrow {
-            position: absolute;
-            bottom: -20px; /* Adjusted the bottom position */
-            color: green; /* Arrow color */
-            font-size: 3rem;
-            cursor: pointer;
-        }
-
         #about-me {
             padding: 2rem;
             text-align: center;
             color: white;
-            margin-top: 20px; /* Adjusted margin */
+            margin-top: 50px; /* Added margin to separate from the main content */
             transform: translateY(20px); /* Initial translation for a smooth appearance */
         }
     </style>
@@ -72,7 +63,6 @@
     <div id="main-content">
         <div id="image">
             <img src="Github.png" alt="My Image">
-            <div id="arrow">&#9660;</div>
         </div>
         <div id="text">
             <h1>Hi, I am Munib</h1>
