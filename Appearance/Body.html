@@ -11,22 +11,20 @@
             padding: 0;
             background-color: #0B0010;
             color: #66FCF1; /* Updated default font color */
-            position: relative; /* Added position relative for absolute positioning */
         }
 
         #main-content {
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 2rem;
-            text-align: center; /* Centered text */
-            min-height: 100vh; /* Set minimum height for main content */
-            margin-top: -50px; /* Raised the content up */
+            flex-direction: column; /* Center content vertically */
+            height: 100vh; /* Full viewport height */
         }
 
         #image {
             max-width: 24%; /* Decreased pic size by 20% */
             overflow: hidden;
+            margin-bottom: 10px; /* Added margin to lower the image */
         }
 
         #image img {
@@ -39,7 +37,8 @@
             padding: 2rem;
             text-align: left;
             max-width: 800px;
-            margin-right: 50px; /* Pushed the text to the right for spacing */
+            margin-top: 10px; /* Added margin to lower the text */
+            position: relative;
         }
 
         h1 {
@@ -48,12 +47,18 @@
             margin-bottom: 10px; /* Added margin for separation */
         }
 
+        #arrow {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            cursor: pointer;
+        }
+
         #about-me {
-            padding: 2rem;
+            display: none;
             text-align: center;
-            color: white;
-            margin-top: 50px; /* Added margin to separate from the main content */
-            transform: translateY(20px); /* Initial translation for a smooth appearance */
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -68,12 +73,20 @@
             <h1>Hi, I am Munib</h1>
             <p>A Computer Science Honors student at the University of Alberta. <br> I'm thrilled to have you here. Explore, enjoy, and feel free to connect with me!</p>
         </div>
+        <div id="arrow">↓</div>
     </div>
 
     <div id="about-me">
         <h2>About Me</h2>
         <p>Write your about me content here...</p>
     </div>
+
+    <script>
+        // Add JavaScript to toggle visibility of the "About Me" section on arrow click
+        document.getElementById('arrow').addEventListener('click', function () {
+            document.getElementById('about-me').style.display = 'block';
+        });
+    </script>
 
 </body>
 
