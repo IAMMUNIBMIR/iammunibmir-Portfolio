@@ -26,6 +26,7 @@
             padding: 2rem;
             text-align: left;
             max-width: 800px;
+            position: relative; /* Added position relative for absolute positioning of the arrow */
         }
 
         h1 {
@@ -49,6 +50,28 @@
             margin-top: 2rem; /* Added margin for the "About Me" section */
             text-align: left;
         }
+
+        #arrow {
+            position: absolute;
+            bottom: -2rem; /* Position the arrow just below the text */
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2rem;
+            cursor: pointer;
+            animation: bounce 1s infinite; /* Added bounce animation */
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
     </style>
 </head>
 
@@ -59,6 +82,7 @@
             <h1>Hi, I am Munib</h1>
             <p>Student at the UofA</p>
             <p>A Computer Science Honors student at the University of Alberta. <br> I'm thrilled to have you here. Explore, enjoy, and feel free to connect with me!</p>
+            <div id="arrow">↓</div>
         </div>
         <div id="image-container">
             <img src="Github.png" alt="My Image">
