@@ -4,21 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Add the Font Awesome library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #0B0010;
-            color: #66FCF1;
-        }
 
         footer {
-            display: none; /* Hide the footer by default */
+            display: none;
             background-color: #0B0010;
             color: #66FCF1;
             text-align: center;
@@ -39,8 +29,8 @@
         }
 
         footer i {
-            font-size: 20px; /* Adjust the size of the Font Awesome icon */
-            margin-right: 5px; /* Adjust the spacing */
+            font-size: 20px;
+            margin-right: 5px;
         }
     </style>
 </head>
@@ -58,25 +48,21 @@
         <p>&copy; 2024 Munib Mir. All rights reserved.</p>
         <p>
             <a href="https://www.linkedin.com/in/munibmir686/" target="_blank" rel="noopener noreferrer">
-                <i class="fab fa-linkedin"></i> <!-- Use the Font Awesome class for LinkedIn -->
-                LinkedIn
+                <i class="fab fa-linkedin"></i> LinkedIn
             </a>
-            <span style="margin-right: 10px;"> | </span> <!--separator -->
+            <span style="margin-right: 10px;"> | </span>
             <a href="https://github.com/IAMMUNIBMIR" target="_blank" rel="noopener noreferrer">
-                <i class="fa-brands fa-github"></i>
-                Github
+                <i class="fa-brands fa-github"></i> Github
             </a>
         </p>
     </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            var content = document.getElementById('content');
             var footer = document.getElementById('myFooter');
 
-            // Function to check scroll position and toggle footer visibility
             function toggleFooter() {
-                var scrollHeight = content.scrollHeight - window.innerHeight;
+                var scrollHeight = document.body.scrollHeight - window.innerHeight;
                 var scrollPosition = window.scrollY;
 
                 if (scrollPosition >= scrollHeight) {
@@ -86,10 +72,7 @@
                 }
             }
 
-            // Event listener for scroll events
             window.addEventListener('scroll', toggleFooter);
-
-            // Initial check when the page loads
             toggleFooter();
         });
     </script>
