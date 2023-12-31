@@ -21,18 +21,6 @@
             text-align: center; /* Centered text */
         }
 
-        #image {
-            max-width: 24%; /* Decreased pic size by 20% */
-            overflow: hidden;
-            margin-bottom: 10px; /* Added margin to lower the image */
-        }
-
-        #image img {
-            width: 100%;
-            height: auto;
-            object-fit: cover;
-        }
-
         #text {
             padding: 2rem;
             text-align: left;
@@ -45,18 +33,32 @@
             font-weight: bold; /* Bold text */
             margin-bottom: 10px; /* Added margin for separation */
         }
+
+        #image-container {
+            max-width: 24%; /* Decreased pic size by 20% */
+            overflow: hidden;
+            margin-right: 10%; /* Added margin to space out image and text */
+        }
+
+        #image img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
     </style>
 </head>
 
 <body>
 
     <div id="main-content">
-        <div id="image">
-            <img src="Github.png" alt="My Image">
-        </div>
         <div id="text">
             <h1>Hi, I am Munib</h1>
+            <p>Student at the UofA</p>
             <p>A Computer Science Honors student at the University of Alberta. <br> I'm thrilled to have you here. Explore, enjoy, and feel free to connect with me!</p>
+        </div>
+        <div id="image-container">
+            <img src="Github.png" alt="My Image">
         </div>
     </div>
 
