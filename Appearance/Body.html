@@ -55,6 +55,29 @@
             margin-top: 50px; /* Added margin to separate from the main content */
             transform: translateY(20px); /* Initial translation for a smooth appearance */
         }
+
+        #scroll-arrow {
+            position: absolute;
+            bottom: -2rem; /* Adjusted the bottom position */
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2rem;
+            cursor: pointer;
+            animation: bounce 1s infinite; /* Added bounce animation */
+            color: white;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
     </style>
 </head>
 
@@ -67,6 +90,7 @@
         <div id="text">
             <h1>Hi, I am Munib</h1>
             <p>A Computer Science Honors student at the University of Alberta. <br> I'm thrilled to have you here. Explore, enjoy, and feel free to connect with me!</p>
+            <div id="scroll-arrow">&#9660;</div>
         </div>
     </div>
 
