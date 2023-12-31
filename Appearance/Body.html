@@ -15,30 +15,18 @@
 
         #main-content {
             display: flex;
-            justify-content: center;
+            padding: 4rem; /* Increased padding for more space */
+            text-align: center;
+            justify-content: space-between;
             align-items: center;
-            flex-direction: column; /* Center content vertically */
-            height: 100vh; /* Full viewport height */
-        }
-
-        #image {
-            max-width: 24%; /* Decreased pic size by 20% */
-            overflow: hidden;
-            margin-bottom: 10px; /* Added margin to lower the image */
-        }
-
-        #image img {
-            width: 100%;
-            height: auto;
-            object-fit: cover;
         }
 
         #text {
+            flex: 1;
             padding: 2rem;
             text-align: left;
             max-width: 800px;
-            margin-top: 10px; /* Added margin to lower the text */
-            position: relative;
+            position: relative; /* Added position relative for absolute positioning of the arrow */
         }
 
         h1 {
@@ -47,18 +35,42 @@
             margin-bottom: 10px; /* Added margin for separation */
         }
 
-        #arrow {
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            cursor: pointer;
+        #image-container {
+            max-width: 24%; /* Decreased pic size by 20% */
+            overflow: hidden;
+        }
+
+        #image img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
         }
 
         #about-me {
-            display: none;
-            text-align: center;
-            margin-top: 20px;
+            margin-top: 2rem; /* Added margin for the "About Me" section */
+            text-align: left;
+        }
+
+        #arrow {
+            position: absolute;
+            bottom: -2rem; /* Position the arrow just below the text */
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2rem;
+            cursor: pointer;
+            animation: bounce 1s infinite; /* Added bounce animation */
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
         }
     </style>
 </head>
@@ -66,27 +78,21 @@
 <body>
 
     <div id="main-content">
-        <div id="image">
-            <img src="Github.png" alt="My Image">
-        </div>
         <div id="text">
             <h1>Hi, I am Munib</h1>
+            <p>Student at the UofA</p>
             <p>A Computer Science Honors student at the University of Alberta. <br> I'm thrilled to have you here. Explore, enjoy, and feel free to connect with me!</p>
+            <div id="arrow">↓</div>
         </div>
-        <div id="arrow">↓</div>
+        <div id="image-container">
+            <img src="Github.png" alt="My Image">
+        </div>
     </div>
 
     <div id="about-me">
         <h2>About Me</h2>
         <p>Write your about me content here...</p>
     </div>
-
-    <script>
-        // Add JavaScript to toggle visibility of the "About Me" section on arrow click
-        document.getElementById('arrow').addEventListener('click', function () {
-            document.getElementById('about-me').style.display = 'block';
-        });
-    </script>
 
 </body>
 
