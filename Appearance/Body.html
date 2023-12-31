@@ -20,12 +20,13 @@
             align-items: center;
             padding: 2rem;
             text-align: center; /* Centered text */
+            min-height: 100vh; /* Set minimum height for main content */
         }
 
         #image {
             max-width: 24%; /* Decreased pic size by 20% */
             overflow: hidden;
-            margin-bottom: 20px; /* Added margin to lower the image */
+            margin-bottom: 30px; /* Added margin to lower the image */
         }
 
         #image img {
@@ -38,7 +39,7 @@
             padding: 2rem;
             text-align: left;
             max-width: 800px;
-            margin-top: 20px; /* Added margin to lower the text */
+            margin-top: 30px; /* Added margin to lower the text */
         }
 
         h1 {
@@ -55,6 +56,23 @@
             animation: bounce 1s infinite;
             color: white; /* Changed arrow color to white */
             font-size: 2rem; /* Increased arrow size for visibility */
+        }
+
+        #about-me {
+            display: none; /* Initially hidden */
+            padding: 2rem;
+            text-align: center;
+            color: white;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
         }
 
         @keyframes bounce {
@@ -84,6 +102,36 @@
     </div>
 
     <div id="scroll-arrow">&#9660;</div>
+
+    <div id="about-me">
+        <h2>About Me</h2>
+        <p>Write your about me content here...</p>
+    </div>
+
+    <footer>Footer Content</footer>
+
+    <script>
+        // JavaScript to show "About Me" section on scroll
+        window.addEventListener('scroll', function () {
+            var scrollArrow = document.getElementById('scroll-arrow');
+            var aboutMeSection = document.getElementById('about-me');
+
+            // Get the height of the main content
+            var mainContentHeight = document.getElementById('main-content').offsetHeight;
+
+            // Get the current scroll position
+            var scrollPosition = window.scrollY;
+
+            // If the scroll position is below the main content, show the "About Me" section
+            if (scrollPosition > mainContentHeight) {
+                aboutMeSection.style.display = 'block';
+                scrollArrow.style.display = 'none';
+            } else {
+                aboutMeSection.style.display = 'none';
+                scrollArrow.style.display = 'block';
+            }
+        });
+    </script>
 
 </body>
 
