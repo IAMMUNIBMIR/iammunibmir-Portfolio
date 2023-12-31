@@ -111,28 +111,6 @@
         <p>Write your about me content here...</p>
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var scrollArrow = document.getElementById('scroll-arrow');
-            var aboutMe = document.getElementById('about-me');
-
-            function fadeInArrow() {
-                var scrollPosition = window.scrollY;
-
-                if (scrollPosition > 100) {
-                    scrollArrow.style.opacity = '1';
-                    aboutMe.style.display = 'block'; /* Show about-me content */
-                } else {
-                    scrollArrow.style.opacity = '0';
-                    aboutMe.style.display = 'none'; /* Hide about-me content */
-                }
-            }
-
-            window.addEventListener('scroll', fadeInArrow);
-            fadeInArrow(); // Initial check
-        });
-    </script>
-
 </body>
 
 </html>
