@@ -18,10 +18,14 @@
         }
 
         footer {
+            display: none; /* Hide the footer by default */
             background-color: #0B0010;
             color: #66FCF1;
             text-align: center;
             padding: 1rem;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
         }
 
         footer p {
@@ -43,7 +47,11 @@
 
 <body>
 
-    <footer>
+    <div id="content">
+        <!-- Your page content goes here -->
+    </div>
+
+    <footer id="myFooter">
         <p>&copy; 2024 Munib Mir. All rights reserved.</p>
         <p>
             <a href="https://www.linkedin.com/in/munibmir686/" target="_blank" rel="noopener noreferrer">
@@ -57,6 +65,31 @@
             </a>
         </p>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var content = document.getElementById('content');
+            var footer = document.getElementById('myFooter');
+
+            // Function to check scroll position and toggle footer visibility
+            function toggleFooter() {
+                var scrollHeight = content.scrollHeight - window.innerHeight;
+                var scrollPosition = window.scrollY;
+
+                if (scrollPosition >= scrollHeight) {
+                    footer.style.display = 'block';
+                } else {
+                    footer.style.display = 'none';
+                }
+            }
+
+            // Event listener for scroll events
+            window.addEventListener('scroll', toggleFooter);
+
+            // Initial check when the page loads
+            toggleFooter();
+        });
+    </script>
 
 </body>
 
