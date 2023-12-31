@@ -57,13 +57,14 @@
             color: white; /* Changed arrow color to white */
             font-size: 2rem; /* Increased arrow size for visibility */
             opacity: 0.7; /* Initially semi-transparent */
+            cursor: pointer; /* Added cursor pointer */
         }
 
         #about-me {
-            display: none; /* Initially hidden */
             padding: 2rem;
             text-align: center;
             color: white;
+            display: none; /* Initially hidden */
         }
 
         @keyframes fadeIn {
@@ -102,7 +103,7 @@
         </div>
     </div>
 
-    <div id="scroll-arrow">&#9660;</div>
+    <div id="scroll-arrow" onclick="scrollToAboutMe()">&#9660;</div>
 
     <div id="about-me">
         <h2>About Me</h2>
@@ -110,19 +111,21 @@
     </div>
 
     <script>
+        function scrollToAboutMe() {
+            document.getElementById('about-me').style.display = 'block';
+            document.getElementById('about-me').scrollIntoView({ behavior: 'smooth' });
+        }
+
         document.addEventListener('DOMContentLoaded', function () {
             var scrollArrow = document.getElementById('scroll-arrow');
-            var aboutMe = document.getElementById('about-me');
 
             function fadeInArrow() {
                 var scrollPosition = window.scrollY;
 
                 if (scrollPosition > 50) {
                     scrollArrow.style.opacity = '1';
-                    aboutMe.style.display = 'block'; /* Show about-me content */
                 } else {
                     scrollArrow.style.opacity = '0.7';
-                    aboutMe.style.display = 'none'; /* Hide about-me content */
                 }
             }
 
