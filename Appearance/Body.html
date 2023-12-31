@@ -48,17 +48,6 @@
             margin-bottom: 10px; /* Added margin for separation */
         }
 
-        #scroll-arrow {
-            position: absolute;
-            bottom: 20px; /* Adjusted the bottom position */
-            left: 50%;
-            transform: translateX(-50%);
-            animation: bounce 1s infinite;
-            color: white; /* Changed arrow color to white */
-            font-size: 2rem; /* Increased arrow size for visibility */
-            cursor: pointer; /* Added cursor pointer */
-        }
-
         #about-me {
             padding: 2rem;
             text-align: center;
@@ -66,19 +55,14 @@
             opacity: 0; /* Initially hidden */
             transition: opacity 0.5s ease-in-out; /* Added transition effect */
             margin-top: 50px; /* Added margin to separate from the main content */
+            transform: translateY(20px); /* Initial translation for a smooth appearance */
         }
 
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateY(0);
-            }
-            40% {
-                transform: translateY(-10px);
-            }
-            60% {
-                transform: translateY(-5px);
-            }
+        #main-content:hover #about-me {
+            opacity: 1;
+            transform: translateY(0); /* Move it back to its original position */
         }
+
     </style>
 </head>
 
@@ -93,8 +77,6 @@
             <p>A Computer Science Honors student at the University of Alberta. <br> I'm thrilled to have you here. Explore, enjoy, and feel free to connect with me!</p>
         </div>
     </div>
-
-    <div id="scroll-arrow">&#9660;</div>
 
     <div id="about-me">
         <h2>About Me</h2>
