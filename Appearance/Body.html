@@ -4,114 +4,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
             background-color: #0B0010;
-            color: #ffffff; /* Set font color to white */
-            position: relative;
+            color: #66FCF1;
         }
 
-        #main-content {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 2rem;
-            text-align: center;
-            min-height: 100vh;
-            margin-top: -20px;
-        }
-
-        #image img {
-            max-width: 24%;
-            object-fit: cover;
-        }
-
-        #text {
-            padding: 2rem;
-            text-align: left;
-            max-width: 800px;
-            margin-right: 50px;
-        }
-
-        h1 {
-            font-size: 3rem;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        #scroll-arrow {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: fadeIn 1s ease-out;
-            color: #ffffff;
-            font-size: 2rem;
-            opacity: 0.7;
-            cursor: pointer;
-        }
-
-        #about-me {
-            padding: 2rem;
-            text-align: center;
-            color: #ffffff;
+        footer {
             display: none;
+            background-color: #0B0010;
+            color: #66FCF1;
+            text-align: center;
+            padding: 1rem;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
         }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
+        footer p {
+            margin: 0;
+        }
+
+        footer a {
+            color: #66FCF1;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+
+        footer i {
+            font-size: 20px;
+            margin-right: 5px;
         }
     </style>
 </head>
 
 <body>
 
-    <div id="main-content">
-        <div id="image">
-            <img src="Github.png" alt="My Image">
-        </div>
-        <div id="text">
-            <h1>Hi, I am Munib</h1>
-            <p>A Computer Science Honors student at the University of Alberta. <br> I'm thrilled to have you here. Explore, enjoy, and feel free to connect with me!</p>
-        </div>
+    <div id="content">
+        <!-- Your page content goes here -->
+        <!-- Add enough content to make the page scrollable -->
+        <!-- For testing purposes -->
+        <div style="height: 150vh;"></div>
     </div>
 
-    <div id="scroll-arrow" onclick="scrollToAboutMe()">&#9660;</div>
-
-    <div id="about-me">
-        <h2>About Me</h2>
-        <p>Write your about me content here...</p>
-    </div>
+    <footer id="myFooter">
+        <p>&copy; 2024 Munib Mir. All rights reserved.</p>
+        <p>
+            <a href="https://www.linkedin.com/in/munibmir686/" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+            <span style="margin-right: 10px;"> | </span>
+            <a href="https://github.com/IAMMUNIBMIR" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-github"></i> Github
+            </a>
+        </p>
+    </footer>
 
     <script>
-        function scrollToAboutMe() {
-            document.getElementById('about-me').style.display = 'block';
-            document.getElementById('about-me').scrollIntoView({ behavior: 'smooth' });
-        }
-
         document.addEventListener('DOMContentLoaded', function () {
-            var scrollArrow = document.getElementById('scroll-arrow');
+            var footer = document.getElementById('myFooter');
 
-            function fadeInArrow() {
+            function toggleFooter() {
+                var scrollHeight = document.body.scrollHeight - window.innerHeight;
                 var scrollPosition = window.scrollY;
 
-                if (scrollPosition > 50) {
-                    scrollArrow.style.opacity = '1';
+                if (scrollPosition >= scrollHeight) {
+                    footer.style.display = 'block';
                 } else {
-                    scrollArrow.style.opacity = '0.7';
+                    footer.style.display = 'none';
                 }
             }
 
-            window.addEventListener('scroll', fadeInArrow);
-            fadeInArrow(); // Initial check
+            window.addEventListener('scroll', toggleFooter);
+            toggleFooter();
         });
     </script>
 
