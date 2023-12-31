@@ -4,85 +4,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
             background-color: #0B0010;
-            color: #66FCF1;
+            color: #66FCF1; /* Updated default font color */
+            position: relative; /* Added position relative for absolute positioning */
         }
 
-        footer {
-            display: none;
-            background-color: #0B0010;
-            color: #66FCF1;
-            text-align: center;
-            padding: 1rem;
-            position: fixed;
-            bottom: 0;
+        #main-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            text-align: center; /* Centered text */
+            min-height: 100vh; /* Set minimum height for main content */
+        }
+
+        #image {
+            max-width: 24%; /* Decreased pic size by 20% */
+            overflow: hidden;
+            margin-bottom: 20px; /* Added margin to lower the image */
+        }
+
+        #image img {
             width: 100%;
+            height: auto;
+            object-fit: cover;
         }
 
-        footer p {
-            margin: 0;
+        #text {
+            padding: 2rem;
+            text-align: left;
+            max-width: 800px;
+            margin-top: 20px; /* Added margin to lower the text */
         }
 
-        footer a {
-            color: #66FCF1;
-            text-decoration: none;
-            margin-right: 10px;
+        h1 {
+            font-size: 3rem; /* Greater font size for Hello */
+            font-weight: bold; /* Bold text */
+            margin-bottom: 10px; /* Added margin for separation */
         }
 
-        footer i {
-            font-size: 20px;
-            margin-right: 5px;
+        #scroll-arrow {
+            position: absolute;
+            bottom: 60px; /* Adjusted the bottom position */
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 1s infinite;
+            color: white; /* Changed arrow color to white */
+            font-size: 2rem; /* Increased arrow size for visibility */
         }
+
+        #about-me {
+            display: none; /* Initially hidden */
+            padding: 2rem;
+            text-align: center;
+            color: white;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
     </style>
 </head>
 
 <body>
 
-    <div id="content">
-        <!-- Your page content goes here -->
-        <!-- Add enough content to make the page scrollable -->
-        <!-- For testing purposes -->
-        <div style="height: 150vh;"></div>
+    <div id="main-content">
+        <div id="image">
+            <img src="Github.png" alt="My Image">
+        </div>
+        <div id="text">
+            <h1>Hi, I am Munib</h1>
+            <p>A Computer Science Honors student at the University of Alberta. <br> I'm thrilled to have you here. Explore, enjoy, and feel free to connect with me!</p>
+        </div>
     </div>
 
-    <footer id="myFooter">
-        <p>&copy; 2024 Munib Mir. All rights reserved.</p>
-        <p>
-            <a href="https://www.linkedin.com/in/munibmir686/" target="_blank" rel="noopener noreferrer">
-                <i class="fab fa-linkedin"></i> LinkedIn
-            </a>
-            <span style="margin-right: 10px;"> | </span>
-            <a href="https://github.com/IAMMUNIBMIR" target="_blank" rel="noopener noreferrer">
-                <i class="fa-brands fa-github"></i> Github
-            </a>
-        </p>
-    </footer>
+    <div id="scroll-arrow">&#9660;</div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var footer = document.getElementById('myFooter');
-
-            function toggleFooter() {
-                var scrollHeight = document.body.scrollHeight - window.innerHeight;
-                var scrollPosition = window.scrollY;
-
-                if (scrollPosition >= scrollHeight) {
-                    footer.style.display = 'block';
-                } else {
-                    footer.style.display = 'none';
-                }
-            }
-
-            window.addEventListener('scroll', toggleFooter);
-            toggleFooter();
-        });
-    </script>
+    <div id="about-me">
+        <h2>About Me</h2>
+        <p>Write your about me content here...</p>
+    </div>
 
 </body>
 
