@@ -16,6 +16,7 @@
 
         #main-content {
             display: flex;
+            flex-direction: column; /* Changed the flex direction to column */
             justify-content: center;
             align-items: center;
             padding: 2rem;
@@ -52,7 +53,7 @@
 
         #scroll-arrow {
             position: absolute;
-            bottom: 20px; /* Adjusted the bottom position */
+            top: 100%; /* Positioned arrow below the main content */
             left: 50%;
             transform: translateX(-50%);
             animation: bounce 1s infinite;
@@ -67,11 +68,12 @@
             color: white;
             opacity: 0; /* Initially hidden */
             transition: opacity 0.5s ease-in-out; /* Added transition effect */
+            margin-top: 20px; /* Added margin to separate from the main content */
         }
 
         #scroll-to-about {
             position: absolute;
-            bottom: 50px; /* Adjusted the bottom position */
+            top: calc(100% - 50px); /* Positioned button at the bottom of the main content */
             left: 50%;
             transform: translateX(-50%);
             color: white;
@@ -103,14 +105,17 @@
             <h1>Hi, I am Munib</h1>
             <p>A Computer Science Honors student at the University of Alberta. <br> I'm thrilled to have you here. Explore, enjoy, and feel free to connect with me!</p>
         </div>
-        <div id="scroll-arrow">&#9660;</div>
-        <div id="scroll-to-about" onclick="scrollToAbout()">⮟</div>
     </div>
+
+    <div id="scroll-arrow">&#9660;</div>
 
     <div id="about-me">
         <h2>About Me</h2>
         <p>Write your about me content here...</p>
     </div>
+
+    <!-- Button to scroll to the About Me section -->
+    <div id="scroll-to-about" onclick="scrollToAbout()">⮟</div>
 
     <script>
         function scrollToAbout() {
