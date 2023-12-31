@@ -52,29 +52,31 @@
 
         #scroll-arrow {
             position: absolute;
-            bottom: -30px; /* Adjusted the bottom position */
+            bottom: 20px; /* Adjusted the bottom position */
             left: 50%;
             transform: translateX(-50%);
-            animation: fadeIn 1s ease-out; /* Added fade-in animation */
+            animation: bounce 1s infinite;
             color: white; /* Changed arrow color to white */
             font-size: 2rem; /* Increased arrow size for visibility */
-            opacity: 0; /* Initially hidden */
+            cursor: pointer; /* Added cursor pointer */
         }
 
         #about-me {
-            display: none; /* Initially hidden */
             padding: 2rem;
             text-align: center;
             color: white;
+            opacity: 0; /* Initially hidden */
+            transition: opacity 0.5s ease-in-out; /* Added transition effect */
         }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
+        #scroll-to-about {
+            position: absolute;
+            bottom: 50px; /* Adjusted the bottom position */
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
         }
 
         @keyframes bounce {
@@ -88,7 +90,6 @@
                 transform: translateY(-5px);
             }
         }
-
     </style>
 </head>
 
@@ -102,14 +103,24 @@
             <h1>Hi, I am Munib</h1>
             <p>A Computer Science Honors student at the University of Alberta. <br> I'm thrilled to have you here. Explore, enjoy, and feel free to connect with me!</p>
         </div>
+        <div id="scroll-arrow">&#9660;</div>
     </div>
-
-    <div id="scroll-arrow">&#9660;</div>
 
     <div id="about-me">
         <h2>About Me</h2>
         <p>Write your about me content here...</p>
     </div>
+
+    <!-- Button to scroll to the About Me section -->
+    <div id="scroll-to-about" onclick="scrollToAbout()">⮟</div>
+
+    <script>
+        function scrollToAbout() {
+            var aboutMeSection = document.getElementById('about-me');
+            aboutMeSection.style.opacity = '1';
+            aboutMeSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
 
 </body>
 
