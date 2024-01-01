@@ -67,14 +67,14 @@
         #about-me h2::before {
             content: '';
             position: absolute;
-            width: 60px;
-            height: 4px; /* Thick line */
+            width: 90px;
+            height: 4.5px; /* Thick line */
             background-color: #66FCF1;
             top: 100%;
             left: 50%;
             transform: translateX(-50%);
             opacity: 0;
-            transition: opacity 0.5s ease-in-out;
+            transition: opacity 0.2s ease-in-out;
         }
 
         #about-me.active h2::before {
@@ -93,7 +93,7 @@
             margin-bottom: 1em;
         }
 
-        #about-me-line {
+        #Divider {
             width: 50%;
             height: 1px;
             background-color: #66FCF1;
@@ -167,7 +167,7 @@
         </div>
         
         <br>
-        <div id="about-me-line"></div>
+        <div id="Divider"></div>
 
         <div id="projects">
             <h2>Projects</h2>
@@ -184,7 +184,7 @@
         window.addEventListener('scroll', function () {
             var aboutMeSection = document.getElementById('about-me');
             var aboutMeHeading = document.querySelector('#about-me h2');
-            var aboutMeLine = document.getElementById('about-me-line');
+            var aboutMeLine = document.getElementById('Divider');
 
             var rect = aboutMeSection.getBoundingClientRect();
             var windowHeight = window.innerHeight || document.documentElement.clientHeight;
@@ -195,7 +195,7 @@
                 aboutMeSection.classList.remove('active');
             }
         });
-        
+
     </script>
 
 </body>
