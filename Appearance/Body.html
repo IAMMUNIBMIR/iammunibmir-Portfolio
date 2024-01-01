@@ -97,18 +97,14 @@
             width: 50%;
             height: 1px;
             background-color: #66FCF1;
-            margin: 20px auto;
-        }
-
-        #Who-am-I h3 {
-            font-size: 2rem;
+            margin: 50px auto; /* Adjusted margin to move the divider down */
         }
 
         #projects {
             padding: 2rem;
             text-align: center;
             color: #66FCF1;
-            margin-top: 50px;
+            margin-top: 500px; /* Adjusted margin to move projects down */
         }
 
         #scroll-arrow {
@@ -166,7 +162,6 @@
             </p>
         </div>
         
-        <br>
         <div id="Divider"></div>
 
         <div id="projects">
@@ -185,6 +180,7 @@
             var aboutMeSection = document.getElementById('about-me');
             var aboutMeHeading = document.querySelector('#about-me h2');
             var aboutMeLine = document.getElementById('Divider');
+            var projectsSection = document.getElementById('projects');
 
             var rect = aboutMeSection.getBoundingClientRect();
             var windowHeight = window.innerHeight || document.documentElement.clientHeight;
