@@ -73,13 +73,14 @@
             height: 4.5px; /* Thick line */
             background-color: #66FCF1;
             top: 100%;
+            opacity: 0; /* Set initial opacity to 0 */
             transition: opacity 0.2s ease-in-out;
         }
 
         #about-me.active h2::before,
         #about-me.active h2::after,
         #about-me.active h2::before::before {
-            opacity: 1;
+            opacity: 1; /* Change opacity to 1 when active */
         }
 
         #about-me h2::before {
@@ -88,12 +89,13 @@
         }
 
         #about-me h2::after {
-            transform: translateX(50%);
+            left: 50%;
+            transform: translateX(-50%);
         }
 
         #about-me h2::before::before {
-            left: 0;
-            transform: translateX(-150%);
+            left: 50%;
+            transform: translateX(-50%);
         }
 
         #about-me-text {
