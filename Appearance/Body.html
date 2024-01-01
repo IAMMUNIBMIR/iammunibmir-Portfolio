@@ -67,7 +67,7 @@
         #about-me h2::before {
             content: '';
             position: absolute;
-            width: 100px;
+            width: 30px; /* Adjusted width for three lines */
             height: 4.5px; /* Thick line */
             background-color: #66FCF1;
             top: 100%;
@@ -78,6 +78,23 @@
         }
 
         #about-me.active h2::before {
+            opacity: 1;
+        }
+
+        #about-me h2::after {
+            content: '';
+            position: absolute;
+            width: 30px; /* Adjusted width for three lines */
+            height: 4.5px; /* Thick line */
+            background-color: #66FCF1;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.2s ease-in-out;
+        }
+
+        #about-me.active h2::after {
             opacity: 1;
         }
 
@@ -94,17 +111,19 @@
         }
 
         #Divider {
-            width: 50%;
+            width: 30px; /* Adjusted width for three lines */
             height: 1px;
             background-color: #66FCF1;
-            margin: 60px; /* Adjusted margin to move the divider down */
+            position: absolute;
+            align-items: center;
+            margin: 70px; /* Adjusted margin to move the divider down */
         }
 
         #projects {
             padding: 2rem;
             text-align: center;
             color: #66FCF1;
-            margin-top: 400px; /* Adjusted margin to move projects down */
+            margin-top: 350px; /* Adjusted margin to move projects down */
         }
 
         #scroll-arrow {
@@ -161,7 +180,7 @@
                 As I progress through the dynamic field of computer science, I'm excited about the endless possibilities and challenges that lie ahead. Join me on this adventure of exploration and innovation!
             </p>
         </div>
-        
+
         <div id="Divider"></div>
 
         <div id="projects">
