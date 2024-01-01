@@ -11,6 +11,10 @@
             color: #66FCF1;
             text-align: center;
             padding: 1rem;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
         }
 
         header h1 {
@@ -27,6 +31,12 @@
 
         html, body {
             scroll-behavior: smooth;
+            margin: 0;
+            padding: 0;
+        }
+
+        #main-content {
+            padding-top: 60px; /* Adjusted padding to prevent content from being hidden behind the header */
         }
     </style>
 </head>
@@ -36,9 +46,9 @@
     <header>
         <h1>Munib Mir</h1>
         <nav>
-            <a href="#home">Home</a>
+            <a href="#home" onclick="scrollToHome()">Home</a>
             <a href="#about-me" onclick="scrollToAboutMe()">About Me</a>
-            <a href="#projects">Projects</a>
+            <a href="#projects" onclick="scrollToProjects()">Projects</a>
             <a href="#contact">Contact Me</a>
         </nav>
     </header>
