@@ -72,32 +72,19 @@
             width: 30px; /* Adjust the width as needed */
             height: 4.5px; /* Thick line */
             background-color: #66FCF1;
-            top: 50%; /* Position at the middle of the text */
-            transform: translateY(-50%); /* Adjust for vertical centering */
-            opacity: 0; /* Set initial opacity to 0 */
+            top: calc(100% + 10px); /* Position below the text, adjust as needed */
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
             transition: opacity 0.2s ease-in-out;
         }
 
         #about-me.active h2::before,
         #about-me.active h2::after,
         #about-me.active h2::before::before {
-            opacity: 1; /* Change opacity to 1 when active */
+            opacity: 1;
         }
 
-        #about-me h2::before {
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        #about-me h2::after {
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        #about-me h2::before::before {
-            left: 50%;
-            transform: translateX(-50%);
-        }
 
 
         #about-me-text {
