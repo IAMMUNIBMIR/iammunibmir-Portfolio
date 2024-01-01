@@ -6,6 +6,12 @@
     <title>Munib Mir Portfolio</title>
 
     <style>
+        body {
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth; /* Enable smooth scrolling */
+        }
+
         header {
             background-color: #0B0010;
             color: #66FCF1;
@@ -24,6 +30,10 @@
             margin: 0 1rem;
             font-size: 1rem;
         }
+
+        section {
+            padding: 2rem;
+        }
     </style>
 
 </head>
@@ -39,21 +49,34 @@
         </nav>
     </header>
 
-    <div id="home">
+    <section id="home">
         <!-- home content goes here -->
-    </div>
+    </section>
 
-    <div id="about">
+    <section id="about">
         <!-- about me content goes here -->
-    </div>
+    </section>
 
-    <div id="projects">
+    <section id="projects">
         <!-- projects content goes here -->
-    </div>
+    </section>
 
-    <div id="contact">
+    <section id="contact">
         <!-- contact me content goes here -->
-    </div>
+    </section>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 
 </body>
 </html>
