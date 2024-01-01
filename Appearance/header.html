@@ -24,6 +24,10 @@
             margin: 0 1rem;
             font-size: 1rem;
         }
+
+        html, body {
+            scroll-behavior: smooth;
+        }
     </style>
 </head>
 
@@ -40,8 +44,20 @@
     </header>
 
     <script>
+        function scrollToHome() {
+            document.getElementById('main-content').scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
         function scrollToAboutMe() {
             document.getElementById('about-me').scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        function scrollToProjects() {
+            document.getElementById('projects').scrollIntoView({
                 behavior: 'smooth'
             });
         }
