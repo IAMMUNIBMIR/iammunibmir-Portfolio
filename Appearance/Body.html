@@ -48,18 +48,6 @@
             font-size: 3rem;
             font-weight: bold;
             margin-bottom: 10px;
-            position: relative;
-        }
-
-        h1::before {
-            content: '';
-            position: absolute;
-            width: 60px;
-            height: 2px;
-            background-color: #66FCF1;
-            top: 50%;
-            transform: translateY(-50%);
-            left: -70px;
         }
 
         #about-me {
@@ -80,11 +68,17 @@
             content: '';
             position: absolute;
             width: 60px;
-            height: 2px;
+            height: 4px; /* Thick line */
             background-color: #66FCF1;
-            top: 50%;
-            transform: translateY(-50%);
-            right: -70px;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        #about-me.active h2::before {
+            opacity: 1;
         }
 
         #about-me-text {
@@ -156,7 +150,7 @@
         </div>
     </div>
 
-    <div id="about-me">
+    <div id="about-me" class="active">
         <div id="about-me-text">
             <h2>About Me</h2>
             <h3><u>Who am I?</u></h3>
@@ -185,6 +179,21 @@
                 behavior: 'smooth'
             });
         }
+
+        window.addEventListener('scroll', function () {
+            var aboutMeSection = document.getElementById('about-me');
+            var aboutMeHeading = document.querySelector('#about-me h2');
+            var aboutMeLine = document.getElementById('about-me-line');
+
+            var rect = aboutMeSection.getBoundingClientRect();
+            var windowHeight = window.innerHeight || document.documentElement.clientHeight;
+
+            if (rect.top < windowHeight / 2 && rect.bottom >= 0) {
+                aboutMeSection.classList.add('active');
+            } else {
+                aboutMeSection.classList.remove('active');
+            }
+        });
     </script>
 
 </body>
