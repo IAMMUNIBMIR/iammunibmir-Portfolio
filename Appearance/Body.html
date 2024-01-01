@@ -67,12 +67,11 @@
         #about-me h2::before {
             content: '';
             position: absolute;
-            width: 30px; /* Adjusted width for three lines */
+            width: 100%; /* Full width */
             height: 4.5px; /* Thick line */
             background-color: #66FCF1;
             top: 100%;
-            left: 50%;
-            transform: translateX(-50%);
+            left: 0;
             opacity: 0;
             transition: opacity 0.2s ease-in-out;
         }
@@ -84,12 +83,11 @@
         #about-me h2::after {
             content: '';
             position: absolute;
-            width: 30px; /* Adjusted width for three lines */
+            width: 100%; /* Full width */
             height: 4.5px; /* Thick line */
             background-color: #66FCF1;
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%);
+            top: 120%; /* Adjusted spacing between lines */
+            left: 0;
             opacity: 0;
             transition: opacity 0.2s ease-in-out;
         }
@@ -111,7 +109,7 @@
         }
 
         #Divider {
-            width: 30px; /* Adjusted width for three lines */
+            width: 50%;
             height: 1px;
             background-color: #66FCF1;
             position: absolute;
