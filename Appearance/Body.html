@@ -48,6 +48,18 @@
             font-size: 3rem;
             font-weight: bold;
             margin-bottom: 10px;
+            position: relative;
+        }
+
+        h1::before {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 2px;
+            background-color: #66FCF1;
+            top: 50%;
+            transform: translateY(-50%);
+            left: -70px;
         }
 
         #about-me {
@@ -61,6 +73,18 @@
         #about-me h2 {
             font-size: 2.5rem;
             text-align: center;
+            position: relative;
+        }
+
+        #about-me h2::before {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 2px;
+            background-color: #66FCF1;
+            top: 50%;
+            transform: translateY(-50%);
+            right: -70px;
         }
 
         #about-me-text {
