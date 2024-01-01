@@ -64,28 +64,22 @@
             position: relative;
         }
 
-        #about-me h2::before,
-        #about-me h2::after,
-        #about-me h2::before::before {
+        #about-me h2::before {
             content: '';
             position: absolute;
-            width: 30px; /* Adjust the width as needed */
+            width: 100px;
             height: 4.5px; /* Thick line */
             background-color: #66FCF1;
-            top: calc(100% + 10px); /* Position below the text, adjust as needed */
+            top: 100%;
             left: 50%;
             transform: translateX(-50%);
             opacity: 0;
             transition: opacity 0.2s ease-in-out;
         }
 
-        #about-me.active h2::before,
-        #about-me.active h2::after,
-        #about-me.active h2::before::before {
+        #about-me.active h2::before {
             opacity: 1;
         }
-
-
 
         #about-me-text {
             text-align: justify;
@@ -103,17 +97,14 @@
             width: 50%;
             height: 1px;
             background-color: #66FCF1;
-            position: absolute;
-            margin: 70px auto; /* Adjusted margin to move the divider down and centered horizontally */
-            left: 0; /* Centered */
-            right: 0; /* Centered */
+            margin: 70px; /* Adjusted margin to move the divider down */
         }
 
         #projects {
             padding: 2rem;
             text-align: center;
             color: #66FCF1;
-            margin-top: 350px; /* Adjusted margin to move projects down */
+            margin-top: 300px; /* Adjusted margin to move projects down */
         }
 
         #scroll-arrow {
@@ -185,21 +176,21 @@
             });
         }
 
-        window.addEventListener('scroll', function () {
-            var aboutMeSection = document.getElementById('about-me');
-            var aboutMeHeading = document.querySelector('#about-me h2');
-            var aboutMeLine = document.getElementById('Divider');
-            var projectsSection = document.getElementById('projects');
+        // window.addEventListener('scroll', function () {
+        //     var aboutMeSection = document.getElementById('about-me');
+        //     var aboutMeHeading = document.querySelector('#about-me h2');
+        //     var aboutMeLine = document.getElementById('Divider');
+        //     var projectsSection = document.getElementById('projects');
 
-            var rect = aboutMeSection.getBoundingClientRect();
-            var windowHeight = window.innerHeight || document.documentElement.clientHeight;
+        //     var rect = aboutMeSection.getBoundingClientRect();
+        //     var windowHeight = window.innerHeight || document.documentElement.clientHeight;
 
-            if (rect.top < windowHeight / 2 && rect.bottom >= 0) {
-                aboutMeSection.classList.add('active');
-            } else {
-                aboutMeSection.classList.remove('active');
-            }
-        });
+        //     if (rect.top < windowHeight / 2 && rect.bottom >= 0) {
+        //         aboutMeSection.classList.add('active');
+        //     } else {
+        //         aboutMeSection.classList.remove('active');
+        //     }
+        // });
 
     </script>
 
