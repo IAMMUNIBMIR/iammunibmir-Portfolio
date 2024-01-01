@@ -52,9 +52,10 @@
 
         #about-me {
             padding: 2rem;
-            text-align: justify;
+            text-align: center;
             color: #66FCF1;
             margin-top: 50px;
+            transform: translateY(20px);
         }
 
         #about-me h2 {
@@ -67,18 +68,40 @@
             content: '';
             position: absolute;
             width: 100px;
-            height: 4.5px;
+            height: 4.5px; /* Thick line */
             background-color: #66FCF1;
             top: 100%;
             left: 50%;
             transform: translateX(-50%);
         }
 
+        #about-me-text {
+            text-align: justify;
+            margin: 0 auto;
+            max-width: 800px;
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+
+        #about-me-text p {
+            margin-bottom: 1em;
+        }
+
+        #Divider {
+            width: 50%;
+            height: 1px;
+            background-color: #66FCF1;
+            position: absolute;
+            margin: 70px auto; /* Adjusted margin to move the divider down and centered horizontally */
+            left: 0;
+            right: 0;
+        }
+
         #projects {
             padding: 2rem;
             text-align: center;
             color: #66FCF1;
-            margin-top: 250px;
+            margin-top: 250px; /* Adjusted margin to move projects down */
         }
 
         #scroll-arrow {
@@ -125,6 +148,7 @@
             <h2>About Me</h2>
             <h3><u>Who am I?</u></h3>
             <p>
+                <br>
                 I'm Munib, currently immersed in the world of academia as a student at the University of Alberta, enrolled in the Computer Science Honors Program. Prior to this, I pursued A levels, and now I'm on an exciting journey in Canada for my university studies.
                 <br> <br>
                 Professionally, my passion lies in the realms of Artificial Intelligence, software development, and data sciences, with a penchant for front-end development. I find joy in crafting user-friendly interfaces and bringing creative ideas to life through code.
@@ -135,6 +159,8 @@
             </p>
         </div>
         
+        <div id="Divider"></div>
+
         <div id="projects">
             <h2>Projects</h2>
         </div>
