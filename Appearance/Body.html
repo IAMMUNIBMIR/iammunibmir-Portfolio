@@ -64,36 +64,35 @@
             position: relative;
         }
 
-        #about-me h2::before {
+        #about-me h2::before,
+        #about-me h2::after,
+        #about-me h2::last-child {
             content: '';
             position: absolute;
-            width: 100%; /* Full width */
+            width: 30px; /* Adjusted width for small lines */
             height: 4.5px; /* Thick line */
             background-color: #66FCF1;
             top: 100%;
-            left: 0;
             opacity: 0;
             transition: opacity 0.2s ease-in-out;
         }
 
-        #about-me.active h2::before {
+        #about-me.active h2::before,
+        #about-me.active h2::after,
+        #about-me.active h2::last-child {
             opacity: 1;
+        }
+
+        #about-me h2::before {
+            left: -40px;
         }
 
         #about-me h2::after {
-            content: '';
-            position: absolute;
-            width: 100%; /* Full width */
-            height: 4.5px; /* Thick line */
-            background-color: #66FCF1;
-            top: 120%; /* Adjusted spacing between lines */
             left: 0;
-            opacity: 0;
-            transition: opacity 0.2s ease-in-out;
         }
 
-        #about-me.active h2::after {
-            opacity: 1;
+        #about-me h2::last-child {
+            left: 40px;
         }
 
         #about-me-text {
@@ -114,7 +113,8 @@
             background-color: #66FCF1;
             position: absolute;
             align-items: center;
-            margin: 70px; /* Adjusted margin to move the divider down */
+            top: 150px; /* Adjusted margin to move the divider down */
+            left: 25%; /* Centered */
         }
 
         #projects {
