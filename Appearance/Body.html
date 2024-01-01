@@ -64,7 +64,7 @@
             position: relative;
         }
 
-        #about-me h2 {
+        #about-me h2::before {
             content: '';
             position: absolute;
             width: 60px;
@@ -74,10 +74,10 @@
             left: 50%;
             transform: translateX(-50%);
             opacity: 0;
-            transition: opacity 0.1s;
+            transition: opacity 0.5s ease-in-out;
         }
 
-        #about-me.active h2 {
+        #about-me.active h2::before {
             opacity: 1;
         }
 
@@ -165,7 +165,7 @@
                 As I progress through the dynamic field of computer science, I'm excited about the endless possibilities and challenges that lie ahead. Join me on this adventure of exploration and innovation!
             </p>
         </div>
-
+        
         <br>
         <div id="about-me-line"></div>
 
@@ -195,7 +195,7 @@
                 aboutMeSection.classList.remove('active');
             }
         });
-
+        
     </script>
 
 </body>
