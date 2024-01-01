@@ -72,7 +72,8 @@
             width: 30px; /* Adjust the width as needed */
             height: 4.5px; /* Thick line */
             background-color: #66FCF1;
-            top: 100%;
+            top: 50%; /* Position at the middle of the text */
+            transform: translateY(-50%); /* Adjust for vertical centering */
             opacity: 0; /* Set initial opacity to 0 */
             transition: opacity 0.2s ease-in-out;
         }
@@ -97,6 +98,7 @@
             left: 50%;
             transform: translateX(-50%);
         }
+
 
         #about-me-text {
             text-align: justify;
