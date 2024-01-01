@@ -6,20 +6,16 @@
     <title>Munib Mir Portfolio</title>
 
     <style>
-        body {
-            margin: 0; /* Remove default body margin */
-            padding: 0; /* Remove default body padding */
-        }
 
         header {
             background-color: #0B0010;
             color: #66FCF1;
             text-align: center;
-            padding: 2rem 1rem; /* Adjusted padding */
+            padding: 1rem;
         }
 
         header h1 {
-            margin: 0 0 1rem; /* Adjusted margin */
+            margin: 0;
             font-size: 1.8rem;
         }
 
@@ -31,8 +27,9 @@
         }
 
         section {
-            padding: 2rem; /* Added padding to sections for better visibility */
+            padding: 2rem;
         }
+        
     </style>
 
 </head>
@@ -63,6 +60,19 @@
     <section id="contact">
         <!-- contact me content goes here -->
     </section>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 
 </body>
 </html>
