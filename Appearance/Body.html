@@ -73,12 +73,6 @@
             top: 100%;
             left: 50%;
             transform: translateX(-50%);
-            opacity: 0;
-            transition: opacity 0.2s ease-in-out;
-        }
-
-        #about-me.active h2::before {
-            opacity: 1;
         }
 
         #about-me-text {
@@ -97,14 +91,18 @@
             width: 50%;
             height: 1px;
             background-color: #66FCF1;
-            margin: 70px; /* Adjusted margin to move the divider down */
+            position: absolute;
+            margin: 70px auto; /* Adjusted margin to move the divider down and centered horizontally */
+            left: 0;
+            right: 0;
+            transform: translateX(-50%); /* Center the divider horizontally */
         }
 
         #projects {
             padding: 2rem;
             text-align: center;
             color: #66FCF1;
-            margin-top: 300px; /* Adjusted margin to move projects down */
+            margin-top: 250px; /* Adjusted margin to move projects down */
         }
 
         #scroll-arrow {
@@ -175,22 +173,6 @@
                 behavior: 'smooth'
             });
         }
-
-        // window.addEventListener('scroll', function () {
-        //     var aboutMeSection = document.getElementById('about-me');
-        //     var aboutMeHeading = document.querySelector('#about-me h2');
-        //     var aboutMeLine = document.getElementById('Divider');
-        //     var projectsSection = document.getElementById('projects');
-
-        //     var rect = aboutMeSection.getBoundingClientRect();
-        //     var windowHeight = window.innerHeight || document.documentElement.clientHeight;
-
-        //     if (rect.top < windowHeight / 2 && rect.bottom >= 0) {
-        //         aboutMeSection.classList.add('active');
-        //     } else {
-        //         aboutMeSection.classList.remove('active');
-        //     }
-        // });
 
     </script>
 
