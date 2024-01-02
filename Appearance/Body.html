@@ -14,6 +14,12 @@
             position: relative;
         }
 
+        /* Add a class for dark mode */
+        body.dark-mode {
+            background-color: #0B0705;
+            color: #D9DDDC;
+        }
+
         #main-content {
             display: flex;
             justify-content: center;
@@ -163,22 +169,6 @@
 
         <div id="projects">
             <h2>Projects</h2>
-        </div>
-        
-        <div id="Contact-me">
-            <h2>Contact Me</h2>
-            <form action="process_contact.php" method="post">
-                <label for="contact-name">Name:</label>
-                <input type="text" id="contact-name" name="contact-name" required>
-        
-                <label for="contact-email">Email:</label>
-                <input type="email" id="contact-email" name="contact-email" required>
-        
-                <label for="contact-description">Description:</label>
-                <textarea id="contact-description" name="contact-description" rows="4" required></textarea>
-        
-                <button type="submit">Submit</button>
-            </form>
         </div>
 
     </div>

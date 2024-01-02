@@ -16,6 +16,7 @@
             position: fixed;
             bottom: 0;
             width: 100%;
+            transition: transform 0.3s ease-in-out; /* Added transition property */
         }
 
         footer p {
@@ -66,9 +67,9 @@
                 var scrollPosition = window.scrollY;
 
                 if (scrollPosition >= scrollHeight) {
-                    footer.style.display = 'block';
+                    footer.style.transform = 'translateY(0)'; // Show the footer smoothly
                 } else {
-                    footer.style.display = 'none';
+                    footer.style.transform = 'translateY(100%)'; // Hide the footer smoothly
                 }
             }
 
