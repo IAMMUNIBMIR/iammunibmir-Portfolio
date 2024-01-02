@@ -89,7 +89,7 @@
     </header>
 
     <script>
-        let isDarkMode = true;
+        let isDarkMode = document.body.classList.contains('light-mode');
     
         function toggleDarkMode() {
             const body = document.body;
