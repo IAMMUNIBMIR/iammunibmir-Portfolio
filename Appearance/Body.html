@@ -15,7 +15,7 @@
             transition: background-color 0.3s, color 0.3s; /* Added transition properties */
         }
 
-        body.light-mode {
+        .light-mode #main-content {
             background-color: #FCFFEA; /* Light mode background color */
             color: #0081A7; /* Light mode font color */
         }
@@ -64,7 +64,7 @@
             transform: translateY(20px);
         }
 
-        body.light-mode #about-me {
+        .light-mode #about-me {
             color: #0081A7; /* Light mode font color */
         }
 
@@ -112,6 +112,7 @@
             text-align: center;
             color: #D9DDDC;
             margin-top: 250px; /* Adjusted margin to move projects down */
+            margin-bottom: 50px; /* Added margin-bottom to create space underneath */
         }
 
         #scroll-arrow {
@@ -124,6 +125,10 @@
             animation: bounce 1s infinite;
             color: #D9DDDC;
             z-index: 1;
+        }
+
+        .light-mode #scroll-arrow {
+            color: #0081A7; /* Light mode arrow color */
         }
 
         @keyframes bounce {
@@ -140,7 +145,7 @@
     </style>
 </head>
 
-<body>
+<body class="light-mode">
 
     <div id="main-content">
         <div id="image">
