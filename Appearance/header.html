@@ -28,8 +28,8 @@
             <a href="#about-me" onclick="scrollToAboutMe()">About Me</a>
             <a href="#projects" onclick="scrollToProjects()">Projects</a>
             <span class="mode-icon" onclick="toggleDarkMode()">
-                <i class="moon-icon fas fa-moon"></i>
-                <i class="sun-icon fas fa-sun" style="display: none;"></i>
+                <i class="sun-icon fas fa-sun"></i>
+                <i class="moon-icon fas fa-moon" style="display: none;"></i>
             </span>
         </nav>
     </header>
@@ -49,15 +49,15 @@
                 body.classList.remove('light-mode');
                 header.classList.remove('light-mode');
                 navLinks.forEach(link => link.classList.remove('light-mode'));
-                moonIcon.style.display = 'none';
-                sunIcon.style.display = 'inline';
+                moonIcon.style.display = 'inline';
+                sunIcon.style.display = 'none';
             } else {
                 // Switch to dark mode
                 body.classList.add('light-mode');
                 header.classList.add('light-mode');
                 navLinks.forEach(link => link.classList.add('light-mode'));
-                moonIcon.style.display = 'inline';
-                sunIcon.style.display = 'none';
+                moonIcon.style.display = 'none';
+                sunIcon.style.display = 'inline';
             }
 
             isDarkMode = !isDarkMode;
