@@ -74,7 +74,8 @@
             position: relative;
         }
 
-        #about-me h2::before {
+        #about-me h2::before,
+        #Divider {
             content: '';
             position: absolute;
             width: 100px;
@@ -107,8 +108,9 @@
             right: 0;
         }
 
+        body.light-mode #about-me h2::before,
         body.light-mode #Divider {
-            background-color: #0081A7; /* Light mode color for the divider */
+            background-color: #0081A7;
         }
 
         #projects {

@@ -98,6 +98,9 @@
             const moonIcon = document.querySelector('.moon-icon');
             const sunIcon = document.querySelector('.sun-icon');
     
+            // Update isDarkMode on each click
+            isDarkMode = !isDarkMode;
+    
             if (isDarkMode) {
                 // Switch to light mode
                 body.classList.remove('light-mode');
@@ -113,8 +116,6 @@
                 moonIcon.style.display = 'none';
                 sunIcon.style.display = 'inline';
             }
-    
-            isDarkMode = !isDarkMode;
         }
     
         let prevScrollPos = window.pageYOffset;
@@ -146,7 +147,8 @@
                 behavior: 'smooth'
             });
         }
-    </script>    
+    </script>
+    
 
 </body>
 </html>

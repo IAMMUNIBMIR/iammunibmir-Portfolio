@@ -60,24 +60,22 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+            var body = document.body;
             var footer = document.getElementById('myFooter');
             var isDarkMode = false; // Changed default mode to light mode
-
+    
             function toggleFooter() {
                 var scrollHeight = document.body.scrollHeight - window.innerHeight;
                 var scrollPosition = window.scrollY;
-
+    
                 if (scrollPosition >= scrollHeight) {
                     footer.style.transform = 'translateY(0)'; // Show the footer smoothly
                 } else {
                     footer.style.transform = 'translateY(100%)'; // Hide the footer smoothly
                 }
             }
-
+    
             function toggleDarkMode() {
-                var body = document.body;
-                var footer = document.getElementById('myFooter');
-
                 if (isDarkMode) {
                     // Switch to light mode
                     body.classList.add('light-mode');
@@ -87,17 +85,15 @@
                     body.classList.remove('light-mode');
                     footer.classList.remove('light-mode');
                 }
-
-                isDarkMode = !isDarkMode;
             }
-
+    
             window.addEventListener('scroll', toggleFooter);
             toggleFooter();
-
+    
             // Toggle dark/light mode when the script is loaded
             toggleDarkMode();
         });
-    </script>
+    </script>    
 
 </body>
 
