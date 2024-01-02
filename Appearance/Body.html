@@ -12,6 +12,7 @@
             background-color: #0B0705; /* Dark mode background color */
             color: #D9DDDC; /* Dark mode font color */
             position: relative;
+            transition: background-color 0.3s, color 0.3s; /* Added transition properties */
         }
 
         body.light-mode {
@@ -61,6 +62,10 @@
             color: #D9DDDC;
             margin-top: 50px;
             transform: translateY(20px);
+        }
+
+        body.light-mode #about-me {
+            color: #0081A7; /* Light mode font color */
         }
 
         #about-me h2 {
