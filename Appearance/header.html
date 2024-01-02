@@ -96,6 +96,7 @@
             const navLinks = document.querySelectorAll('nav a');
             const moonIcon = document.querySelector('.moon-icon');
             const sunIcon = document.querySelector('.sun-icon');
+            const headerHeight = header.offsetHeight; // Added to get the height of the header
     
             function toggleDarkMode() {
                 if (isDarkMode) {
@@ -137,13 +138,17 @@
     
             function scrollToAboutMe() {
                 document.getElementById('about-me').scrollIntoView({
-                    behavior: 'smooth'
+                    behavior: 'smooth',
+                    block: 'start', // Scroll to the start of the target element
+                    inline: 'nearest' // Scroll to the nearest edge of the target element
                 });
             }
     
             function scrollToProjects() {
                 document.getElementById('projects').scrollIntoView({
-                    behavior: 'smooth'
+                    behavior: 'smooth',
+                    block: 'start', // Scroll to the start of the target element
+                    inline: 'nearest' // Scroll to the nearest edge of the target element
                 });
             }
     
@@ -153,7 +158,7 @@
             // Add event listener for the mode icon click
             document.querySelector('.mode-icon').addEventListener('click', toggleDarkMode);
         });
-    </script>
+    </script>    
 
 </body>
 </html>

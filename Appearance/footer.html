@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Munib Mir Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
 
@@ -62,36 +63,45 @@
         document.addEventListener('DOMContentLoaded', function () {
             var body = document.body;
             var footer = document.getElementById('myFooter');
-            var isDarkMode = false; // Changed default mode to light mode
-    
+            var isDarkMode = false;
+
             function toggleFooter() {
                 var scrollHeight = document.body.scrollHeight - window.innerHeight;
                 var scrollPosition = window.scrollY;
-    
+
                 if (scrollPosition >= scrollHeight) {
-                    footer.style.transform = 'translateY(0)'; // Show the footer smoothly
+                    footer.style.transform = 'translateY(0)';
                 } else {
-                    footer.style.transform = 'translateY(100%)'; // Hide the footer smoothly
+                    footer.style.transform = 'translateY(100%)';
                 }
             }
-    
+
             function toggleDarkMode() {
+                isDarkMode = !isDarkMode;
+
                 if (isDarkMode) {
-                    // Switch to light mode
+                    // Switch to dark mode
                     body.classList.add('light-mode');
                     footer.classList.add('light-mode');
                 } else {
-                    // Switch to dark mode
+                    // Switch to light mode
                     body.classList.remove('light-mode');
                     footer.classList.remove('light-mode');
                 }
             }
-    
+
             window.addEventListener('scroll', toggleFooter);
             toggleFooter();
-    
+
             // Toggle dark/light mode when the script is loaded
             toggleDarkMode();
+
+            // Add event listener for dark/light mode toggle
+            document.body.addEventListener('click', function (event) {
+                if (event.target.classList.contains('toggle-mode')) {
+                    toggleDarkMode();
+                }
+            });
         });
     </script>    
 
