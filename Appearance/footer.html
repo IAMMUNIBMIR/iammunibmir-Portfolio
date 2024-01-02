@@ -28,6 +28,7 @@
 
         footer p {
             margin: 0;
+            color: inherit; /* Inherit color from the parent (body) */
         }
 
         footer a {
@@ -35,6 +36,7 @@
             text-decoration: none;
             margin-right: 15px; /* Increased margin */
             font-size: 1.2rem; /* Increased font size */
+            color: inherit; /* Inherit color from the parent (body) */
         }
 
         footer i {
@@ -63,7 +65,7 @@
         document.addEventListener('DOMContentLoaded', function () {
             var body = document.body;
             var footer = document.getElementById('myFooter');
-            var isDarkMode = false;
+            var isDarkMode = true; // Set default mode as dark mode
 
             function toggleFooter() {
                 var scrollHeight = document.body.scrollHeight - window.innerHeight;
