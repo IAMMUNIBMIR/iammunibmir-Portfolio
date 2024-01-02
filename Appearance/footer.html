@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-
         footer {
             display: none;
             background-color: #0B0705; /* Dark mode background color */
@@ -66,6 +65,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             var footer = document.getElementById('myFooter');
+            var isDarkMode = true;
 
             function toggleFooter() {
                 var scrollHeight = document.body.scrollHeight - window.innerHeight;
@@ -78,8 +78,28 @@
                 }
             }
 
+            function toggleDarkMode() {
+                var body = document.body;
+                var footer = document.getElementById('myFooter');
+
+                if (isDarkMode) {
+                    // Switch to light mode
+                    body.classList.add('light-mode');
+                    footer.classList.add('light-mode');
+                } else {
+                    // Switch to dark mode
+                    body.classList.remove('light-mode');
+                    footer.classList.remove('light-mode');
+                }
+
+                isDarkMode = !isDarkMode;
+            }
+
             window.addEventListener('scroll', toggleFooter);
             toggleFooter();
+
+            // Toggle dark/light mode when the script is loaded
+            toggleDarkMode();
         });
     </script>
 

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Munib Mir Portfolio</title>
     <style>
+
         header {
             background-color: #0B0010;
             color: #D9DDDC; /* Default font color for dark mode */
@@ -15,11 +16,16 @@
             top: 0;
             width: 100%;
             z-index: 1000;
-            transition: top 0.3s;
+            transition: top 0.3s, background-color 0.3s, color 0.3s; /* Added background-color and color transitions */
         }
 
         header.hiding {
             top: -60px; /* Adjust this value to match the header height */
+        }
+
+        header.light-mode {
+            background-color: #fcffea; /* Light mode background color */
+            color: #0081A7; /* Light mode font color */
         }
 
         header h1 {
@@ -32,6 +38,10 @@
             text-decoration: none;
             margin: 0 1rem;
             font-size: 1rem;
+        }
+
+        header.light-mode nav a {
+            color: #0081A7; /* Font color for light mode */
         }
 
         .moon-icon {
@@ -48,8 +58,6 @@
             scroll-behavior: smooth;
             margin: 0;
             padding: 0;
-            background-color: #0B0705; /* Default background color for dark mode */
-            color: #D9DDDC; /* Default font color for dark mode */
         }
 
         #main-content {
@@ -85,19 +93,15 @@
 
             if (isDarkMode) {
                 // Switch to light mode
-                body.style.backgroundColor = '#fcffea';
-                body.style.color = '#0081A7';
-                header.style.backgroundColor = '#0B0010';
-                header.style.color = '#0081A7';
-                navLinks.forEach(link => link.style.color = '#0081A7');
+                body.classList.remove('light-mode');
+                header.classList.remove('light-mode');
+                navLinks.forEach(link => link.classList.remove('light-mode'));
                 moonIcon.classList.add('light-mode');
             } else {
                 // Switch to dark mode
-                body.style.backgroundColor = '#0B0705';
-                body.style.color = '#D9DDDC';
-                header.style.backgroundColor = '#0B0010';
-                header.style.color = '#D9DDDC';
-                navLinks.forEach(link => link.style.color = '#D9DDDC');
+                body.classList.add('light-mode');
+                header.classList.add('light-mode');
+                navLinks.forEach(link => link.classList.add('light-mode'));
                 moonIcon.classList.remove('light-mode');
             }
 
