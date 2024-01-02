@@ -84,13 +84,13 @@
 
     <script>
         let isDarkMode = true;
-
+    
         function toggleDarkMode() {
             const body = document.body;
             const header = document.querySelector('header');
             const navLinks = document.querySelectorAll('nav a');
             const moonIcon = document.querySelector('.moon-icon');
-
+    
             if (isDarkMode) {
                 // Switch to light mode
                 body.classList.remove('light-mode');
@@ -104,12 +104,12 @@
                 navLinks.forEach(link => link.classList.add('light-mode'));
                 moonIcon.classList.remove('light-mode');
             }
-
+    
             isDarkMode = !isDarkMode;
         }
-
+    
         let prevScrollPos = window.pageYOffset;
-
+    
         window.onscroll = function () {
             let currentScrollPos = window.pageYOffset;
             if (prevScrollPos > currentScrollPos) {
@@ -119,25 +119,25 @@
             }
             prevScrollPos = currentScrollPos;
         };
-
+    
         function scrollToHome() {
             document.getElementById('main-content').scrollIntoView({
                 behavior: 'smooth'
             });
         }
-
+    
         function scrollToAboutMe() {
             document.getElementById('about-me').scrollIntoView({
                 behavior: 'smooth'
             });
         }
-
+    
         function scrollToProjects() {
             document.getElementById('projects').scrollIntoView({
                 behavior: 'smooth'
             });
         }
-    </script>
+    </script>    
 
 </body>
 </html>
