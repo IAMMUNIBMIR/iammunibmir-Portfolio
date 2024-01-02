@@ -7,6 +7,7 @@
     <title>Munib Mir Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+
         header {
             background-color: #0B0705;
             color: #D9DDDC; /* Default font color for dark mode */
@@ -34,7 +35,7 @@
         }
 
         nav a {
-            color: #D9DDDC; /* Default font color for dark mode */
+            color: inherit; /* Inherit color from the parent (body) */
             text-decoration: none;
             margin: 0 1rem;
             font-size: 1rem;
@@ -78,9 +79,9 @@
     <header class="light-mode">
         <h1>Munib Mir</h1>
         <nav>
-            <a href="#home" onclick="scrollToHome()">Home</a>
-            <a href="#about-me" onclick="scrollToAboutMe()">About Me</a>
-            <a href="#projects" onclick="scrollToProjects()">Projects</a>
+            <a href="#main-content">Home</a>
+            <a href="#about-me">About Me</a>
+            <a href="#projects">Projects</a>
             <span class="mode-icon" onclick="toggleDarkMode()">
                 <i class="sun-icon fas fa-sun"></i>
                 <i class="moon-icon fas fa-moon" style="display: none;"></i>
@@ -161,4 +162,5 @@
     </script>    
 
 </body>
+
 </html>
