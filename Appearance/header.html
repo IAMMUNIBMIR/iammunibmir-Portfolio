@@ -44,13 +44,16 @@
             color: #0081A7; /* Font color for light mode */
         }
 
-        .moon-icon {
+        .mode-icon {
             cursor: pointer;
             font-size: 20px;
+        }
+
+        .moon-icon {
             color: #D9DDDC; /* Default icon color for dark mode */
         }
 
-        .moon-icon.light-mode {
+        .sun-icon {
             color: #0081A7; /* Icon color for light mode */
         }
 
@@ -78,38 +81,44 @@
             <a href="#home" onclick="scrollToHome()">Home</a>
             <a href="#about-me" onclick="scrollToAboutMe()">About Me</a>
             <a href="#projects" onclick="scrollToProjects()">Projects</a>
-            <span class="moon-icon" onclick="toggleDarkMode()"><i class="fas fa-star"></i></span>
+            <span class="mode-icon" onclick="toggleDarkMode()">
+                <i class="moon-icon fas fa-moon"></i>
+                <i class="sun-icon fas fa-sun" style="display: none;"></i>
+            </span>
         </nav>
     </header>
 
     <script>
         let isDarkMode = true;
-    
+
         function toggleDarkMode() {
             const body = document.body;
             const header = document.querySelector('header');
             const navLinks = document.querySelectorAll('nav a');
             const moonIcon = document.querySelector('.moon-icon');
-    
+            const sunIcon = document.querySelector('.sun-icon');
+
             if (isDarkMode) {
                 // Switch to light mode
                 body.classList.remove('light-mode');
                 header.classList.remove('light-mode');
                 navLinks.forEach(link => link.classList.remove('light-mode'));
-                moonIcon.classList.add('light-mode');
+                moonIcon.style.display = 'none';
+                sunIcon.style.display = 'inline';
             } else {
                 // Switch to dark mode
                 body.classList.add('light-mode');
                 header.classList.add('light-mode');
                 navLinks.forEach(link => link.classList.add('light-mode'));
-                moonIcon.classList.remove('light-mode');
+                moonIcon.style.display = 'inline';
+                sunIcon.style.display = 'none';
             }
-    
+
             isDarkMode = !isDarkMode;
         }
-    
+
         let prevScrollPos = window.pageYOffset;
-    
+
         window.onscroll = function () {
             let currentScrollPos = window.pageYOffset;
             if (prevScrollPos > currentScrollPos) {
@@ -119,25 +128,25 @@
             }
             prevScrollPos = currentScrollPos;
         };
-    
+
         function scrollToHome() {
             document.getElementById('main-content').scrollIntoView({
                 behavior: 'smooth'
             });
         }
-    
+
         function scrollToAboutMe() {
             document.getElementById('about-me').scrollIntoView({
                 behavior: 'smooth'
             });
         }
-    
+
         function scrollToProjects() {
             document.getElementById('projects').scrollIntoView({
                 behavior: 'smooth'
             });
         }
-    </script>    
+    </script>
 
 </body>
 </html>
