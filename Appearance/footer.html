@@ -1,4 +1,59 @@
-<!-- ... (your head section remains unchanged) -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Munib Mir Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        body.light-mode {
+            background-color: #FCFFEA; /* Light mode background color */
+            color: #0081A7; /* Light mode font color */
+        }
+
+        footer {
+            background-color: #0B0705; /* Dark mode background color */
+            color: #D9DDDC; /* Dark mode font color */
+            text-align: center;
+            padding: 1.5rem; /* Increased padding */
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            transform: translateY(100%); /* Initially hide the footer */
+            transition: transform 0.3s ease-in-out; /* Added transition property */
+            font-size: 1.2rem; /* Increased font size */
+        }
+
+        footer.light-mode {
+            background-color: #FCFFEA; /* Light mode background color */
+            color: #0081A7; /* Light mode font color */
+        }
+
+        footer p {
+            margin: 0;
+            color: inherit; /* Inherit color from the parent (body) */
+        }
+
+        footer a {
+            color: inherit; /* Inherit color from the parent (body) */
+            text-decoration: none;
+            margin-right: 15px; /* Increased margin */
+            font-size: 1.2rem; /* Increased font size */
+        }
+
+        footer i {
+            font-size: 24px; /* Increased icon size */
+            margin-right: 8px; /* Adjusted margin */
+        }
+    </style>
+</head>
 
 <body class="light-mode">
 
@@ -19,7 +74,7 @@
         document.addEventListener('DOMContentLoaded', function () {
             var body = document.body;
             var footer = document.getElementById('myFooter');
-            var isDarkMode = false; // Set default mode as light mode
+            var isDarkMode = true; // Set default mode as dark mode
 
             function toggleFooter() {
                 var scrollHeight = document.body.scrollHeight - window.innerHeight;
@@ -59,7 +114,7 @@
                 }
             });
         });
-    </script>    
+    </script>
 
 </body>
 
