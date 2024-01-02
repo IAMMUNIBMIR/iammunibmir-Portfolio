@@ -15,7 +15,7 @@
             bottom: 0;
             width: 100%;
             transform: translateY(100%); /* Initially hide the footer */
-            transition: transform 0.3s ease-in-out; /* Added transition property */
+            transition: transform 0.3s ease-in-out, background-color 0.3s, color 0.3s; /* Added transition properties */
             font-size: 1.2rem; /* Increased font size */
         }
 
@@ -98,6 +98,8 @@
             function updateFooterColor() {
                 // Update the background color of the footer
                 footer.style.backgroundColor = isDarkMode ? '#0B0705' : '#FCFFEA';
+                // Update the text color of the footer
+                footer.style.color = isDarkMode ? '#D9DDDC' : '#0081A7';
             }
 
             window.addEventListener('scroll', toggleFooter);
