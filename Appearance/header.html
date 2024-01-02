@@ -90,42 +90,70 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            var body = document.body;
-            var footer = document.getElementById('myFooter');
-            var isDarkMode = false; // Changed default mode to light mode
-    
-            function toggleFooter() {
-                var scrollHeight = document.body.scrollHeight - window.innerHeight;
-                var scrollPosition = window.scrollY;
-    
-                if (scrollPosition >= scrollHeight) {
-                    footer.style.transform = 'translateY(0)'; // Show the footer smoothly
-                } else {
-                    footer.style.transform = 'translateY(100%)'; // Hide the footer smoothly
-                }
-            }
+            let isDarkMode = document.body.classList.contains('light-mode');
+            const body = document.body;
+            const header = document.querySelector('header');
+            const navLinks = document.querySelectorAll('nav a');
+            const moonIcon = document.querySelector('.moon-icon');
+            const sunIcon = document.querySelector('.sun-icon');
     
             function toggleDarkMode() {
                 if (isDarkMode) {
                     // Switch to light mode
-                    body.classList.add('light-mode');
-                    footer.classList.add('light-mode');
+                    body.classList.remove('light-mode');
+                    header.classList.remove('light-mode');
+                    navLinks.forEach(link => link.classList.remove('light-mode'));
+                    moonIcon.style.display = 'inline';
+                    sunIcon.style.display = 'none';
                 } else {
                     // Switch to dark mode
-                    body.classList.remove('light-mode');
-                    footer.classList.remove('light-mode');
+                    body.classList.add('light-mode');
+                    header.classList.add('light-mode');
+                    navLinks.forEach(link => link.classList.add('light-mode'));
+                    moonIcon.style.display = 'none';
+                    sunIcon.style.display = 'inline';
                 }
+    
+                isDarkMode = !isDarkMode;
             }
     
-            window.addEventListener('scroll', toggleFooter);
-            toggleFooter();
+            let prevScrollPos = window.pageYOffset;
+    
+            window.onscroll = function () {
+                let currentScrollPos = window.pageYOffset;
+                if (prevScrollPos > currentScrollPos) {
+                    header.classList.remove('hiding');
+                } else {
+                    header.classList.add('hiding');
+                }
+                prevScrollPos = currentScrollPos;
+            };
+    
+            function scrollToHome() {
+                document.getElementById('main-content').scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+    
+            function scrollToAboutMe() {
+                document.getElementById('about-me').scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+    
+            function scrollToProjects() {
+                document.getElementById('projects').scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
     
             // Toggle dark/light mode when the script is loaded
             toggleDarkMode();
+    
+            // Add event listener for the mode icon click
+            document.querySelector('.mode-icon').addEventListener('click', toggleDarkMode);
         });
     </script>
-    
-    
 
 </body>
 </html>
