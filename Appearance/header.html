@@ -7,14 +7,65 @@
     <title>Munib Mir Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* Your existing styles remain unchanged */
+        header {
+            background-color: #0B0705;
+            color: #D9DDDC; /* Default font color for dark mode */
+            text-align: center;
+            padding: 1rem;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: top 0.3s, background-color 0.3s, color 0.3s; /* Added background-color and color transitions */
+        }
+
+        header.hiding {
+            top: -60px; /* Adjust this value to match the header height */
+        }
+
+        header.light-mode {
+            background-color: #FCFFEA; /* Light mode background color */
+            color: #0081A7; /* Light mode font color */
+        }
+
+        header h1 {
+            margin: 15px;
+            font-size: 1.8rem;
+        }
+
+        nav a {
+            color: #D9DDDC; /* Default font color for dark mode */
+            text-decoration: none;
+            margin: 0 1rem;
+            font-size: 1rem;
+        }
+
+        header.light-mode nav a {
+            color: #0081A7; /* Font color for light mode */
+        }
 
         .moon-icon {
+            cursor: pointer;
+            font-size: 20px;
             color: #D9DDDC; /* Default icon color for dark mode */
         }
 
-        .sun-icon {
+        .moon-icon.light-mode {
             color: #0081A7; /* Icon color for light mode */
+        }
+
+        html, body {
+            scroll-behavior: smooth;
+            margin: 0;
+            padding: 0;
+        }
+
+        #main-content {
+            padding-top: 60px; /* Adjusted padding to prevent content from being hidden behind the header */
+        }
+
+        .section {
+            margin-top: 80px; /* Adjust this value to provide space for the fixed header */
         }
     </style>
 </head>
@@ -27,44 +78,38 @@
             <a href="#home" onclick="scrollToHome()">Home</a>
             <a href="#about-me" onclick="scrollToAboutMe()">About Me</a>
             <a href="#projects" onclick="scrollToProjects()">Projects</a>
-            <span class="mode-icon" onclick="toggleDarkMode()">
-                <i class="sun-icon fas fa-sun"></i>
-                <i class="moon-icon fas fa-moon" style="display: none;"></i>
-            </span>
+            <span class="moon-icon" onclick="toggleDarkMode()"><i class="fas fa-star"></i></span>
         </nav>
     </header>
 
     <script>
         let isDarkMode = true;
-
+    
         function toggleDarkMode() {
             const body = document.body;
             const header = document.querySelector('header');
             const navLinks = document.querySelectorAll('nav a');
             const moonIcon = document.querySelector('.moon-icon');
-            const sunIcon = document.querySelector('.sun-icon');
-
+    
             if (isDarkMode) {
                 // Switch to light mode
                 body.classList.remove('light-mode');
                 header.classList.remove('light-mode');
                 navLinks.forEach(link => link.classList.remove('light-mode'));
-                moonIcon.style.display = 'inline';
-                sunIcon.style.display = 'none';
+                moonIcon.classList.add('light-mode');
             } else {
                 // Switch to dark mode
                 body.classList.add('light-mode');
                 header.classList.add('light-mode');
                 navLinks.forEach(link => link.classList.add('light-mode'));
-                moonIcon.style.display = 'none';
-                sunIcon.style.display = 'inline';
+                moonIcon.classList.remove('light-mode');
             }
-
+    
             isDarkMode = !isDarkMode;
         }
-
+    
         let prevScrollPos = window.pageYOffset;
-
+    
         window.onscroll = function () {
             let currentScrollPos = window.pageYOffset;
             if (prevScrollPos > currentScrollPos) {
@@ -74,26 +119,25 @@
             }
             prevScrollPos = currentScrollPos;
         };
-
+    
         function scrollToHome() {
             document.getElementById('main-content').scrollIntoView({
                 behavior: 'smooth'
             });
         }
-
+    
         function scrollToAboutMe() {
             document.getElementById('about-me').scrollIntoView({
                 behavior: 'smooth'
             });
         }
-
+    
         function scrollToProjects() {
             document.getElementById('projects').scrollIntoView({
                 behavior: 'smooth'
             });
         }
-    </script>
+    </script>    
 
 </body>
-
 </html>
