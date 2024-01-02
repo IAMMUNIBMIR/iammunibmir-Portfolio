@@ -11,6 +11,8 @@
             margin: 0;
             padding: 0;
             transition: background-color 0.3s, color 0.3s;
+            background-color: #0B0705; /* Dark mode background color */
+            color: #D9DDDC; /* Dark mode font color */
         }
 
         body.light-mode {
@@ -52,6 +54,14 @@
             font-size: 24px; /* Increased icon size */
             margin-right: 8px; /* Adjusted margin */
         }
+
+        body.light-mode footer i.fab {
+            color: #0081A7; /* Light mode color for Font Awesome brands */
+        }
+
+        body.light-mode footer i.fa-brands {
+            color: #0081A7; /* Light mode color for Font Awesome regular icons */
+        }
     </style>
 </head>
 
@@ -75,21 +85,21 @@
             var body = document.body;
             var footer = document.getElementById('myFooter');
             var isDarkMode = true; // Set default mode as dark mode
-    
+
             function toggleFooter() {
                 var scrollHeight = document.body.scrollHeight - window.innerHeight;
                 var scrollPosition = window.scrollY;
-    
+
                 if (scrollPosition >= scrollHeight) {
                     footer.style.transform = 'translateY(0)';
                 } else {
                     footer.style.transform = 'translateY(100%)';
                 }
             }
-    
+
             function toggleDarkMode() {
                 isDarkMode = !isDarkMode;
-    
+
                 if (isDarkMode) {
                     // Switch to dark mode
                     body.classList.add('light-mode');
@@ -99,31 +109,22 @@
                     body.classList.remove('light-mode');
                     footer.classList.remove('light-mode');
                 }
-    
+
                 // Update the color of the footer
                 updateFooterColor();
             }
-    
+
             function updateFooterColor() {
-                var footerLinks = footer.querySelectorAll('a');
-                var footerIcons = footer.querySelectorAll('i');
-    
-                // Loop through footer links and icons to update their color
-                footerLinks.forEach(function (link) {
-                    link.style.color = isDarkMode ? 'inherit' : '#0081A7';
-                });
-    
-                footerIcons.forEach(function (icon) {
-                    icon.style.color = isDarkMode ? 'inherit' : '#0081A7';
-                });
+                // No need to update Font Awesome icons' color here
+                // They will be styled through CSS based on light or dark mode
             }
-    
+
             window.addEventListener('scroll', toggleFooter);
             toggleFooter();
-    
+
             // Toggle dark/light mode when the script is loaded
             toggleDarkMode();
-    
+
             // Add event listener for dark/light mode toggle
             document.body.addEventListener('click', function (event) {
                 if (event.target.classList.contains('toggle-mode')) {
@@ -132,7 +133,6 @@
             });
         });
     </script>
-    
 
 </body>
 
