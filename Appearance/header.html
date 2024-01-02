@@ -8,7 +8,7 @@
     <style>
         header {
             background-color: #0B0010;
-            color: #66FCF1;
+            color: #D9DDDC; /* Default font color for dark mode */
             text-align: center;
             padding: 1rem;
             position: fixed;
@@ -28,16 +28,28 @@
         }
 
         nav a {
-            color: #66FCF1;
+            color: #D9DDDC; /* Default font color for dark mode */
             text-decoration: none;
             margin: 0 1rem;
             font-size: 1rem;
+        }
+
+        .moon-icon {
+            cursor: pointer;
+            font-size: 20px;
+            color: #D9DDDC; /* Default icon color for dark mode */
+        }
+
+        .moon-icon.light-mode {
+            color: #0081A7; /* Icon color for light mode */
         }
 
         html, body {
             scroll-behavior: smooth;
             margin: 0;
             padding: 0;
+            background-color: #0B0705; /* Default background color for dark mode */
+            color: #D9DDDC; /* Default font color for dark mode */
         }
 
         #main-content {
@@ -47,25 +59,10 @@
         .section {
             margin-top: 80px; /* Adjust this value to provide space for the fixed header */
         }
-
-        /* Toggle button styles */
-        #toggle-btn {
-            position: fixed;
-            top: 10px;
-            right: 10px;
-            background-color: transparent;
-            border: none;
-            cursor: pointer;
-            font-size: 1.5rem;
-            color: #66FCF1;
-        }
     </style>
 </head>
 
 <body>
-
-    <!-- Add the toggle button -->
-    <button id="toggle-btn" onclick="toggleDarkMode()">🌙</button>
 
     <header>
         <h1>Munib Mir</h1>
@@ -73,10 +70,40 @@
             <a href="#home" onclick="scrollToHome()">Home</a>
             <a href="#about-me" onclick="scrollToAboutMe()">About Me</a>
             <a href="#projects" onclick="scrollToProjects()">Projects</a>
+            <span class="moon-icon" onclick="toggleDarkMode()">&#127770;</span>
         </nav>
     </header>
 
     <script>
+        let isDarkMode = true;
+
+        function toggleDarkMode() {
+            const body = document.body;
+            const header = document.querySelector('header');
+            const navLinks = document.querySelectorAll('nav a');
+            const moonIcon = document.querySelector('.moon-icon');
+
+            if (isDarkMode) {
+                // Switch to light mode
+                body.style.backgroundColor = '#fcffea';
+                body.style.color = '#0081A7';
+                header.style.backgroundColor = '#0B0010';
+                header.style.color = '#0081A7';
+                navLinks.forEach(link => link.style.color = '#0081A7');
+                moonIcon.classList.add('light-mode');
+            } else {
+                // Switch to dark mode
+                body.style.backgroundColor = '#0B0705';
+                body.style.color = '#D9DDDC';
+                header.style.backgroundColor = '#0B0010';
+                header.style.color = '#D9DDDC';
+                navLinks.forEach(link => link.style.color = '#D9DDDC');
+                moonIcon.classList.remove('light-mode');
+            }
+
+            isDarkMode = !isDarkMode;
+        }
+
         let prevScrollPos = window.pageYOffset;
 
         window.onscroll = function () {
@@ -105,10 +132,6 @@
             document.getElementById('projects').scrollIntoView({
                 behavior: 'smooth'
             });
-        }
-
-        function toggleDarkMode() {
-            document.body.classList.toggle('dark-mode');
         }
     </script>
 

@@ -9,8 +9,8 @@
 
         footer {
             display: none;
-            background-color: #0B0010;
-            color: #66FCF1;
+            background-color: #0B0705; /* Dark mode background color */
+            color: #D9DDDC; /* Dark mode font color */
             text-align: center;
             padding: 1rem;
             position: fixed;
@@ -19,12 +19,17 @@
             transition: transform 0.3s ease-in-out; /* Added transition property */
         }
 
+        footer.light-mode {
+            background-color: #fcffea; /* Light mode background color */
+            color: #0081A7; /* Light mode font color */
+        }
+
         footer p {
             margin: 0;
         }
 
         footer a {
-            color: #66FCF1;
+            color: #D9DDDC;
             text-decoration: none;
             margin-right: 10px;
         }
