@@ -11,7 +11,7 @@
             margin: 0;
             padding: 0;
             transition: background-color 0.3s, color 0.3s;
-            background-color: #0B0705; /* Dark mode background color */
+            background-color: #0B0705; /* Dark mode background color */ 
             color: #D9DDDC; /* Dark mode font color */
         }
 
@@ -31,11 +31,18 @@
             font-size: 1.2rem; /* Increased font size */
         }
 
+        body.light-mode footer {
+            background-color: #FCFFEA; /* Light mode background color */
+            color: #0081A7; /* Light mode font color */
+        }
+
         footer p {
             margin: 0;
+            color: inherit; /* Inherit color from the parent (body) */
         }
 
         footer a {
+            color: inherit; /* Inherit color from the parent (body) */
             text-decoration: none;
             margin-right: 15px; /* Increased margin */
             font-size: 1.2rem; /* Increased font size */
@@ -49,6 +56,16 @@
         body.light-mode footer {
             background-color: #FCFFEA; /* Light mode background color */
             color: #0081A7; /* Light mode font color */
+        }
+
+        body.dark-mode {
+            background-color: #0B0705; /* Dark mode background color */
+            color: #D9DDDC; /* Dark mode font color */
+        }
+
+        body.dark-mode footer {
+            background-color: #0B0705; /* Dark mode background color */
+            color: #D9DDDC; /* Dark mode font color */
         }
     </style>
 </head>

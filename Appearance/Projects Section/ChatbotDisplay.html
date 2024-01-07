@@ -34,10 +34,10 @@
         }
 
         .github-icon {
-            width: 60px; /* Increased icon size */
-            height: 60px;
+            width: 80px; /* Increased icon size */
+            height: 80px;
             color: #D9DDDC; /* Dark mode GitHub icon color */
-            transition: color 0.3s; /* Added transition for color change */
+            transition: color 0.3s, transform 0.3s; /* Added transition for color and size change */
         }
 
         body.light-mode .github-icon {
@@ -45,7 +45,11 @@
         }
 
         body.light-mode #projects {
-            margin-top: 20px; /* Adjusted margin-top value for light mode */
+            margin-top: 35px; /* Adjusted margin-top value for light mode */
+        }
+
+        body.dark-mode #projects {
+            margin-top: 35px; /* Adjusted margin-top value for dark mode */
         }
     </style>
 </head>
