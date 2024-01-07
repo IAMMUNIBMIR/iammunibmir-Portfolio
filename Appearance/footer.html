@@ -52,6 +52,21 @@
             font-size: 24px; /* Increased icon size */
             margin-right: 8px; /* Adjusted margin */
         }
+
+        body.light-mode footer {
+            background-color: #FCFFEA; /* Light mode background color */
+            color: #0081A7; /* Light mode font color */
+        }
+
+        body.dark-mode {
+            background-color: #0B0705; /* Dark mode background color */
+            color: #D9DDDC; /* Dark mode font color */
+        }
+
+        body.dark-mode footer {
+            background-color: #0B0705; /* Dark mode background color */
+            color: #D9DDDC; /* Dark mode font color */
+        }
     </style>
 </head>
 
@@ -92,10 +107,10 @@
 
                 if (isDarkMode) {
                     // Switch to dark mode
-                    body.classList.add('light-mode');
+                    body.classList.add('dark-mode');
                 } else {
                     // Switch to light mode
-                    body.classList.remove('light-mode');
+                    body.classList.remove('dark-mode');
                 }
             }
 
