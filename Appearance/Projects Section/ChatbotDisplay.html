@@ -6,6 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         /* Your existing styles here */
 
@@ -14,6 +15,7 @@
             margin-bottom: 50px;
             align-items: center;
             justify-content: space-between;
+            margin-top: 20px; /* Adjusted margin-top for both dark and light modes */
         }
 
         .project-text {
@@ -34,22 +36,14 @@
         }
 
         .github-icon {
-            width: 80px; /* Increased icon size */
-            height: 80px;
+            width: 100px; /* Increased icon size */
+            height: 100px; /* Adjusted height for consistency */
             color: #D9DDDC; /* Dark mode GitHub icon color */
             transition: color 0.3s, transform 0.3s; /* Added transition for color and size change */
         }
 
         body.light-mode .github-icon {
             color: #0081A7; /* Light mode GitHub icon color */
-        }
-
-        body {
-            margin-top: 35px; 
-        }
-
-        body.light-mode #projects {
-            margin-top: 35px; 
         }
     </style>
 </head>
