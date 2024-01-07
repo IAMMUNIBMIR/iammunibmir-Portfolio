@@ -33,17 +33,19 @@
             max-width: 60%;
             text-align: justify;
             color: inherit; /* Inherit text color from the body */
+            font-size: 1.2em; /* Increased text size */
         }
 
         .project-image {
-            max-width: 30%;
+            max-width: 20%; /* Decreased image size */
             margin-left: 20px; /* Adjust the margin as needed */
         }
 
         .github-icon {
-            width: 30px; /* Adjust the size as needed */
-            height: 30px;
+            width: 40px; /* Increased icon size */
+            height: 40px;
             color: #D9DDDC; /* Dark mode GitHub icon color */
+            transition: color 0.3s; /* Added transition for color change */
         }
 
         body.light-mode .github-icon {
@@ -74,6 +76,13 @@
             <img src="Bot.png" alt="Project 1 Image">
         </div>
     </div>
+
+    <script>
+        // Toggle between dark and light modes
+        function toggleLightMode() {
+            document.body.classList.toggle('light-mode');
+        }
+    </script>
 
 </body>
 
