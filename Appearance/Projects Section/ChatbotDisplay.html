@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-
         .project-container {
             display: flex;
             margin-bottom: 50px;
@@ -26,9 +25,14 @@
             text-decoration: underline; /* Underline the heading */
         }
 
-        .project-image {
-            width: 50px;
-            margin-left: 20px;
+        .project-image-container {
+            width: 20%; /* Adjust this width as needed */
+            margin-left: 5px;
+        }
+
+        .project-image-container img {
+            width: 100%; /* Make the image fill its container */
+            height: auto; /* Maintain aspect ratio */
         }
 
         .github-icon {
@@ -61,7 +65,7 @@
                     <i class="fab fa-github github-icon"></i>
                 </a>
             </div>
-            <div class="project-image">
+            <div class="project-image-container">
                 <img src="../WeatherForecastApp.png" alt="WeatherForecastApp Image">
             </div>
         </div>
