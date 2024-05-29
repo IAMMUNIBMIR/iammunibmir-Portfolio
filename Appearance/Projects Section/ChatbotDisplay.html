@@ -42,13 +42,18 @@
         }
 
         .linkto-icon {
-            font-size: 3em; 
+            font-size: 2em; 
             color: #D9DDDC; 
             transition: color 0.3s, transform 0.3s; /* Added transition for color and size change */
         }
 
         body.light-mode .linkto-icon {
             color: #0081A7; 
+        }
+
+        a {
+            text-decoration: none; /* Remove underline from links */
+            color: inherit; /* Inherit color from parent element */
         }
 
     </style>
@@ -72,7 +77,7 @@
                     <i class="fab fa-github github-icon"></i>
                 </a>
                 <a href="https://iammunibmir-weather-forecast-app-main-zzt3wh.streamlit.app/" target="_blank" rel="noopener noreferrer">
-                    <i class="fa-solid fa-arrow-up-right-from-square linkto-icon";></i>
+                    <i class="fa-solid fa-arrow-up-right-from-square linkto-icon"></i>
                 </a>                               
             </div>
             <div class="project-image-container">
@@ -83,7 +88,6 @@
     </div>
 
     <script>
-
         function toggleLightMode() {
             document.body.classList.toggle('light-mode');
         }
