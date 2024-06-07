@@ -25,10 +25,19 @@
             text-decoration: underline; /* Underline the heading */
         }
 
+        .project-image-container {
+            margin-left: auto; /* Align the first image to the right */
+            margin-right: -5px; /* Adjusted margin for the first image */
+        }
+
+        .project-container:nth-child(odd) .project-image-container {
+            margin-left: -5px; /* Adjusted margin for the second image */
+            margin-right: auto; /* Align the second image to the left */
+        }
+
         .project-image-container img {
             width: 100%; /* Make the image fill its container */
             height: auto; /* Maintain aspect ratio */
-            margin-left:-5px; /* Adjusted margin */
         }
 
         .github-icon {
