@@ -29,12 +29,14 @@
             width: 50%; /* Set the width of the image container */
         }
 
-        .project-container:nth-child(odd) {
-            flex-direction: row-reverse; /* Reverse the order of children for odd containers */
+        .project-container:nth-child(odd) .project-image-container {
+            margin-right: 20px; /* Adjusted margin for odd images */
+            margin-left: auto;
         }
 
-        .project-container:nth-child(even) {
-            flex-direction: row; /* Keep the order of children for even containers */
+        .project-container:nth-child(even) .project-image-container {
+            margin-left: -35px; /* Adjusted margin for even images */
+            margin-right: auto; /* Align even images to the left */
         }
 
         .project-image-container img {
@@ -67,6 +69,7 @@
             text-decoration: none; /* Remove underline from links */
             color: inherit; /* Inherit color from parent element */
         }
+
     </style>
 </head>
 
