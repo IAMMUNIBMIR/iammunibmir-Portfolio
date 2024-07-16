@@ -10,14 +10,15 @@
             display: flex;
             margin-bottom: 50px;
             align-items: center;
-            justify-content: normal;
+            justify-content: space-between; /* Adjusted to evenly distribute space */
         }
 
         .project-text {
-            max-width: 50%; /* Adjusted text width */
+            max-width: 45%; /* Adjusted text width */
             text-align: justify;
             color: inherit; /* Inherit text color from the body */
             font-size: 1.2em; /* Increased text size */
+            margin-right: 10px; /* Added margin to separate text from image */
         }
 
         .project-text h3 {
@@ -26,22 +27,19 @@
         }
 
         .project-image-container {
-            width: 50%; /* Set the width of the image container */
-        }
-
-        .project-container:nth-child(odd) .project-image-container {
-            margin-right: 40px; /* Adjusted margin for odd images */
-            margin-left: -20px;
+            width: 45%; /* Adjusted image container width */
+            margin-left: auto; /* Aligns images to the right */
         }
 
         .project-container:nth-child(even) .project-image-container {
-            margin-left: -35px; /* Adjusted margin for even images */
-            margin-right: auto; /* Align even images to the left */
+            margin-left: initial; /* Resets margin for even containers */
+            margin-right: auto; /* Aligns even images to the left */
         }
 
         .project-image-container img {
             width: 100%; /* Make the image fill its container */
             height: auto; /* Maintain aspect ratio */
+            display: block; /* Ensures image behaves as a block element */
         }
 
         .github-icon {
