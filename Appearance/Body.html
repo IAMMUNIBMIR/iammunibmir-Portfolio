@@ -34,14 +34,12 @@
         #image {
             max-width: 24%;
             overflow: hidden;
-            border-radius: 50%; /* Make the container circular */
-            aspect-ratio: 1 / 1; /* Maintain a square aspect ratio */
         }
 
         #image img {
             width: 100%;
-            height: 100%; /* Fill the container's height */
-            object-fit: cover; /* Ensure the image covers the container */
+            height: auto;
+            object-fit: cover;
         }
 
         #text {
@@ -189,6 +187,13 @@
         
         <div id="Divider"></div>
 
+        <div id="projects">
+
+            <!-- Placeholder for Project content -->
+            <div id="Project-content"></div>
+
+        </div>
+
     </div>
 
     <script>
@@ -203,22 +208,22 @@
             document.body.classList.toggle('light-mode');
         }
 
-                // Function to load ChatbotDisplay content
-                function loadChatbotDisplayContent() {
-            const chatbotDisplayContent = document.getElementById('chatbot-display-content');
+                // Function to load Project content
+                function loadProjectContent() {
+            const ProjectContent = document.getElementById('Project-content');
             const xhr = new XMLHttpRequest();
             xhr.open('GET', 'Projects Section/Projects.html', true);
             xhr.onreadystatechange = function () {
                 if (xhr.readyState == 4 && xhr.status == 200) {
-                    chatbotDisplayContent.innerHTML = xhr.responseText;
+                    ProjectContent.innerHTML = xhr.responseText;
                 }
             };
             xhr.send();
         }
 
-        // Load ChatbotDisplay content when the page is loaded
+        // Load Project content when the page is loaded
         window.onload = function () {
-            loadChatbotDisplayContent();
+            loadProjectContent();
         };
     </script>
 
