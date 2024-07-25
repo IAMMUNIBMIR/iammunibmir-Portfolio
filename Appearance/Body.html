@@ -34,12 +34,14 @@
         #image {
             max-width: 24%;
             overflow: hidden;
+            border-radius: 50%; /* Make the container circular */
+            aspect-ratio: 1 / 1; /* Maintain a square aspect ratio */
         }
 
         #image img {
             width: 100%;
-            height: auto;
-            object-fit: cover;
+            height: 100%; /* Fill the container's height */
+            object-fit: cover; /* Ensure the image covers the container */
         }
 
         #text {
