@@ -8,17 +8,17 @@
     <style>
         .project-container {
             display: flex;
+            flex-direction: column; /* Default to column layout for mobile */
             margin-bottom: 50px;
             align-items: center;
-            justify-content: space-between; /* Adjusted to evenly distribute space */
         }
 
         .project-text {
-            max-width: 45%; /* Adjusted text width */
+            max-width: 90%; /* Adjusted text width for mobile */
             text-align: justify;
             color: inherit; /* Inherit text color from the body */
             font-size: 1.2em; /* Increased text size */
-            margin-right: 10px; /* Added margin to separate text from image */
+            margin: 20px 0; /* Added margin for separation */
         }
 
         .project-text h3 {
@@ -27,12 +27,7 @@
         }
 
         .project-image-container {
-            width: 45%; /* Adjusted image container width */
-        }
-
-        .project-container:nth-child(odd) .project-image-container {
-            margin-right: 40px; /* Adjusted margin for odd images */
-            margin-left: -20px; /* Adjusted margin for odd images */
+            width: 90%; /* Adjusted image container width for mobile */
         }
 
         .project-image-container img {
@@ -67,6 +62,27 @@
             color: inherit; /* Inherit color from parent element */
         }
 
+        /* Responsive styles for larger screens */
+        @media (min-width: 768px) {
+            .project-container {
+                flex-direction: row; /* Switch to row layout on larger screens */
+                justify-content: space-between; /* Adjusted to evenly distribute space */
+            }
+
+            .project-text {
+                max-width: 45%; /* Adjusted text width */
+                margin: 0 10px; /* Added margin for separation */
+            }
+
+            .project-image-container {
+                width: 45%; /* Adjusted image container width */
+            }
+
+            .project-container:nth-child(odd) .project-image-container {
+                margin-right: 40px; /* Adjusted margin for odd images */
+                margin-left: -20px; /* Adjusted margin for odd images */
+            }
+        }
     </style>
 </head>
 
@@ -77,6 +93,9 @@
 
         <!-- First Project -->
         <div class="project-container">
+            <div class="project-image-container">
+                <img src="../images/WeatherForecastApp.png" alt="WeatherForecastApp Image">
+            </div>
             <div class="project-text">
                 <h3>Weather Forecast App</h3>
                 <p>
@@ -92,9 +111,6 @@
                         <i class="fa-solid fa-arrow-up-right-from-square linkto-icon"></i>
                     </a>
                 </p>
-            </div>
-            <div class="project-image-container">
-                <img src="../images/WeatherForecastApp.png" alt="WeatherForecastApp Image">
             </div>
         </div>
 
@@ -127,6 +143,9 @@
 
         <!-- Third Project -->
         <div class="project-container">
+            <div class="project-image-container">
+                <img src="../images/CryptoApp.png" alt="Crypto Price Predictor Image">
+            </div>
             <div class="project-text">
                 <h3>Crypto Price Predictor</h3>
                 <p>
@@ -151,9 +170,6 @@
                         <i class="fa-solid fa-arrow-up-right-from-square linkto-icon"></i>
                     </a>
                 </p>
-            </div>
-            <div class="project-image-container">
-                <img src="../images/CryptoApp.png" alt="Crypto Price Predictor Image">
             </div>
         </div>
 
