@@ -13,6 +13,10 @@
             color: #D9DDDC; /* Dark mode font color */
             position: relative;
             transition: background-color 0.3s, color 0.3s; /* Added transition properties */
+            background-image: url("./images/jeremy-bishop-G9i_plbfDgk-unsplash.jpg"); /* Add your background image here */
+            background-size: cover; /* Ensure the background image covers the entire body */
+            background-position: center; /* Center the background image */
+            background-attachment: fixed; /* Make sure the background stays fixed while scrolling */
         }
 
         body.light-mode {
@@ -21,11 +25,6 @@
         }
 
         #main-content {
-            background-image: url("./images/jeremy-bishop-G9i_plbfDgk-unsplash.jpg"); /* Change this to the path of your image */
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center;
-            animation: moveBackground 10s linear infinite;
             display: flex;
             justify-content: center;
             align-items: center;
