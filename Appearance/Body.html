@@ -22,6 +22,7 @@
 
         #main-content {
             display: flex;
+            flex-direction: column; /* Default to column layout */
             justify-content: center;
             align-items: center;
             padding: 2rem;
@@ -32,10 +33,11 @@
         }
 
         #image {
-            max-width: 24%;
+            max-width: 80%; /* Adjusted for better mobile view */
             overflow: hidden;
             border-radius: 50%; /* Make the container circular */
             aspect-ratio: 1 / 1; /* Maintain a square aspect ratio */
+            margin-bottom: 1.5rem; /* Added margin for spacing */
         }
 
         #image img {
@@ -45,16 +47,14 @@
         }
 
         #text {
-            padding: 2rem;
+            padding: 1rem; /* Adjusted padding for better mobile view */
             text-align: left;
-            max-width: 800px;
-            margin-right: 50px;
-            position: relative;
-            font-size: 1.2rem;
+            max-width: 90%; /* Adjusted for better mobile view */
+            font-size: 1rem; /* Adjusted font size for mobile view */
         }
 
         h1 {
-            font-size: 3rem;
+            font-size: 2rem; /* Adjusted font size for mobile view */
             font-weight: bold;
             margin-bottom: 10px;
         }
@@ -155,6 +155,28 @@
                 transform: translateY(-5px);
             }
         }
+
+        /* Responsive styles for mobile */
+        @media (min-width: 768px) {
+            #main-content {
+                flex-direction: row; /* Switch to row layout on larger screens */
+            }
+
+            #text {
+                max-width: 60%; /* Adjust max width for larger screens */
+                font-size: 1.2rem; /* Adjust font size for larger screens */
+                margin-right: 50px;
+            }
+
+            h1 {
+                font-size: 3rem; /* Adjust font size for larger screens */
+            }
+
+            #image {
+                max-width: 24%; /* Adjust max width for larger screens */
+                margin-bottom: 0; /* Remove bottom margin for larger screens */
+            }
+        }
     </style>
 </head>
 
@@ -190,12 +212,9 @@
         <div id="Divider"></div>
 
         <div id="projects">
-
             <!-- Placeholder for Project content -->
             <div id="Project-content"></div>
-
         </div>
-
     </div>
 
     <script>
@@ -210,8 +229,8 @@
             document.body.classList.toggle('light-mode');
         }
 
-                // Function to load Project content
-                function loadProjectContent() {
+        // Function to load Project content
+        function loadProjectContent() {
             const ProjectContent = document.getElementById('Project-content');
             const xhr = new XMLHttpRequest();
             xhr.open('GET', 'Projects Section/Projects.html', true);
