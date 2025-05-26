@@ -1,0 +1,232 @@
+<!-- sections/projects.html  –– Swiper implementation (no header/footer) -->
+<section id="projects" class="projects-section">
+  <h2>Projects</h2>
+
+  <!-- Swiper -->
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+
+      <!-- Motion Detector slide -->
+      <div class="swiper-slide"
+           data-intro="Motion in Focus: Your Gateway to Surveillance. Motion Detector is powered by Flask and OpenCV and is designed to constantly watch your webcam for any motion it detects."
+           data-highlights="Real-time alerts – receive an email snapshot after motion stops;Minimal setup – run the script, plug in your webcam, and configure your email credentials once;Lightweight and customizable – all image processing and mailing happens in separate threads"
+           data-conclusion="Whether you are securing your front door or monitoring your workspace, Motion Detector provides professional-grade surveillance with just a few lines of Python.">
+        <img src="../assets/images/MotionDetector.png" alt="Motion Detector">
+        <h3>Motion Detector</h3>
+      </div>
+
+      <!-- Cryptocurrency Price Predictor slide -->
+      <div class="swiper-slide"
+           data-intro="Cryptocurrency Price Predictor is a Streamlit app that uses historical data and machine-learning models to forecast the next day’s prices."
+           data-highlights="Live data feeds – fetch and display real-time cryptocurrency prices;Interactive charts – visualize predictions and historical trends;Custom model retraining – adjust parameters to fine-tune forecasting accuracy"
+           data-conclusion="Unlock insights into market movements and make data-driven trading decisions with ease.">
+        <img src="../assets/images/CryptoApp.png" alt="Cryptocurrency Price Predictor">
+        <h3>Cryptocurrency Price Predictor</h3>
+      </div>
+
+      <!-- Weather Forecast App slide -->
+      <div class="swiper-slide"
+           data-intro="Weather Forecast App is a Streamlit dashboard integrating with the OpenWeatherMap API to deliver accurate, real-time weather forecasts."
+           data-highlights="Hourly and 7-day outlooks – detailed forecasts at multiple time scales;Geolocation support – auto-detect your location for precise weather data;Custom alert thresholds – set temperature or precipitation alerts"
+           data-conclusion="Stay ahead of the weather with a sleek, interactive interface powered by Python.">
+        <img src="../assets/images/WeatherForecastApp.png" alt="Weather Forecast App">
+        <h3>Weather Forecast App</h3>
+      </div>
+
+      <!-- Project Four placeholder -->
+      <div class="swiper-slide"
+           data-intro="Project Four is coming soon — stay tuned for more details!"
+           data-highlights="Exciting features on the horizon;Sneak peeks will be revealed soon;Stay tuned for updates"
+           data-conclusion="Check back soon to discover what is next.">
+        <img src="../assets/images/test.png" alt="Project Four">
+        <h3>Project Four</h3>
+      </div>
+
+    </div>
+
+    <!-- arrows & dots -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-pagination"></div>
+  </div>
+</section>
+
+<!-- ── Project Modal ── -->
+<div id="project-modal" class="modal-overlay">
+  <div class="modal-content">
+    <span class="modal-close">&times;</span>
+    <div class="modal-img">
+      <img id="project-modal-img" src="" alt="">
+    </div>
+    <div class="modal-text">
+      <h3 id="project-modal-title"></h3>
+      <p id="project-modal-intro"></p>
+      <ul id="project-modal-highlights"></ul>
+      <p id="project-modal-conclusion"></p>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* ── Projects section ── */
+  .projects-section {
+    width: 100%;
+    padding: 6rem 0 4rem;
+    background: #121212;
+    color: #fff;
+    text-align: center;
+    font-family: Inter, sans-serif;
+  }
+  .projects-section h2 {
+    margin-bottom: 5rem;
+    font-size: 2rem;
+  }
+
+  /* ── Swiper container ── */
+  .mySwiper {
+    width: 100%;
+    padding-bottom: 2rem;
+    height: 60vh;
+    position: relative;
+  }
+  .swiper-slide {
+    width: 85%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform .3s ease;
+    cursor: pointer; /* show hand cursor */
+  }
+  .swiper-slide-active {
+    transform: scale(1.2);
+    z-index: 2;
+  }
+  .mySwiper img {
+    width: 70%;
+    border-radius: 10px;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto .5rem;
+  }
+  .mySwiper h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    color: #fff;
+  }
+  .swiper-button-prev,
+  .swiper-button-next {
+    position: absolute;
+    top: 35%;
+    transform: translateY(-50%);
+    color: #fff;
+    z-index: 10;
+  }
+  .swiper-pagination-bullet {
+    background: #555;
+    opacity: .8;
+  }
+  .swiper-pagination-bullet-active {
+    background: #1e90ff;
+  }
+
+  /* ── Overlay backdrop ── */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(4px);
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    z-index: 200;
+    opacity: 0;
+    transition: opacity .3s ease;
+  }
+  .modal-overlay.active {
+    display: flex;
+    opacity: 1;
+  }
+
+  /* ── Modal box ── */
+  .modal-content {
+    background: #1e1e1e;
+    border-radius: .5rem;
+    width: 95vw;
+    max-width: 900px;
+    max-height: 85vh;
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    transform: translateY(-20px);
+    transition: transform .3s ease, box-shadow .3s ease;
+  }
+  .modal-overlay.active .modal-content {
+    transform: translateY(0);
+  }
+
+  /* ── Close button ── */
+  .modal-close {
+    position: absolute;
+    top: .5rem;
+    right: .75rem;
+    font-size: 1.5rem;
+    color: #888;
+    cursor: pointer;
+    z-index: 10;
+    transition: color .2s ease;
+  }
+  .modal-close:hover {
+    color: #fff;
+  }
+
+  /* ── Image pane ── */
+  .modal-img {
+    flex: 0 0 45%;
+    background: #222;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .modal-img img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+
+  /* ── Text pane ── */
+  .modal-text {
+    flex: 1;
+    padding: 1.25rem;
+    color: #f0f0f0;
+    overflow-y: auto;
+  }
+  .modal-text h3 {
+    margin: 0 0 .5rem;
+    font-size: 1.75rem;
+    color: #fafafa;
+  }
+  .modal-text p {
+    margin: 0;
+    line-height: 1.5;
+    color: #ddd;
+  }
+
+  /* ── Highlights list ── */
+  #project-modal-highlights {
+    margin: 0.5rem 0 1rem;
+    padding-left: 1.25rem;
+  }
+  #project-modal-highlights li {
+    margin-bottom: 0.5rem;
+  }
+
+  /* ── Responsive tweaks ── */
+  @media (max-width: 600px) {
+    .modal-content { flex-direction: column; max-width: 90vw; }
+    .modal-img { height: 200px; flex: none; }
+    .modal-text { padding: 1rem; }
+  }
+</style>

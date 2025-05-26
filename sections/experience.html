@@ -1,0 +1,289 @@
+<!-- sections/experience.html -->
+<style>
+  :root {
+    --connector-length: 3rem;
+    --card-width: 200px;
+  }
+
+  /* ── Full‐screen panel ── */
+  .experience-section {
+    min-height: calc(100vh - 4rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem;
+    background: #121212;
+  }
+
+  /* ── Timeline ── */
+  .horizontal-timeline {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 2rem;
+  }
+  .horizontal-timeline::before {
+    content: "";
+    position: absolute;
+    top: 50%; left: 0; right: 0;
+    height: 2px;
+    background: rgba(255,255,255,0.2);
+    transform: translateY(-50%);
+    z-index: 1;
+  }
+  .timeline-item {
+    position: relative;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+  .timeline-item::after {
+    content: "";
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 12px; height: 12px;
+    background: #0081A7;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+  }
+
+  /* ── Glass cards ── */
+  .timeline-item .card {
+    position: absolute;
+    width: var(--card-width);
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 0.75rem;
+    padding: 0.5rem 1rem 1rem;          /* less top padding */
+    text-align: left;
+    cursor: pointer;
+    z-index: 3;
+  }
+  .timeline-item .card img {
+    width: 100%;
+    border-radius: 0.5rem;
+    margin-bottom: 0.75rem;
+    opacity: 0.9;
+  }
+  .timeline-item .card h4 {
+    margin: 0 0 0.5rem;
+    font-size: 1rem;
+    color: #fff;
+  }
+  .timeline-item .card .date {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 0.5rem;
+  }
+
+  /* ── Alternate placement & connector ── */
+  .horizontal-timeline .timeline-item:nth-of-type(odd) .card {
+    bottom: calc(100% + var(--connector-length));
+  }
+  .horizontal-timeline .timeline-item:nth-of-type(odd) .card::before {
+    content: "";
+    position: absolute;
+    bottom: calc(-1 * var(--connector-length));
+    left: 50%;
+    width: 2px; height: var(--connector-length);
+    background: rgba(255,255,255,0.2);
+    transform: translateX(-50%);
+    z-index: 1;
+  }
+  .horizontal-timeline .timeline-item:nth-of-type(even) .card {
+    top: calc(100% + var(--connector-length));
+  }
+  .horizontal-timeline .timeline-item:nth-of-type(even) .card::before {
+    content: "";
+    position: absolute;
+    top: calc(-1 * var(--connector-length));
+    left: 50%;
+    width: 2px; height: var(--connector-length);
+    background: rgba(255,255,255,0.2);
+    transform: translateX(-50%);
+    z-index: 1;
+  }
+
+  @media (max-width:600px){
+    .horizontal-timeline { flex-direction: column; padding: 0 }
+    .horizontal-timeline::before { display: none }
+    .timeline-item { flex: none; width: 100%; margin: var(--connector-length) 0 !important }
+    .timeline-item .card {
+      position: relative;
+      transform: none;
+      left: auto; top: auto; bottom: auto;
+      margin-top: var(--connector-length);
+    }
+    .timeline-item .card::before { display: none }
+  }
+
+  /* ── Modal overlay ── */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    z-index: 100;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+  }
+  .modal-overlay.active {
+    display: flex;
+    opacity: 1;
+  }
+
+  /* ── Modal content ── */
+  .modal-content {  
+    background: #1e1e1e;
+    border-radius: 1rem;
+    width: 95vw;
+    max-width: 900px;
+    max-height: 80vh;
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    transform: translateY(-20px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .modal-overlay.active .modal-content {
+    transform: translateY(0);
+  }
+
+  /* ── Hover lift ── */
+  .modal-content:hover {
+    transform: translateY(-12px) scale(1.01);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.3);
+  }
+
+  /* ── Close button ── */
+  .modal-close {
+    position: absolute;
+    top: 1rem; right: 1rem;
+    font-size: 1.5rem;
+    color: #666;
+    cursor: pointer;
+    transition: color 0.2s ease;
+    z-index: 2;
+  }
+  .modal-close:hover {
+    color: #fff;
+  }
+
+  /* ── Image pane ── */
+  .modal-img {
+    flex: 0 0 45%;
+    background: #2a2a2a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .modal-img img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+
+  /* ── Text pane ── */
+  .modal-text {
+    flex: 1;
+    padding: 1rem 2.5rem 2.5rem;
+    color: #f0f0f0;
+    overflow-y: auto;
+  }
+  .modal-text h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.75rem;
+    color: #fafafa;
+  }
+  .modal-text .date {
+    font-size: 0.9rem;
+    color: #aaa;
+    margin-bottom: 1rem;
+  }
+  #modal-intro {
+    margin-bottom: 1rem;
+  }
+  #modal-highlights {
+    margin: 0.5rem 0 1rem;
+    padding-left: 1.25rem;
+  }
+  #modal-highlights li {
+    margin-bottom: 0.5rem;
+  }
+  #modal-conclusion {
+    margin-top: 0;
+  }
+
+  @media (max-width:600px){
+    .modal-content {
+      flex-direction: column;
+      width: 95vw;
+      max-height: 90vh;
+    }
+    .modal-img {
+      height: 200px;
+      flex: none;
+    }
+    .modal-text {
+      padding: 1.5rem;
+    }
+  }
+</style>
+
+<section class="experience-section">
+  <div class="horizontal-timeline">
+    <!-- CARD 1 -->
+    <div class="timeline-item">
+      <div class="card"
+           data-intro="While working as a research assistant I helped design and implement a virtual-reality simulation that re-creates the layer-by-layer 3-D printing of a sustainable Moon habitat. Built in Unity with the XR Interaction Toolkit, the project lets users switch seamlessly between an Earth baseline and a high-fidelity lunar environment that features low-gravity physics, cratered terrain, regolith dust, and extreme thermal cycling."
+           data-highlights="Real-time additive-manufacturing engine that deposits habitat layers and updates structural geometry on the fly.,Gesture-based controls (pinch, grab, throw) for natural interaction with construction elements and UI panels.,Dual-environment comparison to analyze resource usage, build time, and design viability under Earth vs. lunar constraints."
+           data-conclusion="Working on this project helped me become more skilled in XR development, simulating physics and space-construction research—and proved that immersive technology can address tough engineering questions not found on Earth.">
+        <img src="../assets/images/DRA-Poster.png" alt="VR Research Poster">
+        <h4>Virtual Reality Research Assistant</h4>
+        <div class="date">Jan 2025 – Apr 2025</div>
+      </div>
+    </div>
+
+    <!-- CARD 2 -->
+    <div class="timeline-item">
+      <div class="card"
+           data-intro="Built a Streamlit dashboard with OpenWeatherMap API for real-time weather forecasts."
+           data-highlights="Real-time forecasts from OpenWeatherMap API.,Responsive UI built with Streamlit."
+           data-conclusion="This project improved my skills in Python and data visualization.">
+        <img src="../assets/images/project2.png" alt="Weather App">
+        <h4>Weather Forecast App</h4>
+        <div class="date">Mar 2025</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Modal Overlay & Content ── -->
+<div id="modal-overlay" class="modal-overlay">
+  <div class="modal-content">
+    <span class="modal-close">&times;</span>
+    <div class="modal-img">
+      <img id="modal-img" src="" alt="">
+    </div>
+    <div class="modal-text">
+      <h3 id="modal-title"></h3>
+      <div class="date" id="modal-date"></div>
+      <p id="modal-intro"></p>
+      <ul id="modal-highlights"></ul>
+      <p id="modal-conclusion"></p>
+    </div>
+  </div>
+</div>

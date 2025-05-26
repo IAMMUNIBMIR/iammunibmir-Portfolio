@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Munib Mir – Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Google fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap"
+    rel="stylesheet">
+
+  <!-- Swiper core CSS -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/swiper@11/swiper-bundle.min.css">
+
+  <!-- Your global styles -->
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+  <!-- placeholders to be replaced by fetch() -->
+  <div id="header"></div>
+  <div id="home"></div>
+  <div id="about"></div>
+  <div id="experience"></div>
+  <div id="projects"></div>
+  <div id="contact"></div>
+  <div id="footer"></div>
+
+  <!-- Swiper core JS -->
+  <script src="https://unpkg.com/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    // 1 · load each section
+    const sectionIds = ['header','home','about','experience','projects','contact','footer'];
+    const fetches = sectionIds.map(id =>
+      fetch(`sections/${id}.html`)
+        .then(r => r.text())
+        .then(html => {
+          if (id === 'header') {
+            document.getElementById(id).outerHTML = html;
+          } else {
+            document.getElementById(id).innerHTML = html;
+          }
+        })
+    );
+
+    // 2 · init everything once sections are loaded
+    Promise.all(fetches).then(() => {
+
+      // ── Swiper init ──
+      new Swiper('.mySwiper', {
+        slidesPerView:   3,
+        spaceBetween:    16,
+        centeredSlides:  true,
+        loop:            true,
+        mousewheel:      { forceToAxis: true },
+        keyboard:        { enabled: true },
+        navigation:      {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev'
+        },
+        pagination:      {
+          el:        '.swiper-pagination',
+          clickable: true
+        },
+        breakpoints: {
+          1023: { slidesPerView: 2 },
+          639:  { slidesPerView: 1, centeredSlides: false }
+        }
+      });
+
+      // ── Header hide-on-scroll ──
+      const headerEl = document.getElementById('site-header');
+      let lastY = window.pageYOffset;
+      window.addEventListener('scroll', () => {
+        const curr = window.pageYOffset;
+        headerEl.classList.toggle('hidden', curr > lastY && curr > 100);
+        lastY = curr;
+      });
+
+      // ── Experience modal logic ──
+      const xpOverlay    = document.getElementById('modal-overlay');
+      const xpClose      = xpOverlay.querySelector('.modal-close');
+      const xpImg        = document.getElementById('modal-img');
+      const xpTitle      = document.getElementById('modal-title');
+      const xpDate       = document.getElementById('modal-date');
+      const xpIntro      = document.getElementById('modal-intro');
+      const xpHighlights = document.getElementById('modal-highlights');
+      const xpConclusion = document.getElementById('modal-conclusion');
+
+      document.body.addEventListener('click', e => {
+        const card = e.target.closest('.experience-section .card');
+        if (!card) return;
+        xpImg.src           = card.querySelector('img').src;
+        xpImg.alt           = card.querySelector('img').alt;
+        xpTitle.textContent = card.querySelector('h4').textContent;
+        xpDate.textContent  = card.querySelector('.date').textContent;
+        xpIntro.textContent = card.dataset.intro || '';
+        xpHighlights.innerHTML = '';
+        (card.dataset.highlights || '').split(',')
+          .map(s => s.trim()).filter(Boolean)
+          .forEach(item => {
+            const li = document.createElement('li');
+            li.textContent = item;
+            xpHighlights.appendChild(li);
+          });
+        xpConclusion.textContent = card.dataset.conclusion || '';
+        xpOverlay.classList.add('active');
+      });
+      xpClose.addEventListener('click', () => xpOverlay.classList.remove('active'));
+      xpOverlay.addEventListener('click', e => {
+        if (e.target === xpOverlay) xpOverlay.classList.remove('active');
+      });
+
+      // ── Project modal logic ──
+      const pmOverlay     = document.getElementById('project-modal');
+      const pmClose       = pmOverlay.querySelector('.modal-close');
+      const pmImg         = document.getElementById('project-modal-img');
+      const pmTitle       = document.getElementById('project-modal-title');
+      const pmIntro       = document.getElementById('project-modal-intro');
+      const pmHighlights  = document.getElementById('project-modal-highlights');
+      const pmConclusion  = document.getElementById('project-modal-conclusion');
+
+      document.body.addEventListener('click', e => {
+        const slide = e.target.closest('.projects-section .swiper-slide');
+        if (!slide) return;
+        const imgEl = slide.querySelector('img');
+        pmImg.src           = imgEl.src;
+        pmImg.alt           = imgEl.alt;
+        pmTitle.textContent = slide.querySelector('h3').textContent;
+        pmIntro.textContent = slide.dataset.intro      || '';
+        pmConclusion.textContent = slide.dataset.conclusion || '';
+        pmHighlights.innerHTML = (slide.dataset.highlights || '')
+          .split(';')
+          .map(item => `<li>${item.trim()}</li>`)
+          .join('');
+        pmOverlay.classList.add('active');
+      });
+      pmClose.addEventListener('click', () => pmOverlay.classList.remove('active'));
+      pmOverlay.addEventListener('click', e => {
+        if (e.target === pmOverlay) pmOverlay.classList.remove('active');
+      });
+
+    });
+  </script>
+</body>
+</html>
