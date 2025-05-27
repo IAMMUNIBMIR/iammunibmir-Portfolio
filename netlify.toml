@@ -1,3 +1,2 @@
 [build]
-command = "python3 Portfolio.py"
 publish = "index.html" 
