@@ -10,7 +10,9 @@
       <div class="swiper-slide"
            data-intro="Motion in Focus: Your Gateway to Surveillance. Motion Detector is powered by Flask and OpenCV and is designed to constantly watch your webcam for any motion it detects."
            data-highlights="Real-time alerts – receive an email snapshot after motion stops;Minimal setup – run the script, plug in your webcam, and configure your email credentials once;Lightweight and customizable – all image processing and mailing happens in separate threads"
-           data-conclusion="Whether you are securing your front door or monitoring your workspace, Motion Detector provides professional-grade surveillance with just a few lines of Python.">
+           data-conclusion="Whether you are securing your front door or monitoring your workspace, Motion Detector provides professional-grade surveillance with just a few lines of Python."
+           data-github="https://github.com/munibmir/weather-dashboard"
+           data-website="https://weather-dashboard.example.com">
         <img src="../assets/images/MotionDetector.png" alt="Motion Detector">
         <h3>Motion Detector</h3>
       </div>
@@ -19,21 +21,25 @@
       <div class="swiper-slide"
            data-intro="Cryptocurrency Price Predictor is a Streamlit app that uses historical data and machine-learning models to forecast the next day’s prices."
            data-highlights="Live data feeds – fetch and display real-time cryptocurrency prices;Interactive charts – visualize predictions and historical trends;Custom model retraining – adjust parameters to fine-tune forecasting accuracy"
-           data-conclusion="Unlock insights into market movements and make data-driven trading decisions with ease.">
+           data-conclusion="Unlock insights into market movements and make data-driven trading decisions with ease."
+           data-github="https://github.com/munibmir/weather-dashboard"
+           data-website="https://weather-dashboard.example.com">
         <img src="../assets/images/CryptoApp.png" alt="Cryptocurrency Price Predictor">
         <h3>Cryptocurrency Price Predictor</h3>
       </div>
 
       <!-- Weather Forecast App slide -->
       <div class="swiper-slide"
-           data-intro="Weather Forecast App is a Streamlit dashboard integrating with the OpenWeatherMap API to deliver accurate, real-time weather forecasts."
-           data-highlights="Hourly and 7-day outlooks – detailed forecasts at multiple time scales;Geolocation support – auto-detect your location for precise weather data;Custom alert thresholds – set temperature or precipitation alerts"
-           data-conclusion="Stay ahead of the weather with a sleek, interactive interface powered by Python.">
+           data-intro="Weather Forecast App is a Streamlit dashboard integrating OpenWeatherMap API for accurate forecasts."
+           data-highlights="Hourly & 7-day outlooks;Geolocation support;Custom alert thresholds"
+           data-conclusion="Stay ahead of the weather with Python-powered visuals."
+           data-github="https://github.com/munibmir/weather-dashboard"
+           data-website="https://weather-dashboard.example.com">
         <img src="../assets/images/WeatherForecastApp.png" alt="Weather Forecast App">
         <h3>Weather Forecast App</h3>
       </div>
 
-      <!-- Project Four placeholder -->
+      <!-- Placeholder slide (no live site, no repo yet) -->
       <div class="swiper-slide"
            data-intro="Project Four is coming soon — stay tuned for more details!"
            data-highlights="Exciting features on the horizon;Sneak peeks will be revealed soon;Stay tuned for updates"
@@ -63,6 +69,14 @@
       <p id="project-modal-intro"></p>
       <ul id="project-modal-highlights"></ul>
       <p id="project-modal-conclusion"></p>
+      <div class="modal-links">
+        <a id="project-modal-github" href="#" target="_blank" rel="noopener">
+          <i class="fab fa-github github-icon"></i>
+        </a>
+        <a id="project-modal-website" href="#" target="_blank" rel="noopener">
+          <i class="fa-solid fa-arrow-up-right-from-square linkto-icon"></i>
+        </a>
+      </div>
     </div>
   </div>
 </div>
@@ -96,7 +110,7 @@
     flex-direction: column;
     align-items: center;
     transition: transform .3s ease;
-    cursor: pointer; /* show hand cursor */
+    cursor: pointer;
   }
   .swiper-slide-active {
     transform: scale(1.2);
@@ -154,7 +168,7 @@
     background: #1e1e1e;
     border-radius: .5rem;
     width: 95vw;
-    max-width: 900px;
+    max-width: 900px;       /* ↑ bumped from 600px */
     max-height: 85vh;
     display: flex;
     overflow: hidden;
@@ -184,7 +198,7 @@
 
   /* ── Image pane ── */
   .modal-img {
-    flex: 0 0 45%;
+    flex: 0 0 45%;         /* ↑ bumped from 40% */
     background: #222;
     display: flex;
     align-items: center;
@@ -205,7 +219,7 @@
   }
   .modal-text h3 {
     margin: 0 0 .5rem;
-    font-size: 1.75rem;
+    font-size: 1.75rem;    /* ↑ bumped from 1.5rem */
     color: #fafafa;
   }
   .modal-text p {
@@ -222,6 +236,38 @@
   #project-modal-highlights li {
     margin-bottom: 0.5rem;
   }
+
+  /* ── GitHub + live-site links ── */
+  .modal-links {
+    margin-top: 1rem;
+    display: flex;
+    gap: 1rem;
+  }
+  .modal-links img,
+  .modal-links i.github-icon,
+  .modal-links i.linkto-icon {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    opacity: 0.75;
+    transition: opacity 0.2s;
+  }
+  .modal-links img:hover {
+    opacity: 1;
+  }
+
+  .github-icon {
+      font-size: 2em; /* Increased icon size */
+      color: #D9DDDC; /* Dark mode GitHub icon color */
+      transition: color 0.3s, transform 0.3s; /* Added transition for color and size change */
+    }
+
+  .linkto-icon {
+    font-size: 2rem;
+    color: #D9DDDC;
+    transition: color 0.3s, transform 0.3s; /* Added transition for color and size change */
+    margin-left: 10px;
+    }
 
   /* ── Responsive tweaks ── */
   @media (max-width: 600px) {

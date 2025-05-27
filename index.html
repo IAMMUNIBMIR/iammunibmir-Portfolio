@@ -17,10 +17,11 @@
 
   <!-- Your global styles -->
   <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
 </head>
 
 <body>
-  <!-- placeholders to be replaced by fetch() -->
   <div id="header"></div>
   <div id="home"></div>
   <div id="about"></div>
@@ -122,6 +123,8 @@
       const pmIntro       = document.getElementById('project-modal-intro');
       const pmHighlights  = document.getElementById('project-modal-highlights');
       const pmConclusion  = document.getElementById('project-modal-conclusion');
+      const pmGithub      = document.getElementById('project-modal-github');
+      const pmWebsite     = document.getElementById('project-modal-website');
 
       document.body.addEventListener('click', e => {
         const slide = e.target.closest('.projects-section .swiper-slide');
@@ -136,13 +139,30 @@
           .split(';')
           .map(item => `<li>${item.trim()}</li>`)
           .join('');
+
+        // GitHub link
+        if (slide.dataset.github) {
+          pmGithub.href          = slide.dataset.github;
+          pmGithub.style.display = 'inline-block';
+        } else {
+          pmGithub.style.display = 'none';
+        }
+
+        // Live-site link (only if provided)
+        if (slide.dataset.website) {
+          pmWebsite.href         = slide.dataset.website;
+          pmWebsite.style.display= 'inline-block';
+        } else {
+          pmWebsite.style.display= 'none';
+        }
+
         pmOverlay.classList.add('active');
       });
+
       pmClose.addEventListener('click', () => pmOverlay.classList.remove('active'));
       pmOverlay.addEventListener('click', e => {
         if (e.target === pmOverlay) pmOverlay.classList.remove('active');
       });
-
     });
   </script>
 </body>
