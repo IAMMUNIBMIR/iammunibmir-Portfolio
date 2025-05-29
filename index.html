@@ -8,17 +8,20 @@
   <!-- Google fonts -->
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap"
-    rel="stylesheet">
+    rel="stylesheet" />
 
   <!-- Swiper core CSS -->
   <link
     rel="stylesheet"
-    href="https://unpkg.com/swiper@11/swiper-bundle.min.css">
+    href="https://unpkg.com/swiper@11/swiper-bundle.min.css" />
 
-  <!-- Your global styles -->
-  <link rel="stylesheet" href="styles/style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <!-- Your global styles (ensure fade-in rules are in styles/styles.css) -->
+  <link rel="stylesheet" href="styles/styles.css" />
 
+  <!-- Font Awesome (optional) -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 </head>
 
 <body>
@@ -33,7 +36,7 @@
   <!-- Swiper core JS -->
   <script src="https://unpkg.com/swiper@11/swiper-bundle.min.js"></script>
   <script>
-    // 1 · load each section
+    // 1 · Load each section via fetch()
     const sectionIds = ['header','home','about','experience','projects','contact','footer'];
     const fetches = sectionIds.map(id =>
       fetch(`sections/${id}.html`)
@@ -47,10 +50,27 @@
         })
     );
 
-    // 2 · init everything once sections are loaded
+    // 2 · Initialize once sections are loaded
     Promise.all(fetches).then(() => {
+      // ─── Fade-in setup ───
+      const sections = document.querySelectorAll('section');
+      sections.forEach(sec => sec.classList.add('fade-in-section'));
 
-      // ── Swiper init ──
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          entry.target.classList.toggle('is-visible', entry.isIntersecting);
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      });
+
+      // Delay observing to allow initial styles to apply
+      requestAnimationFrame(() => {
+        sections.forEach(sec => observer.observe(sec));
+      });
+
+      // ─── Swiper init ───
       new Swiper('.mySwiper', {
         slidesPerView:   3,
         spaceBetween:    16,
@@ -72,7 +92,7 @@
         }
       });
 
-      // ── Header hide-on-scroll ──
+      // ─── Header hide-on-scroll ───
       const headerEl = document.getElementById('site-header');
       let lastY = window.pageYOffset;
       window.addEventListener('scroll', () => {
@@ -81,7 +101,7 @@
         lastY = curr;
       });
 
-      // ── Experience modal logic ──
+      // ─── Experience modal logic ───
       const xpOverlay    = document.getElementById('modal-overlay');
       const xpClose      = xpOverlay.querySelector('.modal-close');
       const xpImg        = document.getElementById('modal-img');
