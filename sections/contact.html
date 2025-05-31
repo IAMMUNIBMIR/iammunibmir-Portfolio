@@ -1,13 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Contact Section</title>
+<section id="contact" class="contact-fullscreen">
   <style>
-    /* reset */
+
     body { margin: 0; }
 
-    /* full-screen two-column layout */
     .contact-fullscreen {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -91,7 +86,6 @@
     }
 
 
-    /* MOBILE */
     @media (max-width: 768px) {
       .contact-fullscreen {
         grid-template-columns: 1fr;
@@ -115,29 +109,23 @@
       }
     }
   </style>
-</head>
-<body>
 
-  <section id="contact" class="contact-fullscreen">
-    <div class="contact-left">
-      <h2>LET’S</h2>
-      <h2 class="line2">GET IN</h2>
-      <h2>TOUCH</h2>
-      <div class="social-links">
-        <a href="https://www.linkedin.com/in/munibmir686/" target="_blank" aria-label="LinkedIn">
-          <i class="fab fa-linkedin"></i> LinkedIn
-        </a>
-        <a href="https://github.com/IAMMUNIBMIR" target="_blank" aria-label="GitHub">
-          <i class="fab fa-github"></i> GitHub
-        </a>
-      </div>
+  <div class="contact-left">
+    <h2>LET’S</h2>
+    <h2 class="line2">GET IN</h2>
+    <h2>TOUCH</h2>
+    <div class="social-links">
+      <a href="https://www.linkedin.com/in/munibmir686/" target="_blank" aria-label="LinkedIn">
+        <i class="fab fa-linkedin"></i> LinkedIn
+      </a>
+      <a href="https://github.com/IAMMUNIBMIR" target="_blank" aria-label="GitHub">
+        <i class="fab fa-github"></i> GitHub
+      </a>
     </div>
+  </div>
 
-    <div class="contact-right">
-      <div class="email">munibmir09@gmail.com</div>
-      <a href="mailto:munib.mir@uni.edu" class="btn-email">Email Me</a>
-    </div>
-  </section>
-
-</body>
-</html>
+  <div class="contact-right">
+    <div class="email">munibmir09@gmail.com</div>
+    <a href="mailto:munib.mir@uni.edu" class="btn-email">Email Me</a>
+  </div>
+</section>
