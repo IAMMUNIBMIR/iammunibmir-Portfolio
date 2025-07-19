@@ -28,6 +28,12 @@
       letter-spacing:.5px;
     }
 
+    .project-title{
+      margin-top:2.25rem;            
+      font-family:'Inter', sans-serif;
+      letter-spacing:.25px;
+    }
+
     /* ---------- SWIPER LAYOUT ---------- */
     .mySwiper{
       width:100%;
@@ -125,7 +131,7 @@
               <img src="../assets/images/DiffDive.png" alt="DiffDive"
                    class="block w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02]" />
             </div>
-            <h3 class="mt-4 text-lg font-semibold">DiffDive</h3>
+            <h3 class="project-title text-lg font-semibold">DiffDive</h3>
           </div>
         </div>
 
@@ -139,7 +145,7 @@
               <img src="../assets/images/301Project.png" alt="VibeVerse"
                    class="block w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02]" />
             </div>
-            <h3 class="mt-4 text-lg font-semibold">VibeVerse</h3>
+            <h3 class="project-title text-lg font-semibold">VibeVerse</h3>
           </div>
         </div>
 
@@ -155,7 +161,7 @@
               <img src="../assets/images/MotionDetector.png" alt="Motion Detector"
                    class="block w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02]" />
             </div>
-            <h3 class="mt-4 text-lg font-semibold">Motion Detector</h3>
+            <h3 class="project-title text-lg font-semibold">Motion Detector</h3>
           </div>
         </div>
 
@@ -171,7 +177,7 @@
               <img src="../assets/images/CryptoApp.png" alt="Crypto Predictor"
                    class="block w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02]" />
             </div>
-            <h3 class="mt-4 text-lg font-semibold text-center">Crypto Predictor</h3>
+            <h3 class="project-title text-lg font-semibold text-center">Crypto Predictor</h3>
           </div>
         </div>
 
@@ -187,7 +193,7 @@
               <img src="../assets/images/WeatherForecastApp.png" alt="Weather Forecast App"
                    class="block w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02]" />
             </div>
-            <h3 class="mt-4 text-lg font-semibold">Weather Forecast App</h3>
+            <h3 class="project-title text-lg font-semibold">Weather Forecast App</h3>
           </div>
         </div>
 
@@ -202,7 +208,7 @@
               <img src="../assets/images/RayTracer.png" alt="Ray Tracer"
                    class="block w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02]" />
             </div>
-            <h3 class="mt-4 text-lg font-semibold">Ray Tracer</h3>
+            <h3 class="project-title text-lg font-semibold">Ray Tracer</h3>
           </div>
         </div>
 
@@ -217,7 +223,7 @@
               <img src="../assets/images/TweetManger.png" alt="Tweet Manager"
                    class="block w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02]" />
             </div>
-            <h3 class="mt-4 text-lg font-semibold">Tweet Manager</h3>
+            <h3 class="project-title text-lg font-semibold">Tweet Manager</h3>
           </div>
         </div>
 
@@ -230,7 +236,7 @@
     </div>
   </section>
 
-  <!-- Modal -->
+  <!-- Modal (unchanged) -->
   <div id="project-modal"
        class="modal-overlay fixed inset-0 items-center justify-center bg-black/60 backdrop-blur-sm p-6 z-50">
     <div class="modal-content bg-[#1e1e1e] rounded-lg w-[95vw] max-w-[900px] max-h-[85vh] flex overflow-hidden relative shadow-2xl">
@@ -261,7 +267,6 @@
   <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 
   <script>
-    /* ---------- Swiper Init ---------- */
     const swiper = new Swiper('.mySwiper', {
       slidesPerView: 1,
       spaceBetween: 40,
@@ -277,7 +282,6 @@
       }
     });
 
-    /* ---------- Modal Logic (simplified) ---------- */
     const modal           = document.getElementById('project-modal');
     const modalImg        = document.getElementById('project-modal-img');
     const modalTitle      = document.getElementById('project-modal-title');
@@ -292,7 +296,7 @@
     document.querySelectorAll('.swiper-slide').forEach(slide=>{
       slide.addEventListener('pointerdown', e => { dragStartX = e.clientX; }, {passive:true});
       slide.addEventListener('pointerup', e => {
-        if (Math.abs(e.clientX - dragStartX) > 10) return; // treat as swipe, not click
+        if (Math.abs(e.clientX - dragStartX) > 10) return;
         openModal(slide);
       });
     });
