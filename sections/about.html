@@ -1,101 +1,131 @@
-<section id="about">
-  <style>
+<style>
+  :root {
+    --bg: #121212;         
+    --surface: #1b1f23;
+    --pill: #2b3036;
+    --accent: #0081A7;
+    --text: #ffffff;
+    --text-muted: #a1abb5;
+  }
+  html, body {
+    background: var(--bg);
+    color: var(--text);
+    margin: 0;
+  }
+  body {
+    font-family: "Space Grotesk","Noto Sans",sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+</style>
 
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background: #121212;
-      color: #fff;
-    }
-    #about {
-      display: flex;
-      align-items: center;
-      justify-content: center;   /* center the content horizontally */
-      min-height: 100vh;         /* full viewport */
-      padding: 0 2rem;
-    }
 
-    .about-container {
-      display: flex;             
-      align-items: center;       /* vertically center pic & text */
-      justify-content: center;   /* center the pair as a group */
-      gap: 2rem;                 /* space between pic & text */
-      max-width: 1000px;
-      margin: 0 auto;
-    }
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&family=Noto+Sans:wght@400;500;700;900&family=Space+Grotesk:wght@400;500;700"
+    />
+    <title>Munib Mir – Portfolio</title>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  </head>
 
-    .about-image {
-      text-align: center;
-    }
-    .about-image img {
-      width: 300px;              
-      height: 300px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid #0081A7;
-      flex-shrink: 0;            
-    }
+  <body>
+    <div class="relative flex size-full min-h-screen flex-col bg-[#121212] dark group/design-root overflow-x-hidden"
+         style='font-family: "Space Grotesk", "Noto Sans", sans-serif;'>
 
-    /* === Text styling === */
-    .about-text h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.5rem, 6vw, 3.5rem);
-      margin-bottom: 1rem;
-    }
-    .about-text p {
-      line-height: 1.6;
-      margin-bottom: 1rem;
-      max-width: 600px;
-    }
+      <div class="layout-container flex h-full grow flex-col">
 
-    @media (max-width: 768px) {
-      /* ↓ Changed from “#about” to add padding on mobile */
-      #about {
-        padding: 2rem 1rem;
-      }
+        <!-- Main Content -->
+        <div class="px-40 flex flex-1 justify-center pt-24 pb-28">
+          <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
 
-      /* ↓ Changed from “.about-container { display: flex; … }” to add flex-direction: column */
-      .about-container {
-        flex-direction: column;   /* ← newly added */
-        text-align: center;       /* ← newly added */
-      }
+            <!-- Profile Row -->
+            <div class="flex p-4 @container">
+              <div class="flex w-full flex-col gap-4 @[520px]:flex-row @[520px]:justify-between @[520px]:items-center">
+                <div class="flex gap-4">
+                  <div
+                    class="bg-center bg-no-repeat aspect-square bg-cover rounded-full min-h-32 w-32"
+                    style='background-image: url("../assets/images/Me.jpeg");'
+                  ></div>
+                  <div class="flex flex-col justify-center">
+                    <p class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em]">Munib Mir</p>
+                    <p class="text-[#a1abb5] text-base font-normal leading-normal">CS Honours Student &amp; Developer</p>
+                    <p class="text-[#a1abb5] text-base font-normal leading-normal">
+                      Driven by innovation and passionate about creating impactful solutions through technology.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-      /* ↓ Image size was reduced from 300px → 200px */
-      .about-image img {
-        width: 200px;             /* ← modified */
-        height: 200px;            /* ← modified */
-      }
+            <!-- About -->
+            <h2 class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5" id="about">About Me</h2>
+            <p class="text-white text-base font-normal leading-normal pb-3 pt-1 px-4">
+              I’m a third-year Computer Science Honours student at the University of Alberta with a passion for building intelligent and 
+              reliable software. Over the last few years, I’ve built up a solid foundation in algorithms, data structures and system 
+              design, as well as become fluent in Python, C, Java and modern back-end frameworks. I focus on clean architecture, 
+              performance tuning, and informed use of machine learning where it adds measurable value.
+            </p>
+            <p class="text-white text-base font-normal leading-normal pb-3 px-4">
+              When I’m not arm-wrestling recursive functions, you’ll catch me turning spaghetti code into al-dente elegance. I believe 
+              code should read like a good joke: clear setup, satisfying punchline, and zero loose ends. So, I spend equal time refining 
+              logic and crafting commit messages your future self will actually thank you for. If you need someone who can optimize a 
+              query, write docs that don’t induce yawns, and still keep the stand-up meeting lively, I’m your engineer.
+            </p>
 
-      /* ↓ Added padding above text when stacked */
-      .about-text {
-        max-width: none;          /* ← newly added (removes max-width on mobile) */
-        padding-top: 1.5rem;      /* ← newly added */
-      }
-    }
+            <!-- Skills -->
+            <h2 class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Skills</h2>
+            <div class="flex gap-3 p-3 flex-wrap pr-4">
+              <div class="flex h-8 items-center justify-center rounded-full bg-[#2b3036] px-4">
+                <p class="text-white text-sm font-medium leading-normal">Python</p>
+              </div>
+              <div class="flex h-8 items-center justify-center rounded-full bg-[#2b3036] px-4">
+                <p class="text-white text-sm font-medium leading-normal">C</p>
+              </div>
+              <div class="flex h-8 items-center justify-center rounded-full bg-[#2b3036] px-4">
+                <p class="text-white text-sm font-medium leading-normal">C#</p>
+              </div>
+              <div class="flex h-8 items-center justify-center rounded-full bg-[#2b3036] px-4">
+                <p class="text-white text-sm font-medium leading-normal">Java</p>
+              </div>
+              <div class="flex h-8 items-center justify-center rounded-full bg-[#2b3036] px-4">
+                <p class="text-white text-sm font-medium leading-normal">Tailwind</p>
+              </div>
+              <div class="flex h-8 items-center justify-center rounded-full bg-[#2b3036] px-4">
+                <p class="text-white text-sm font-medium leading-normal">React</p>
+              </div>
+              <div class="flex h-8 items-center justify-center rounded-full bg-[#2b3036] px-4">
+                <p class="text-white text-sm font-medium leading-normal">SQL &amp; PostgreSQL</p>
+              </div>
+              <div class="flex h-8 items-center justify-center rounded-full bg-[#2b3036] px-4">
+                <p class="text-white text-sm font-medium leading-normal">AWS</p>
+              </div>
+              <div class="flex h-8 items-center justify-center rounded-full bg-[#2b3036] px-4">
+                <p class="text-white text-sm font-medium leading-normal">Git</p>
+              </div>
+              <div class="flex h-8 items-center justify-center rounded-full bg-[#2b3036] px-4">
+                <p class="text-white text-sm font-medium leading-normal">Machine Learning</p>
+              </div>
+              <div class="flex h-8 items-center justify-center rounded-full bg-[#2b3036] px-4">
+                <p class="text-white text-sm font-medium leading-normal">VR Environment Development</p>
+              </div>
+            </div>
 
-  </style>
+            <!-- Interests -->
+            <h2 class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Interests</h2>
+            <p class="text-white text-base font-normal leading-normal pb-24 pt-1 px-4">
+              Beyond coding, I love diving into open-source projects, competing in hackathons, and exploring new tech trends. Away from 
+              the screen, I keep things simple: working out at the gym, exploring the local food scene, diving into music, 
+              and time with friends.
+            </p>
+          </div>
+        </div>
 
-  <div class="about-container">
-    <!-- Profile photo -->
-    <div class="about-image">
-      <img src="../assets/images/Me.jpeg" alt="Munib Mir" />
+      </div>
     </div>
-    <!-- Heading & bio -->
-    <div class="about-text">
-      <h2>About Me</h2>
-      <p>
-        I’m a third-year Computer Science Honours student at the University of Alberta with a passion for building intelligent and 
-        reliable software. Over the last few years, I’ve built up a solid foundation in algorithms, data structures and system design, 
-        and become fluent in Python, JavaScript (React/Vue) and modern back-end frameworks. I enjoy handling tough problems, 
-        from optimizing software to building scalable APIs and using machine learning, and I am always ready to take on new challenges.
-      </p>
-      <p>
-        When I’m not arm-wrestling recursive functions, you’ll catch me turning spaghetti code into al-dente elegance. 
-        I believe code should read like a good joke—clear setup, satisfying punchline and zero loose ends—so I spend equal 
-        time refining logic and crafting commit messages your future self will actually thank you for. 
-        If you need someone who can optimize a query, write docs that don’t induce yawns, and still keep the stand-up meeting lively, 
-        I’m your engineer.
-      </p>
-    </div>
-  </div>
-</section>
+  </body>
+</html>
