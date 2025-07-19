@@ -1,20 +1,87 @@
+<!-- Experience Timeline (Tailwind enhanced) -->
+<section class="experience-section relative pt-36 md:pt-40 pb-16">
+
+  <div class="horizontal-timeline gap-8 md:gap-10">
+
+    <!-- CARD 1 -->
+    <div class="timeline-item">
+      <div class="card group relative
+                  shadow-[0_4px_18px_-4px_rgba(0,0,0,0.55)]
+                  hover:shadow-[0_10px_28px_-6px_rgba(0,129,167,0.55)]
+                  transition-all duration-300 ease-out
+                  hover:-translate-y-1 hover:scale-[1.03]
+                  ring-1 ring-white/10 hover:ring-[#0081A7]/60
+                  animate-fade-in-up"
+           style="animation-delay:.05s"
+           data-intro="While working as a research assistant I helped design and implement a virtual-reality simulation that re-creates the layer-by-layer 3-D printing of a sustainable Moon habitat. Built in Unity with the XR Interaction Toolkit, the project lets users switch seamlessly between an Earth baseline and a high-fidelity lunar environment that features low-gravity physics, cratered terrain, regolith dust, and extreme thermal cycling."
+           data-highlights="Real-time additive-manufacturing engine that deposits habitat layers and updates structural geometry on the fly.,Gesture-based controls (pinch, grab, throw) for natural interaction with construction elements and UI panels.,Dual-environment comparison to analyze resource usage, build time, and design viability under Earth vs. lunar constraints."
+           data-conclusion="Working on this project helped me become more skilled in XR development, simulating physics and space-construction research—and proved that immersive technology can address tough engineering questions not found on Earth.">
+
+        <img src="../assets/images/DRA-Poster.png"
+             alt="VR Research Poster"
+             class="rounded-md mb-3 transition-opacity duration-300 group-hover:opacity-100 opacity-95" />
+
+        <h4 class="font-semibold tracking-tight">Virtual Reality Research Assistant</h4>
+        <div class="date font-medium">Jan 2025 – Apr 2025</div>
+      </div>
+    </div>
+
+    <!-- CARD 2 -->
+    <div class="timeline-item">
+      <div class="card group relative
+                  shadow-[0_4px_18px_-4px_rgba(0,0,0,0.55)]
+                  hover:shadow-[0_10px_28px_-6px_rgba(0,129,167,0.55)]
+                  transition-all duration-300 ease-out
+                  hover:-translate-y-1 hover:scale-[1.03]
+                  ring-1 ring-white/10 hover:ring-[#0081A7]/60
+                  animate-fade-in-up"
+           style="animation-delay:.15s"
+           data-intro=""
+           data-highlights=""
+           data-conclusion="Manifesting an Internship. Will update this section soon ">
+        <img src="../assets/images/Internship.jpg"
+             alt="Internship"
+             class="rounded-md mb-3 transition-opacity duration-300 group-hover:opacity-100 opacity-95" />
+        <h4 class="font-semibold tracking-tight">Internship Soon ...</h4>
+        <div class="date font-medium">2025</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Modal Overlay & Content (unchanged structure) -->
+<div id="modal-overlay" class="modal-overlay">
+  <div class="modal-content">
+    <span class="modal-close">&times;</span>
+    <div class="modal-img">
+      <img id="modal-img" src="" alt="">
+    </div>
+    <div class="modal-text">
+      <h3 id="modal-title"></h3>
+      <div class="date" id="modal-date"></div>
+      <p id="modal-intro"></p>
+      <ul id="modal-highlights"></ul>
+      <p id="modal-conclusion"></p>
+    </div>
+  </div>
+</div>
+
 <style>
   :root {
     --connector-length: 3rem;
     --card-width: 200px;
   }
 
-  /* ── Full‐screen panel ── */
   .experience-section {
     min-height: calc(100vh - 4rem);
     display: flex;
-    align-items: center;
+    align-items: flex-start;   
     justify-content: center;
-    padding: 4rem;
+    padding: 32.5rem 4rem 4rem;     
     background: #121212;
   }
 
-  /* ── Timeline ── */
   .horizontal-timeline {
     position: relative;
     display: flex;
@@ -24,33 +91,43 @@
     max-width: 1200px;
     padding: 0 2rem;
   }
+
+  /* Center line */
   .horizontal-timeline::before {
     content: "";
     position: absolute;
     top: 50%; left: 0; right: 0;
     height: 2px;
-    background: rgba(255,255,255,0.2);
+    background: linear-gradient(90deg,
+      rgba(255,255,255,0) 0%,
+      rgba(255,255,255,0.25) 15%,
+      rgba(255,255,255,0.25) 85%,
+      rgba(255,255,255,0) 100%);
     transform: translateY(-50%);
     z-index: 1;
   }
+
   .timeline-item {
     position: relative;
     flex: 1;
     display: flex;
     justify-content: center;
   }
+
   .timeline-item::after {
     content: "";
     position: absolute;
     top: 50%; left: 50%;
-    width: 12px; height: 12px;
+    width: 14px; height: 14px;
     background: #0081A7;
+    box-shadow: 0 0 0 4px rgba(0,129,167,0.25),
+                0 0 12px 4px rgba(0,129,167,0.35);
     border-radius: 50%;
     transform: translate(-50%, -50%);
     z-index: 2;
   }
 
-  /* ── Glass cards ── */
+  /* Glass cards (base) */
   .timeline-item .card {
     position: absolute;
     width: var(--card-width);
@@ -60,29 +137,42 @@
     backdrop-filter: blur(8px);
     border: 1px solid rgba(255,255,255,0.15);
     border-radius: 0.75rem;
-    padding: 0.5rem 1rem 1rem;          /* less top padding */
+    padding: 0.55rem 1rem 1rem;
     text-align: left;
     cursor: pointer;
     z-index: 3;
+    overflow: hidden;
   }
-  .timeline-item .card img {
-    width: 100%;
-    border-radius: 0.5rem;
-    margin-bottom: 0.75rem;
-    opacity: 0.9;
-  }
+
   .timeline-item .card h4 {
     margin: 0 0 0.5rem;
     font-size: 1rem;
     color: #fff;
   }
+
   .timeline-item .card .date {
     font-size: 0.85rem;
-    color: rgba(255,255,255,0.6);
-    margin-bottom: 0.5rem;
+    color: rgba(255,255,255,0.65);
+    margin-bottom: 0.25rem;
   }
 
-  /* ── Alternate placement & connector ── */
+  /* Elevated gradient ring effect */
+  .timeline-item .card::after {
+    content:"";
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    background:
+      linear-gradient(135deg,rgba(0,129,167,0.45),rgba(99,102,241,0.35),rgba(0,129,167,0.35));
+    opacity:0;
+    mix-blend-mode:overlay;
+    transition:opacity .35s ease;
+  }
+  .timeline-item .card:hover::after {
+    opacity:0.55;
+  }
+
+  /* Alternate placement connectors */
   .horizontal-timeline .timeline-item:nth-of-type(odd) .card {
     bottom: calc(100% + var(--connector-length));
   }
@@ -92,7 +182,7 @@
     bottom: calc(-1 * var(--connector-length));
     left: 50%;
     width: 2px; height: var(--connector-length);
-    background: rgba(255,255,255,0.2);
+    background: linear-gradient(to bottom,rgba(255,255,255,0.25),rgba(255,255,255,0));
     transform: translateX(-50%);
     z-index: 1;
   }
@@ -105,7 +195,7 @@
     top: calc(-1 * var(--connector-length));
     left: 50%;
     width: 2px; height: var(--connector-length);
-    background: rgba(255,255,255,0.2);
+    background: linear-gradient(to top,rgba(255,255,255,0.25),rgba(255,255,255,0));
     transform: translateX(-50%);
     z-index: 1;
   }
@@ -123,7 +213,7 @@
     .timeline-item .card::before { display: none }
   }
 
-  /* ── Modal overlay ── */
+  /* Modal overlay (unchanged logic) */
   .modal-overlay {
     display: none;
     position: fixed;
@@ -142,8 +232,6 @@
     display: flex;
     opacity: 1;
   }
-
-  /* ── Modal content ── */
   .modal-content {  
     background: #1e1e1e;
     border-radius: 1rem;
@@ -153,21 +241,17 @@
     display: flex;
     overflow: hidden;
     position: relative;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.25);
     transform: translateY(-20px);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
   .modal-overlay.active .modal-content {
     transform: translateY(0);
   }
-
-  /* ── Hover lift ── */
   .modal-content:hover {
-    transform: translateY(-12px) scale(1.01);
-    box-shadow: 0 12px 32px rgba(0,0,0,0.3);
+    transform: translateY(-10px) scale(1.01);
+    box-shadow: 0 14px 40px -6px rgba(0,0,0,0.4);
   }
-
-  /* ── Close button ── */
   .modal-close {
     position: absolute;
     top: 1rem; right: 1rem;
@@ -177,11 +261,7 @@
     transition: color 0.2s ease;
     z-index: 2;
   }
-  .modal-close:hover {
-    color: #fff;
-  }
-
-  /* ── Image pane ── */
+  .modal-close:hover { color: #fff; }
   .modal-img {
     flex: 0 0 45%;
     background: #2a2a2a;
@@ -189,13 +269,7 @@
     align-items: center;
     justify-content: center;
   }
-  .modal-img img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-  }
-
-  /* ── Text pane ── */
+  .modal-img img { max-width: 100%; max-height: 100%; object-fit: contain; }
   .modal-text {
     flex: 1;
     padding: 1rem 2.5rem 2.5rem;
@@ -212,77 +286,34 @@
     color: #aaa;
     margin-bottom: 1rem;
   }
-  #modal-intro {
-    margin-bottom: 1rem;
-  }
+  #modal-intro { margin-bottom: 1rem; }
   #modal-highlights {
     margin: 0.5rem 0 1rem;
     padding-left: 1.25rem;
   }
-  #modal-highlights li {
-    margin-bottom: 0.5rem;
-  }
-  #modal-conclusion {
-    margin-top: 0;
+  #modal-highlights li { margin-bottom: 0.5rem; }
+  #modal-conclusion { margin-top: 0; }
+  @media (max-width:600px){
+    .modal-content { flex-direction: column; width: 95vw; max-height: 90vh; }
+    .modal-img { height: 200px; flex: none; }
+    .modal-text { padding: 1.5rem; }
   }
 
-  @media (max-width:600px){
-    .modal-content {
-      flex-direction: column;
-      width: 95vw;
-      max-height: 90vh;
-    }
-    .modal-img {
-      height: 200px;
-      flex: none;
-    }
-    .modal-text {
-      padding: 1.5rem;
-    }
+  /* Fade-in animation */
+  @keyframes fade-in-up {
+    from { opacity:0; transform:translate(-50%, 14px); }
+    to   { opacity:1; transform:translate(-50%, 0); }
+  }
+  .animate-fade-in-up {
+    animation: fade-in-up .7s cubic-bezier(.4,0,.2,1) forwards;
+    opacity:0;
+  }
+  /* On even cards that are placed below, tweak initial transform for better direction */
+  .horizontal-timeline .timeline-item:nth-of-type(even) .animate-fade-in-up {
+    animation-name: fade-in-up-even;
+  }
+  @keyframes fade-in-up-even {
+    from { opacity:0; transform:translate(-50%, -14px); }
+    to   { opacity:1; transform:translate(-50%, 0); }
   }
 </style>
-
-<section class="experience-section">
-  <div class="horizontal-timeline">
-    <!-- CARD 1 -->
-    <div class="timeline-item">
-      <div class="card"
-           data-intro="While working as a research assistant I helped design and implement a virtual-reality simulation that re-creates the layer-by-layer 3-D printing of a sustainable Moon habitat. Built in Unity with the XR Interaction Toolkit, the project lets users switch seamlessly between an Earth baseline and a high-fidelity lunar environment that features low-gravity physics, cratered terrain, regolith dust, and extreme thermal cycling."
-           data-highlights="Real-time additive-manufacturing engine that deposits habitat layers and updates structural geometry on the fly.,Gesture-based controls (pinch, grab, throw) for natural interaction with construction elements and UI panels.,Dual-environment comparison to analyze resource usage, build time, and design viability under Earth vs. lunar constraints."
-           data-conclusion="Working on this project helped me become more skilled in XR development, simulating physics and space-construction research—and proved that immersive technology can address tough engineering questions not found on Earth.">
-        <img src="../assets/images/DRA-Poster.png" alt="VR Research Poster">
-        <h4>Virtual Reality Research Assistant</h4>
-        <div class="date">Jan 2025 – Apr 2025</div>
-      </div>
-    </div>
-
-    <!-- CARD 2 -->
-    <div class="timeline-item">
-      <div class="card"
-           data-intro=""
-           data-highlights=""
-           data-conclusion="Manifesting an Internship. Will update this section soon ">
-        <img src="../assets/images/Internship.jpg" alt="Internship">
-        <h4>Internship Soon ...</h4>
-        <div class="date">2025</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── Modal Overlay & Content ── -->
-<div id="modal-overlay" class="modal-overlay">
-  <div class="modal-content">
-    <span class="modal-close">&times;</span>
-    <div class="modal-img">
-      <img id="modal-img" src="" alt="">
-    </div>
-    <div class="modal-text">
-      <h3 id="modal-title"></h3>
-      <div class="date" id="modal-date"></div>
-      <p id="modal-intro"></p>
-      <ul id="modal-highlights"></ul>
-      <p id="modal-conclusion"></p>
-    </div>
-  </div>
-</div>
