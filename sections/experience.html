@@ -50,7 +50,7 @@
   </div>
 </section>
 
-<!-- Modal Overlay & Content (unchanged structure) -->
+<!-- Modal Overlay & Content -->
 <div id="modal-overlay" class="modal-overlay">
   <div class="modal-content">
     <span class="modal-close">&times;</span>
@@ -68,17 +68,29 @@
 </div>
 
 <style>
+  html, body {
+    font-family: "Space Grotesk","Noto Sans",sans-serif;
+  }
+
+  .experience-section,
+  .experience-section * ,
+  .modal-overlay,
+  .modal-overlay * {
+    font-family: "Space Grotesk","Noto Sans",sans-serif;
+  }
+
   :root {
     --connector-length: 3rem;
     --card-width: 200px;
+    --timeline-band-height: 520px;
   }
 
   .experience-section {
     min-height: calc(100vh - 4rem);
     display: flex;
-    align-items: flex-start;   
+    align-items: flex-start;
     justify-content: center;
-    padding: 32.5rem 4rem 4rem;     
+    padding: 15rem 4rem 14rem;
     background: #121212;
   }
 
@@ -89,10 +101,10 @@
     align-items: center;
     width: 100%;
     max-width: 1200px;
-    padding: 0 2rem;
+    height: var(--timeline-band-height);
+    padding: 0 2rem; 
   }
 
-  /* Center line */
   .horizontal-timeline::before {
     content: "";
     position: absolute;
@@ -127,7 +139,6 @@
     z-index: 2;
   }
 
-  /* Glass cards (base) */
   .timeline-item .card {
     position: absolute;
     width: var(--card-width);
@@ -156,7 +167,6 @@
     margin-bottom: 0.25rem;
   }
 
-  /* Elevated gradient ring effect */
   .timeline-item .card::after {
     content:"";
     position:absolute;
@@ -168,11 +178,8 @@
     mix-blend-mode:overlay;
     transition:opacity .35s ease;
   }
-  .timeline-item .card:hover::after {
-    opacity:0.55;
-  }
+  .timeline-item .card:hover::after { opacity:0.55; }
 
-  /* Alternate placement connectors */
   .horizontal-timeline .timeline-item:nth-of-type(odd) .card {
     bottom: calc(100% + var(--connector-length));
   }
@@ -213,7 +220,6 @@
     .timeline-item .card::before { display: none }
   }
 
-  /* Modal overlay (unchanged logic) */
   .modal-overlay {
     display: none;
     position: fixed;
@@ -228,11 +234,9 @@
     transition: opacity 0.3s ease;
     opacity: 0;
   }
-  .modal-overlay.active {
-    display: flex;
-    opacity: 1;
-  }
-  .modal-content {  
+  .modal-overlay.active { display: flex; opacity: 1; }
+
+  .modal-content {
     background: #1e1e1e;
     border-radius: 1rem;
     width: 95vw;
@@ -245,9 +249,7 @@
     transform: translateY(-20px);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
-  .modal-overlay.active .modal-content {
-    transform: translateY(0);
-  }
+  .modal-overlay.active .modal-content { transform: translateY(0); }
   .modal-content:hover {
     transform: translateY(-10px) scale(1.01);
     box-shadow: 0 14px 40px -6px rgba(0,0,0,0.4);
@@ -293,13 +295,13 @@
   }
   #modal-highlights li { margin-bottom: 0.5rem; }
   #modal-conclusion { margin-top: 0; }
+
   @media (max-width:600px){
     .modal-content { flex-direction: column; width: 95vw; max-height: 90vh; }
     .modal-img { height: 200px; flex: none; }
     .modal-text { padding: 1.5rem; }
   }
 
-  /* Fade-in animation */
   @keyframes fade-in-up {
     from { opacity:0; transform:translate(-50%, 14px); }
     to   { opacity:1; transform:translate(-50%, 0); }
@@ -308,7 +310,6 @@
     animation: fade-in-up .7s cubic-bezier(.4,0,.2,1) forwards;
     opacity:0;
   }
-  /* On even cards that are placed below, tweak initial transform for better direction */
   .horizontal-timeline .timeline-item:nth-of-type(even) .animate-fade-in-up {
     animation-name: fade-in-up-even;
   }
