@@ -9,63 +9,84 @@ const skills = [
   "Java",
   "JavaScript",
   "TypeScript",
-  
+
   // Front-End / UI
   "HTML",
   "CSS",
   "React",
   "Tailwind CSS",
   "Lucide-React",
-  
+  "Vite",
+  "Recharts",
+
   // Back-End / Full-Stack
   "Node.js",
-  
+  "FastAPI",
+  "Flask",
+
   // Databases & Querying
   "SQL",
   "PostgreSQL",
+  "DynamoDB",
+  "Firebase Firestore",
+  "MongoDB",
 
-  // Cloud & Deployment
+  // Cloud, Observability & Deployment
   "AWS CDK",
   "AWS Lambda",
   "API Gateway",
+  "AWS SNS",
+  "AWS X-Ray",
   "Render",
-  
-  // Version Control & CI/CD
+  "Netlify",
+  "Boto3",
+
+  // Version Control, CI/CD & Tooling
   "Git",
   "GitHub Actions",
   "Git LFS",
-  
+  "Makefiles",
+
   // Machine Learning & Data Science
-  "Machine Learning",
   "TensorFlow",
   "Keras",
   "NumPy",
   "OpenCV",
   "Nibabel",
-  
+  "imageio",
+  "SHAP",
+  "Integrated Gradients",
+
   // AI / Generative
   "OpenAI API",
-  "Google Generative AI",
-  
+
   // Python Ecosystem
   "Requests",
   "Pillow",
   "ReportLab",
-  "python-dotenv",
-  
+
   // Visualization & Reporting
   "Plotly",
   "Streamlit",
-  
+
+  // Mobile / Android
+  "Android (Java)",
+  "Google Maps SDK",
+
   // VR / 3D
   "VR Environment Development",
   "Unity",
   "XR Interaction Toolkit",
-  "Blender",
-  
+
+  // Systems & Infra Extras
+  "SMTP",
+  "Multithreading (Python)",
+
   // Testing & Quality
-  "Jest",
-  "pytest"
+  "pytest",
+  "mypy",
+  "Ruff",
+  "Black",
 ];
 
 

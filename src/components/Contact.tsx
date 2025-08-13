@@ -5,8 +5,11 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { toast } from '@/hooks/use-toast';
-import { Mail, Send, Github, Linkedin, MapPin, Phone, MessageSquare, Calendar, FileText, Download } from 'lucide-react';
+import { Mail, Send, Github, Linkedin, MessageSquare, FileText } from 'lucide-react';
 import ResumePDF from "@/assets/docs/Munib_Resume.pdf";
+
+const encode = (data: Record<string, string>) =>
+  new URLSearchParams(data).toString();
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -19,25 +22,38 @@ const Contact = () => {
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
+    setFormData(prev => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-
-    // Simulate form submission
-    setTimeout(() => {
-      toast({
-        title: "Message sent!",
-        description: "Thank you for your message. I'll get back to you soon.",
+    try {
+      const body = encode({
+        "form-name": "contact",
+        name: formData.name,
+        email: formData.email,
+        message: formData.message,
       });
+
+      const res = await fetch("/?no-cache=1", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body,
+      });
+
+      if (!res.ok) throw new Error("Submission failed");
+      toast({ title: "Message sent!", description: "Thank you for your message. I'll get back to you soon." });
       setFormData({ name: '', email: '', message: '' });
+    } catch (err: any) {
+      toast({
+        title: "Could not send message",
+        description: err?.message || "Please try again.",
+        variant: "destructive",
+      });
+    } finally {
       setIsSubmitting(false);
-    }, 1000);
+    }
   };
 
   const contactMethods = [
@@ -70,7 +86,7 @@ const Contact = () => {
     {
       icon: <Linkedin className="w-5 h-5" />,
       name: "LinkedIn",
-      url: "https://www.linkedin.com/in/munibmoienuddin", 
+      url: "https://www.linkedin.com/in/munibmoienuddin",
       handle: "in/munibmoienuddin",
       color: "hover:bg-accent/10"
     }
@@ -103,7 +119,18 @@ const Contact = () => {
                   </p>
                 </div>
 
-                <form onSubmit={handleSubmit} className="space-y-6">
+                {/* Netlify Forms: add name/method + hidden fields */}
+                <form
+                  name="contact"
+                  method="POST"
+                  data-netlify="true"
+                  netlify-honeypot="bot-field"
+                  onSubmit={handleSubmit}
+                  className="space-y-6"
+                >
+                  <input type="hidden" name="form-name" value="contact" />
+                  <input type="text" name="bot-field" className="hidden" tabIndex={-1} autoComplete="off" onChange={() => {}} />
+
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2">
                       <Label htmlFor="name" className="text-sm font-medium">Name</Label>
@@ -131,7 +158,7 @@ const Contact = () => {
                       />
                     </div>
                   </div>
-                  
+
                   <div className="space-y-2">
                     <Label htmlFor="message" className="text-sm font-medium">Message</Label>
                     <Textarea
@@ -146,9 +173,9 @@ const Contact = () => {
                     />
                   </div>
 
-                  <Button 
-                    type="submit" 
-                    size="lg" 
+                  <Button
+                    type="submit"
+                    size="lg"
                     className="w-full h-12 bg-gradient-primary hover:scale-105 transition-all duration-300 shadow-glow font-semibold"
                     disabled={isSubmitting}
                   >
@@ -173,7 +200,24 @@ const Contact = () => {
           <div className="space-y-6 opacity-0 animate-fade-in-scale animate-delay-300">
             {/* Contact Methods */}
             <div className="space-y-4">
-              {contactMethods.map((method, index) => (
+              {[
+                {
+                  icon: <Mail className="w-6 h-6" />,
+                  title: "Email",
+                  description: "Get in touch",
+                  value: "munibmoienuddin@gmail.com",
+                  action: "Send Email",
+                  href: "mailto:munibmoienuddin@gmail.com"
+                },
+                {
+                  icon: <FileText className="w-6 h-6" />,
+                  title: "Resume",
+                  description: "View my experience",
+                  value: "",
+                  action: "View Resume",
+                  href: ResumePDF
+                }
+              ].map((method, index) => (
                 <Card key={index} className="group shadow-card border-border/50 hover-lift bg-card/50 backdrop-blur-sm">
                   <CardContent className="p-6">
                     <div className="flex items-center gap-4">
@@ -194,13 +238,27 @@ const Contact = () => {
               ))}
             </div>
 
-
             {/* Social Links */}
             <Card className="shadow-card border-border/50 bg-card/50 backdrop-blur-sm hover-lift">
               <CardContent className="p-6">
                 <h3 className="font-bold text-lg mb-4 text-center">Connect on Social</h3>
                 <div className="grid grid-cols-2 gap-3">
-                  {socialLinks.map((social, index) => (
+                  {[
+                    {
+                      icon: <Github className="w-5 h-5" />,
+                      name: "GitHub",
+                      url: "https://github.com/IAMMUNIBMIR",
+                      handle: "@IAMMUNIBMIR",
+                      color: "hover:bg-primary/10"
+                    },
+                    {
+                      icon: <Linkedin className="w-5 h-5" />,
+                      name: "LinkedIn",
+                      url: "https://www.linkedin.com/in/munibmoienuddin",
+                      handle: "in/munibmoienuddin",
+                      color: "hover:bg-accent/10"
+                    }
+                  ].map((social, index) => (
                     <a
                       key={index}
                       href={social.url}
@@ -218,8 +276,7 @@ const Contact = () => {
                     </a>
                   ))}
                 </div>
-                
-                {/* Ending Message */}
+
                 <div className="mt-6 pt-6 border-t border-border/30">
                   <p className="text-sm text-muted-foreground text-center">
                     Ready to collaborate? Let's build something amazing together.
