@@ -23,6 +23,8 @@ const skills = [
   "Node.js",
   "FastAPI",
   "Flask",
+  "Uvicorn",
+  "httpx",
 
   // Databases & Querying
   "SQL",

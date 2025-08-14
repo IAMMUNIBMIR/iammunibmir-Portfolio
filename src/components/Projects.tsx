@@ -1,12 +1,14 @@
-import { useState } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
-import { Github, ExternalLink, Calendar, Users, Code, Zap } from 'lucide-react';
+import { useState, useRef } from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
+import wheelGesturesPlugin from 'embla-carousel-wheel-gestures';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { Github, ExternalLink, Calendar, Users, Code, Zap } from "lucide-react";
 
-import SwiftStockImg from '@/assets/images/SwiftStock.png';
+import SwiftStockImg from "@/assets/images/SwiftStock.png";
 import DiffDiveImg from "@/assets/images/DiffDive.png";
 import VibeVerseImg from "@/assets/images/301Project.png";
 import MotionDetectorImg from "@/assets/images/MotionDetector.png";
@@ -18,13 +20,14 @@ import NeuroLensImg from "@/assets/images/NeuroLens.png";
 
 const Projects = () => {
   const [currentSlide, setCurrentSlide] = useState(1); 
+  const autoplay = useRef(Autoplay({ delay: 3500, stopOnInteraction: false }));
   
     const projects = [
   
     {
       title: "DiffDive – AI-Augmented Code Review & Commit Automation",
-      description: "A production-ready GitHub App + FastAPI service that parses diffs, generates high-signal commit messages, and posts PR reviews with model-driven insights. Deployed on Render with Firebase Firestore for durable, queryable telemetry.",
-      longDescription: "DiffDive is an end-to-end, diff-aware assistant that integrates directly into the developer workflow. A lightweight Git hook auto-generates conventional commit messages from staged changes, while a GitHub Webhook path ingests PR events, verifies HMAC signatures, fetches diffs via the GitHub API, and produces concise, actionable review comments. The service is fully asynchronous (FastAPI + httpx + Uvicorn), resilient to transient model/API failures (tenacity backoff, structured fallbacks), and instrumented with Prometheus counters/histograms for operational transparency. All review artifacts (title, author, parsed stats, generated summary) are persisted to Firebase Firestore to enable auditing, analytics, and longitudinal insights. The system emphasizes correctness and UX polish: a rigorous diff parser normalizes paths (strips a/ b/ prefixes), aggregates a single, meaningful header across files, and emits per-file deltas with consistent phrasing. A Makefile-driven setup and a one-line commit command keep onboarding friction near zero.",
+      description: "A GitHub App + FastAPI service that parses diffs, generates high-signal commit messages, and posts PR reviews with model-driven insights. Deployed on Render with Firebase Firestore for durable, queryable telemetry.",
+      longDescription: "DiffDive is a diff-aware assistant that plugs directly into the developer loop. A lightweight commit hook drafts conventional commits from staged changes, while a GitHub App listens to PR webhooks, verifies HMAC, exchanges a JWT for an installation token, pulls diffs via the GitHub API, and posts short, actionable review comments. The service is fully asynchronous (FastAPI + httpx + Uvicorn) and engineered to be forgiving under load tenacity backoff, idempotent handlers, and deterministic fallbacks when model/API calls blip. Review artifacts (titles, authors, parsed stats, generated summaries) are written to Firebase Firestore for auditability and longitudinal analytics. The diff parser normalizes paths (strips a/ and b/ prefixes), reduces noise, and aggregates a single meaningful header with per-file deltas in consistent phrasing. It’s well-instrumented: Prometheus counters and latency histograms power simple per-repo rate limits and keep SLAs predictable. A Makefile setup and a one-line hook install keep onboarding to minutes, not hours.",
       image: DiffDiveImg, 
       technologies: [
         "Python", "FastAPI", "Uvicorn", "httpx", "Tenacity",
@@ -34,20 +37,20 @@ const Projects = () => {
         "Pytest", "Ruff", "Black", "Mypy", "Makefile"
       ],
       github: "https://github.com/IAMMUNIBMIR/DiffDive",
-      demo: "", // optional: set your public Render URL here
+      demo: "", 
       featured: true,
-      stats: { stars: 0, forks: 0 }, // update via your site’s GitHub fetcher if you have one
+      stats: { stars: 0, forks: 0 }, 
       highlights: [
         "End-to-End GitHub App Integration (JWT → Installation Token → REST)",
         "AI Commit Messages via zero-friction git hook (git commit -a -m \"\")",
-        "PR Review Summaries with bug/edge-case surfacing and style/testing nudges",
-        "Diff-First Architecture: robust parser, path normalization, per-file deltas",
-        "Operational Resilience: exponential backoff, deterministic fallbacks",
-        "Security Hardened: HMAC verification for webhooks (sha256) and least-privilege tokens",
-        "Observability: Prometheus counters & latency histograms for diff fetch and comments",
-        "Data Durability: Firestore documents per PR for analytics and auditing",
-        "Makefile-Driven Developer Experience: one-command setup & hook install",
-        "Typed, Linted, and Tested: type hints + mypy, ruff/black, pytest suite with async/mocking"
+        "Concise PR review comments that surface bugs/edge cases and nudge style/tests",
+        "Diff-first parser: path normalization and consistent per-file deltas",
+        "Operational resilience: retries with exponential backoff and deterministic fallbacks",
+        "Security hardened: HMAC verification for webhooks (sha256) and least-privilege tokens",
+        "Observability: Prometheus counters & latency histograms with simple per-repo rate limits",
+        "Data durability: Firestore documents per PR for auditing and analytics",
+        "Developer experience: one-command Makefile setup and hook install",
+        "Typed, linted, and tested: type hints + mypy; ruff/black; pytest with async/mocking"
       ],
       timeline: "2–3 weeks of iterative development",
       team: "Solo Project"
@@ -55,7 +58,7 @@ const Projects = () => {
 
     {
       title: "SwiftStock – Inventory Management System",
-      description: "A production-style, serverless inventory app built with React + TypeScript that forecasts demand, monitors live stock, and recommends smart rebalance actions. Deployed with a fully managed AWS backend.",
+      description: "A production style, serverless inventory app built with React + TypeScript that forecasts demand, monitors live stock, and recommends smart rebalance actions. Deployed with a fully managed AWS backend.",
       longDescription: "SwiftStock is a full-stack inventory management system that pairs a modern React/TypeScript UI with an AWS serverless backend (Lambda, API Gateway, DynamoDB, SNS). It provides live stock visibility, SKU-level demand forecasts, risk flags, and an optimization engine that generates actionable rebalance plans. The app ships without user accounts to keep demo setup frictionless; seed scripts populate realistic data so recruiters can explore capabilities immediately. The frontend uses TanStack Query for reactive data fetching, shadcn/ui for polished components, and Recharts for visualizations. Infrastructure is defined with AWS CDK and instrumented with X-Ray-friendly handlers for easy tracing.",
       image: SwiftStockImg,
       technologies: [
@@ -121,11 +124,11 @@ const Projects = () => {
     {
       title: "VibeVerse – Mood Tracking Social App",
       description:
-        "Android app that blends mood journaling with a social feed, maps, and insights—built with clean OOP and reusable components.",
+        "Android app that blends mood journaling with a social feed, maps, and insights, built with clean OOP and reusable components.",
       longDescription:
         "Built by a 6-person team for CMPUT 301, VibeVerse lets users log moods with photos, time, and geolocation, then explore trends and interact via comments/replies. Implements modular OOP, RecyclerView-based UIs, and location features for a smooth experience. Project is private due to course licensing; demos on request.",
       image: VibeVerseImg,
-      technologies: ["Java", "Android", "RecyclerView", "Google Maps SDK"],
+      technologies: ["Android", "Java", "Firebase Auth", "Cloud Firestore", "MPAndroidChart", "Material Components", "RecyclerView"],
       github: null,
       demo: null,
       featured: false,
@@ -264,7 +267,7 @@ const Projects = () => {
       </DialogHeader>
       <div className="space-y-6">
         <img 
-          src={project.image || '/placeholder.svg'} 
+          src={project.image || "/placeholder.svg"} 
           alt={project.title}
           className="w-full h-64 object-cover rounded-lg"
         />
@@ -341,7 +344,7 @@ const Projects = () => {
                   <Card className={`group shadow-card border-border/50 hover-lift overflow-hidden opacity-0 animate-fade-in-scale animate-delay-${(index + 1) * 100} cursor-pointer`}>
                       <div className="relative">
                         <img 
-                          src={project.image || '/placeholder.svg'}
+                          src={project.image || "/placeholder.svg"}
                           alt={project.title}
                           className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
                         />
@@ -401,30 +404,32 @@ const Projects = () => {
             <h3 className="text-2xl font-bold mb-8 text-center">More Projects</h3>
               <Carousel
                 opts={{
-                  align: "start",
+                  align: "center",
                   loop: true,
                   slidesToScroll: 1,
-                  skipSnaps: false,
-                  containScroll: false,
-                  dragFree: false,
-                  duration: 0,
+                  containScroll: "trimSnaps"
                 }}
+                plugins={[autoplay.current, wheelGesturesPlugin({ forceWheelAxis: "x" })]}
+                onPointerDownCapture={autoplay.current.stop}
+                onWheelCapture={() => autoplay.current.stop()}
+                onMouseEnter={autoplay.current.stop}
+                onMouseLeave={autoplay.current.reset}
                 className="w-full max-w-6xl mx-auto"
               >
-                <CarouselContent className="-ml-4">
+                <CarouselContent className="-ml-4 overflow-visible overscroll-x-contain select-none cursor-grab">
                   {carouselProjects.map((project, index) => {
-                    const isCenter = index === 1; // Always make middle project (index 1) the center
                     return (
-                      <CarouselItem key={index} className="pl-4 basis-1/3 transition-all-smooth">
+                      <CarouselItem key={index} className="pl-4 basis-full sm:basis-1/2 lg:basis-1/3 min-w-0">
                         <Dialog>
                           <DialogTrigger asChild>
-                            <div className="relative group cursor-pointer">
-                              <Card className="shadow-card border-border/50 hover-lift overflow-hidden h-full transition-all-smooth duration-500">
+                            <div className="relative group cursor-pointer h-full">
+                              <Card className="h-[520px] flex flex-col shadow-card border-border/50 overflow-hidden transition-transform">
                                 <div className="relative">
                                   <img 
-                                    src={project.image || '/placeholder.svg'}
+                                    src={project.image || "/placeholder.svg"}
                                     alt={project.title}
-                                    className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                                    loading="lazy"
+                                    className="w-full h-64 object-cover transition-transform duration-300 transform-gpu group-hover:scale-105"
                                   />
                                 </div>
                                 <CardHeader className="pb-2">
@@ -432,7 +437,7 @@ const Projects = () => {
                                     {project.title}
                                   </CardTitle>
                                 </CardHeader>
-                                <CardContent className="space-y-4">
+                                <CardContent className="space-y-4 flex flex-col grow">
                                   <p className="text-muted-foreground text-xs line-clamp-3">
                                     {project.description}
                                   </p>
@@ -448,7 +453,7 @@ const Projects = () => {
                                       </Badge>
                                     )}
                                   </div>
-                                  <div className="flex gap-2 pt-2">
+                                  <div className="flex gap-2 pt-2 mt-auto">
                                     <Button variant="outline" size="sm" asChild className="flex-1" onClick={(e) => e.stopPropagation()}>
                                       <a href={project.github} target="_blank" rel="noopener noreferrer">
                                         <Github className="w-4 h-4" />
